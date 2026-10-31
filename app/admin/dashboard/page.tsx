@@ -40,11 +40,27 @@ export default function AdminDashboard() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const usersResponse = await fetchAuth('/api/admin/users', { method: 'GET' });
-        const pendingResponse = await fetchAuth('/api/admin/perusahaan/pending', { method: 'GET' });
+        const [usersResponse, pendingResponse] = await Promise.all([
+          fetchAuth('/api/admin/users', { method: 'GET' }).catch(() => null),
+          fetchAuth('/api/admin/perusahaan/pending', { method: 'GET' }).catch(() => null)
+        ]);
         
-        const users = await usersResponse.json();
-        const pending = await pendingResponse.json();
+        let users: any[] = [];
+        let pending: any[] = [];
+
+        if (usersResponse && usersResponse.ok) {
+          const uJson = await usersResponse.json().catch(() => []);
+          users = Array.isArray(uJson) ? uJson : (Array.isArray(uJson?.users) ? uJson.users : []);
+        } else if (usersResponse) {
+          console.warn('Endpoint /api/admin/users returned status:', usersResponse.status);
+        }
+
+        if (pendingResponse && pendingResponse.ok) {
+          const pJson = await pendingResponse.json().catch(() => []);
+          pending = Array.isArray(pJson) ? pJson : (Array.isArray(pJson?.companies) ? pJson.companies : []);
+        } else if (pendingResponse) {
+          console.warn('Endpoint /api/admin/perusahaan/pending returned status:', pendingResponse.status);
+        }
 
         try {
           const statsResponse = await fetchAuth('/api/admin/system-stats', { method: 'GET' });
@@ -88,12 +104,12 @@ export default function AdminDashboard() {
               const date = new Date(m + '-01');
               return date.toLocaleDateString('id-ID', { month: 'short', year: 'numeric' });
             };
-            setRegistrations(dataReg.map((d: any) => ({ ...d, month: formatMonth(d.month) })));
-            setJobsData(dataJobs.monthly.map((d: any) => ({ ...d, month: formatMonth(d.month) })));
+            setRegistrations(Array.isArray(dataReg) ? dataReg.map((d: any) => ({ ...d, month: formatMonth(d.month) })) : []);
+            setJobsData(dataJobs?.monthly && Array.isArray(dataJobs.monthly) ? dataJobs.monthly.map((d: any) => ({ ...d, month: formatMonth(d.month) })) : []);
           }
         } catch(e) {}
 
-        // Get role distribution data
+        // Get role distribution data safely
         const roles = { pelamar: 0, perusahaan: 0, kampus: 0, admin: 0 };
         users.forEach((u: any) => {
           if (roles[u.role as keyof typeof roles] !== undefined) {
@@ -125,7 +141,12 @@ export default function AdminDashboard() {
           return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
         });
         setRecentUsers(sortedUsers.slice(0, 5));
+
+        if (usersResponse && !usersResponse.ok && pendingResponse && !pendingResponse.ok) {
+          console.warn('Dashboard data warning: Both users and pending companies APIs failed or unauthorized.');
+        }
       } catch (error) {
+        console.error('Error fetching admin dashboard stats:', error);
         toast.error('Gagal mengambil statistik dashboard');
       } finally {
         setIsLoading(false);

@@ -196,8 +196,8 @@ function AdminUsersContent() {
 
   const initialSearch = searchParams.get('search') || '';
   const initialRole = searchParams.get('role') || '';
-  const initialYear = searchParams.get('year') || currentYearStr;
-  const initialMonth = searchParams.get('month') || currentMonthStr;
+  const initialYear = searchParams.get('year') || 'all';
+  const initialMonth = searchParams.get('month') || 'all';
   const initialDate = searchParams.get('date') || '';
 
   const [users, setUsers] = useState<UserItem[]>([]);
@@ -249,8 +249,48 @@ function AdminUsersContent() {
 
       const url = params.toString() ? `/api/admin/users?${params.toString()}` : '/api/admin/users';
       const res = await fetchAuth(url, { method: 'GET' });
-      const data = await res.json();
-      setUsers(Array.isArray(data) ? data : []);
+      
+      let userList: any[] = [];
+      if (res && res.ok) {
+        const data = await res.json().catch(() => []);
+        userList = Array.isArray(data) ? data : (Array.isArray(data?.users) ? data.users : []);
+      }
+
+      // Fallback: Jika "Semua Peran" dan server mengembalikan error/kosong, ambil data per-role dan gabungkan
+      if (userList.length === 0 && (!roleQuery || roleQuery === '')) {
+        try {
+          const rolesToTry = ['pelamar', 'perusahaan', 'kampus', 'admin'];
+          const settledResults = await Promise.allSettled(
+            rolesToTry.map((r) => {
+              const p = new URLSearchParams();
+              p.append('role', r);
+              if (searchQuery.trim()) p.append('search', searchQuery.trim());
+              return fetchAuth(`/api/admin/users?${p.toString()}`, { method: 'GET' });
+            })
+          );
+
+          const mergedMap = new Map<string, any>();
+          for (const item of settledResults) {
+            if (item.status === 'fulfilled' && item.value && item.value.ok) {
+              const d = await item.value.json().catch(() => []);
+              if (Array.isArray(d)) {
+                d.forEach((u: any) => {
+                  if (u?.id && !mergedMap.has(u.id)) {
+                    mergedMap.set(u.id, u);
+                  }
+                });
+              }
+            }
+          }
+          if (mergedMap.size > 0) {
+            userList = Array.from(mergedMap.values());
+          }
+        } catch {
+          // silent fallback
+        }
+      }
+
+      setUsers(userList);
     } catch (error) {
       setUsers([]);
       toast.error('Gagal memuat data pengguna');
@@ -262,8 +302,8 @@ function AdminUsersContent() {
   useEffect(() => {
     const qRole = searchParams.get('role') || '';
     const qSearch = searchParams.get('search') || '';
-    const qYear = searchParams.get('year') || currentYearStr;
-    const qMonth = searchParams.get('month') || currentMonthStr;
+    const qYear = searchParams.get('year') || 'all';
+    const qMonth = searchParams.get('month') || 'all';
     const qDate = searchParams.get('date') || '';
 
     setFilterRole(qRole);
@@ -329,6 +369,27 @@ function AdminUsersContent() {
 
   const filteredUsers = useMemo(() => {
     return users.filter((u) => {
+      // 1. Filter Role
+      if (filterRole && filterRole.trim() !== '') {
+        const roleLower = (u.role || '').toLowerCase();
+        const targetLower = filterRole.toLowerCase();
+        const isMatch =
+          (targetLower === 'perusahaan' && (roleLower === 'perusahaan' || roleLower === 'company')) ||
+          (targetLower === 'kampus' && (roleLower === 'kampus' || roleLower === 'campus' || roleLower === 'universitas')) ||
+          (targetLower === 'pelamar' && (roleLower === 'pelamar' || roleLower === 'applicant' || roleLower === 'user')) ||
+          (roleLower === targetLower);
+        if (!isMatch) return false;
+      }
+
+      // 2. Filter Search kata kunci (client-side matching)
+      if (activeSearch && activeSearch.trim() !== '') {
+        const s = activeSearch.toLowerCase().trim();
+        const nameMatch = (u.name || '').toLowerCase().includes(s);
+        const emailMatch = (u.email || '').toLowerCase().includes(s);
+        if (!nameMatch && !emailMatch) return false;
+      }
+
+      // 3. Filter Tanggal (jika user memilih filter tanggal)
       if (!u.created_at) return true;
       const dateObj = new Date(u.created_at);
 
@@ -351,7 +412,7 @@ function AdminUsersContent() {
 
       return true;
     });
-  }, [users, filterYear, filterMonth, filterDate]);
+  }, [users, filterRole, activeSearch, filterYear, filterMonth, filterDate]);
 
   const isDateFiltered = Boolean(
     (filterYear && filterYear !== 'all') ||
@@ -653,7 +714,7 @@ function AdminUsersContent() {
             </h1>
             {!isLoading && (
               <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700">
-                {users.length} Akun
+                {filteredUsers.length} Akun
               </span>
             )}
           </div>

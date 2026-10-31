@@ -31,8 +31,17 @@ export default function AdminLoginPage() {
       
       setToken(response.access_token);
       setUser(response.user);
+
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('access_token', response.access_token);
+        localStorage.setItem('user_role', 'admin');
+        localStorage.setItem('user_email', email);
+        localStorage.setItem('isAdminLoggedIn', 'true');
+        window.dispatchEvent(new Event('auth_state_changed'));
+      }
+
       toast.success('Login Admin Berhasil');
-      router.push('/admin');
+      router.push('/admin/dashboard');
     } catch (error: any) {
       const errorMsg = error.message === 'Tidak dapat terhubung ke server' 
         ? 'Tidak dapat terhubung ke server. Periksa koneksi internet Anda.' 
