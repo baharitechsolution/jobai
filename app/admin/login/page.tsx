@@ -71,7 +71,7 @@ export default function AdminLoginPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl pl-11 pr-4 py-3 text-sm focus:outline-none focus:border-black dark:focus:border-white transition-colors"
-                placeholder="admin@airecruitpro.com"
+                placeholder="admin@gmail.com"
               />
             </div>
           </div>
