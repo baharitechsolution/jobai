@@ -220,7 +220,7 @@ export default function GlintsCleanCompanyDetailPage({ params }: { params: Promi
     return (
       <div className="flex flex-col items-center justify-center min-h-[50vh] bg-transparent">
         <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#1A4B9F]"></div>
-        <p className="mt-4 text-slate-500 font-semibold animate-pulse text-sm">Memuat profil perusahaan...</p>
+        <p className="mt-4 text-slate-500 font-semibold animate-pulse text-sm">Memuat profil UMKM...</p>
       </div>
     );
   }
@@ -229,13 +229,13 @@ export default function GlintsCleanCompanyDetailPage({ params }: { params: Promi
     return (
       <div className="flex flex-col items-center justify-center min-h-[50vh] text-center px-4">
         <Building2 size={56} className="text-slate-300 dark:text-slate-700 mb-3" />
-        <h2 className="text-xl font-bold text-slate-800 dark:text-white mb-2">Profil Perusahaan Tidak Ditemukan</h2>
-        <p className="text-slate-500 font-medium text-xs max-w-md">Profil perusahaan ini mungkin belum terverifikasi atau informasi tidak tersedia saat ini.</p>
+        <h2 className="text-xl font-bold text-slate-800 dark:text-white mb-2">Profil UMKM Tidak Ditemukan</h2>
+        <p className="text-slate-500 font-medium text-xs max-w-md">Profil UMKM ini mungkin belum terverifikasi atau informasi tidak tersedia saat ini.</p>
         <button
           onClick={() => router.push(isApplicantRoute ? '/applicant/companies' : '/companies')}
           className="px-5 py-2.5 rounded-full bg-[#1A4B9F] text-white text-xs font-bold hover:bg-[#133A7A] transition-colors mt-5"
         >
-          Lihat Semua Perusahaan
+          Lihat Semua UMKM
         </button>
       </div>
     );
@@ -260,7 +260,7 @@ export default function GlintsCleanCompanyDetailPage({ params }: { params: Promi
             </Link>
             <span className="text-slate-300 dark:text-slate-700">/</span>
             <Link href={isApplicantRoute ? "/applicant/companies" : "/companies"} className="hover:text-[#1A4B9F] dark:hover:text-blue-400 transition-colors">
-              Perusahaan
+              UMKM
             </Link>
             <span className="text-slate-300 dark:text-slate-700">/</span>
             <span className="text-slate-900 dark:text-white font-bold truncate max-w-[200px] sm:max-w-md">
@@ -356,10 +356,10 @@ export default function GlintsCleanCompanyDetailPage({ params }: { params: Promi
             {[
               { id: 'loker-pilihan', label: `Lowongan (${company.jobs?.length || 0})` },
               { id: 'deskripsi', label: 'Deskripsi' },
-              { id: 'kultur-perusahaan', label: 'Kultur Perusahaan' },
+              { id: 'kultur-perusahaan', label: 'Kultur UMKM' },
               { id: 'fasilitas', label: 'Fasilitas & Tunjangan' },
               { id: 'hubungi-kami', label: 'Alamat & Kontak' },
-              { id: 'perusahaan-lainnya', label: 'Perusahaan Lainnya' },
+              { id: 'perusahaan-lainnya', label: 'UMKM Lainnya' },
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -387,7 +387,7 @@ export default function GlintsCleanCompanyDetailPage({ params }: { params: Promi
             {(!company.jobs || company.jobs.length === 0) ? (
               <div className="p-8 text-center space-y-2">
                 <Briefcase size={36} className="text-slate-300 mx-auto" />
-                <p className="text-slate-600 dark:text-slate-400 font-semibold text-sm">Saat ini belum ada lowongan pekerjaan aktif dari perusahaan ini.</p>
+                <p className="text-slate-600 dark:text-slate-400 font-semibold text-sm">Saat ini belum ada lowongan pekerjaan aktif dari UMKM ini.</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -473,15 +473,15 @@ export default function GlintsCleanCompanyDetailPage({ params }: { params: Promi
 
           {/* -------------------- SECTION 2: DESKRIPSI PERUSAHAAN -------------------- */}
           <section id="deskripsi" className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs space-y-4">
-            <h2 className="text-xl font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-4">Deskripsi Perusahaan</h2>
+            <h2 className="text-xl font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-4">Deskripsi UMKM</h2>
             <p className="text-slate-700 dark:text-slate-300 text-base leading-relaxed font-normal whitespace-pre-wrap">
-              {company.deskripsi || 'Deskripsi perusahaan belum ditambahkan.'}
+              {company.deskripsi || 'Deskripsi UMKM belum ditambahkan.'}
             </p>
           </section>
 
           {/* -------------------- SECTION 3: KULTUR PERUSAHAAN -------------------- */}
           <section id="kultur-perusahaan" className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xs space-y-6">
-            <h2 className="text-xl font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-4">Kultur Perusahaan</h2>
+            <h2 className="text-xl font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-4">Kultur UMKM</h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {[
                 { icon: <Users className="text-indigo-500" size={28} />, title: "Kolaborasi Tim", desc: "Kami mengutamakan kerja sama yang kuat dan saling mendukung antar divisi." },
@@ -557,7 +557,7 @@ export default function GlintsCleanCompanyDetailPage({ params }: { params: Promi
           {/* -------------------- SECTION 4: PERUSAHAAN LAINNYA -------------------- */}
           {similarCompanies.length > 0 && (
             <section id="perusahaan-lainnya" className="space-y-6 pt-4">
-              <h2 className="text-xl font-bold text-slate-900 dark:text-white">Perusahaan Lainnya</h2>
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white">UMKM Lainnya</h2>
 
               <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-5">
                 {similarCompanies.map((comp) => {

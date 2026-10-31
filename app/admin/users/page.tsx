@@ -480,7 +480,7 @@ function AdminUsersContent() {
         return (
           <span
             className="inline-flex items-center gap-1 text-rose-700 dark:text-rose-300 bg-rose-50 dark:bg-rose-950/40 px-2.5 py-1 rounded-full text-xs font-bold border border-rose-200 dark:border-rose-800/60"
-            title={u.rejection_reason || 'Verifikasi perusahaan ditolak'}
+            title={u.rejection_reason || 'Verifikasi UMKM ditolak'}
           >
             <XCircle size={13} className="text-rose-600 dark:text-rose-400 shrink-0" />
             Ditolak
@@ -732,7 +732,7 @@ function AdminUsersContent() {
               >
                 <option value="">Semua Peran</option>
                 <option value="pelamar">Pelamar</option>
-                <option value="perusahaan">Perusahaan</option>
+                <option value="perusahaan">UMKM</option>
                 <option value="kampus">Universitas</option>
                 <option value="admin">Admin</option>
               </select>
@@ -886,7 +886,7 @@ function AdminUsersContent() {
                   className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-slate-400 font-medium"
                 >
                   <option value="pelamar">Pelamar (Pencari Kerja)</option>
-                  <option value="perusahaan">Perusahaan (Rekruter)</option>
+                  <option value="perusahaan">UMKM (Rekruter)</option>
                   <option value="kampus">Kampus (Universitas)</option>
                   <option value="admin">Admin</option>
                 </select>
@@ -944,7 +944,7 @@ function AdminUsersContent() {
                   className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-slate-400 font-medium"
                 >
                   <option value="pelamar">Pelamar (Pencari Kerja)</option>
-                  <option value="perusahaan">Perusahaan (Rekruter)</option>
+                  <option value="perusahaan">UMKM (Rekruter)</option>
                   <option value="kampus">Kampus (Universitas)</option>
                   <option value="admin">Admin</option>
                 </select>
@@ -976,7 +976,7 @@ function AdminUsersContent() {
                   </h3>
                   <span className="text-[11px] text-slate-400">
                     {selectedUserDetail?.role === 'perusahaan'
-                      ? 'Profil & Berkas Legalitas Perusahaan'
+                      ? 'Profil & Berkas Legalitas UMKM'
                       : 'Data akun dan profil sistem'}
                   </span>
                 </div>
@@ -996,7 +996,7 @@ function AdminUsersContent() {
                   <span>Memuat detail pengguna dari database...</span>
                 </div>
               ) : selectedUserDetail.role === 'perusahaan' ? (
-                /* TAMPILAN DETAIL LENGKAP KHUSUS PERUSAHAAN */
+                /* TAMPILAN DETAIL LENGKAP KHUSUS UMKM */
                 <div className="space-y-5">
                   {/* Header Identity & Status Banner */}
                   <div className="flex items-start gap-3.5 bg-slate-50 dark:bg-slate-800/40 p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-800">
@@ -1014,7 +1014,7 @@ function AdminUsersContent() {
                       </span>
                       <div className="flex flex-wrap gap-2 items-center mt-2">
                         <span className="text-[10px] font-extrabold bg-blue-50 dark:bg-blue-950/60 text-[#1A4B9F] dark:text-blue-300 px-2 py-0.5 rounded uppercase border border-blue-200 dark:border-blue-900">
-                          PERUSAHAAN
+                          UMKM
                         </span>
                         {selectedUserDetail.profile?.is_verified ? (
                           <span className="text-[10px] font-extrabold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 px-2.5 py-0.5 rounded-full uppercase border border-emerald-200 dark:border-emerald-800 flex items-center gap-1">
@@ -1055,11 +1055,11 @@ function AdminUsersContent() {
                     </div>
                   )}
 
-                  {/* Deskripsi Perusahaan */}
+                  {/* Deskripsi UMKM */}
                   {selectedUserDetail.profile?.deskripsi && (
                     <div>
                       <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1">
-                        Deskripsi Perusahaan
+                        Deskripsi UMKM
                       </span>
                       <p className="p-3 bg-slate-50 dark:bg-slate-800/40 rounded-xl border border-slate-200 dark:border-slate-800 text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
                         {selectedUserDetail.profile.deskripsi}
@@ -1067,7 +1067,7 @@ function AdminUsersContent() {
                     </div>
                   )}
 
-                  {/* Grid Data Lengkap Perusahaan */}
+                  {/* Grid Data Lengkap UMKM */}
                   <div>
                     <span className="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider block mb-2">
                       Rincian Legalitas &amp; Profil

@@ -304,7 +304,7 @@ function AdminJobsContent() {
     },
     {
       key: 'perusahaan',
-      header: 'Perusahaan',
+      header: 'UMKM',
       align: 'left',
       render: (job) => (
         <div className="flex items-center gap-2.5 min-w-0">
@@ -433,7 +433,7 @@ function AdminJobsContent() {
             Manajemen Lowongan
           </h1>
           <p className="text-slate-500 dark:text-slate-400 text-xs font-medium mt-1">
-            Pantau publikasi lowongan kerja, moderasi status, dan periksa kesesuaian data perusahaan.
+            Pantau publikasi lowongan kerja, moderasi status, dan periksa kesesuaian data UMKM.
           </p>
         </div>
 
@@ -644,14 +644,14 @@ function AdminJobsContent() {
           </div>
         </div>
 
-        {/* Stat 4: Perusahaan */}
+        {/* Stat 4: UMKM */}
         <div className="p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs flex items-center gap-3.5">
           <div className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 flex items-center justify-center shrink-0 border border-slate-200 dark:border-slate-700 font-bold">
             <Building2 size={20} />
           </div>
           <div>
             <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
-              Perusahaan Aktif
+              UMKM Aktif
             </span>
             <span className="text-xl font-extrabold text-slate-900 dark:text-white">
               {metrics.uniqueCompanies}

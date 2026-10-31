@@ -204,7 +204,7 @@ function LandingPageContent() {
         const mappedJobs = rawJobs.map((j: any) => ({
           id: j.id, // using numeric ID isn't quite right since it's UUID, but frontend uses number in Job interface. We'll change Job interface ID to number | string
           title: j.judul_posisi,
-          company: j.perusahaan?.nama_perusahaan || 'Perusahaan',
+          company: j.perusahaan?.nama_perusahaan || 'UMKM',
           logo: (j.perusahaan?.logo_url && j.perusahaan.logo_url !== '')
             ? getMediaUrl(j.perusahaan.logo_url)
             : '',
@@ -383,7 +383,7 @@ function LandingPageContent() {
   const faqItems = [
     {
       q: 'Apa itu platform pencarian kerja ini?',
-      a: 'AI-RecruitPro adalah platform rekrutmen berbasis AI yang menghubungkan pencari kerja dengan perusahaan secara transparan, adil, dan efisien.'
+      a: 'AI-RecruitPro adalah platform rekrutmen berbasis AI yang menghubungkan pencari kerja dengan UMKM secara transparan, adil, dan efisien.'
     },
     {
       q: 'Apakah perlu membuat akun untuk mencari lowongan?',
@@ -391,7 +391,7 @@ function LandingPageContent() {
     },
     {
       q: 'Dari mana sumber lowongan ditampilkan?',
-      a: 'Seluruh lowongan dipublikasikan langsung oleh perusahaan mitra yang terverifikasi dan secara aktif merekrut talenta terbaik.'
+      a: 'Seluruh lowongan dipublikasikan langsung oleh UMKM mitra yang terverifikasi dan secara aktif merekrut talenta terbaik.'
     },
     {
       q: 'Bagaimana cara kerja pencocokan skor AI?',
@@ -576,10 +576,10 @@ function LandingPageContent() {
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tighter leading-tight text-slate-900 dark:text-white">
-                {lang.topEmployersTitle || 'Perusahaan Populer'}
+                {lang.topEmployersTitle || 'UMKM Populer'}
               </h2>
               <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 font-normal leading-relaxed">
-                {'Temukan lowongan baru dan bergabung dengan perusahaan teratas pilihan kami.'}
+                {'Temukan lowongan baru dan bergabung dengan UMKM teratas pilihan kami.'}
               </p>
             </div>
           </div>
@@ -631,8 +631,8 @@ function LandingPageContent() {
           ) : (
             <div className="p-5 text-center rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
               <Building2 className="w-7 h-7 text-slate-400 mx-auto mb-1.5" />
-              <p className="text-slate-600 dark:text-slate-300 font-semibold text-xs">Belum ada perusahaan terverifikasi yang ditampilkan.</p>
-              <p className="text-slate-400 text-[10px] mt-0.5">Mitra perusahaan resmi AI-RecruitPro akan segera muncul di sini.</p>
+              <p className="text-slate-600 dark:text-slate-300 font-semibold text-xs">Belum ada UMKM terverifikasi yang ditampilkan.</p>
+              <p className="text-slate-400 text-[10px] mt-0.5">Mitra UMKM resmi AI-RecruitPro akan segera muncul di sini.</p>
             </div>
           )}
         </div>
@@ -860,7 +860,7 @@ function LandingPageContent() {
                 name="keyword"
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
-                placeholder="Cari judul posisi, keahlian, atau perusahaan..."
+                placeholder="Cari judul posisi, keahlian, atau UMKM..."
                 className="w-full pl-9 pr-8 py-2 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-medium text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1A4B9F] transition-all"
               />
               {searchInput && (

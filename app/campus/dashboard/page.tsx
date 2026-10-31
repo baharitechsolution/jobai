@@ -442,11 +442,11 @@ export default function KampusDashboardPage() {
           trendValue="Diterima Kerja"
         />
         <StatCard
-          title="MITRA PERUSAHAAN"
+          title="MITRA UMKM"
           value={stats.partnerCompanies}
           icon={<Building2 size={18} />}
           trend="neutral"
-          trendValue="Perusahaan Aktif"
+          trendValue="UMKM Aktif"
         />
         <StatCard
           title="DALAM PIPELINE SELEKSI"
@@ -615,7 +615,7 @@ export default function KampusDashboardPage() {
                 <Search size={12} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-muted-foreground" />
                 <input
                   type="text"
-                  placeholder="Cari posisi pekerjaan / perusahaan..."
+                  placeholder="Cari posisi pekerjaan / UMKM..."
                   value={searchJobQuery}
                   onChange={(e) => setSearchJobQuery(e.target.value)}
                   className="w-full pl-7 pr-3 py-1 text-xs bg-muted/30 border border-border rounded-lg outline-none focus:border-[#1A4B9F] transition-colors"
@@ -664,7 +664,7 @@ export default function KampusDashboardPage() {
                       {searchJobQuery ? `Tidak ada lowongan dengan kata kunci "${searchJobQuery}"` : 'Belum ada lamaran lowongan terdaftar di database.'}
                     </p>
                     <p className="text-[11px] text-muted-foreground/80 max-w-xs">
-                      Lamaran mahasiswa ke lowongan perusahaan akan otomatis ditampilkan di sini.
+                      Lamaran mahasiswa ke lowongan UMKM akan otomatis ditampilkan di sini.
                     </p>
                   </div>
                 )}

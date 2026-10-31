@@ -185,7 +185,7 @@ export function Sidebar({ isBlocked = false }: { isBlocked?: boolean }) {
           <div className="bg-card text-card-foreground border border-border w-full max-w-sm rounded-2xl shadow-xl p-6 animate-in fade-in zoom-in-95 duration-200">
             <h3 className="text-lg font-bold mb-2">Konfirmasi Keluar</h3>
             <p className="text-sm text-muted-foreground mb-6">
-              Apakah Anda yakin ingin keluar dari akun perusahaan?
+              Apakah Anda yakin ingin keluar dari akun UMKM?
             </p>
             <div className="flex justify-end gap-3">
               <button 
@@ -199,7 +199,7 @@ export function Sidebar({ isBlocked = false }: { isBlocked?: boolean }) {
                   setShowLogoutModal(false);
                   removeAuthToken();
                   logout();
-                  toast.success('Berhasil keluar dari akun perusahaan.');
+                  toast.success('Berhasil keluar dari akun UMKM.');
                   window.location.href = '/login';
                 }}
                 className="px-4 py-2 rounded-lg text-sm font-semibold bg-rose-500 hover:bg-rose-600 text-white transition-colors"

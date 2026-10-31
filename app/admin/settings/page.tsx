@@ -35,14 +35,14 @@ Kode ini berlaku selama {kadaluarsa_menit} menit. Harap jangan memberikan kode i
 Salam hormat,
 Tim AI Recruit Pro`,
 
-  email_tpl_company_approved_subject: "Selamat! Pengajuan Akun Perusahaan {nama_perusahaan} Telah Terverifikasi",
+  email_tpl_company_approved_subject: "Selamat! Pengajuan Akun UMKM {nama_perusahaan} Telah Terverifikasi",
   email_tpl_company_approved_body: `Halo Tim {nama_perusahaan},
 
-Kabar baik! Dokumen legalitas dan data profil perusahaan Anda telah diverifikasi dan disetujui oleh tim kurator AI Recruit Pro.
+Kabar baik! Dokumen legalitas dan data profil UMKM Anda telah diverifikasi dan disetujui oleh tim kurator AI Recruit Pro.
 
-Akun perusahaan Anda kini berstatus Resmi & Terverifikasi (Verified). Anda sudah dapat membuat lowongan kerja baru, mengelola pelamar, dan memanfaatkan fitur AI ATS.
+Akun UMKM Anda kini berstatus Resmi & Terverifikasi (Verified). Anda sudah dapat membuat lowongan kerja baru, mengelola pelamar, dan memanfaatkan fitur AI ATS.
 
-Silakan login ke portal dashboard perusahaan Anda:
+Silakan login ke portal dashboard UMKM Anda:
 {login_url}
 
 Terima kasih telah mempercayakan kebutuhan rekrutmen Anda kepada AI Recruit Pro!
@@ -50,12 +50,12 @@ Terima kasih telah mempercayakan kebutuhan rekrutmen Anda kepada AI Recruit Pro!
 Salam sukses,
 Tim AI Recruit Pro`,
 
-  email_tpl_company_rejected_subject: "Pemberitahuan Status Verifikasi Akun Perusahaan {nama_perusahaan}",
+  email_tpl_company_rejected_subject: "Pemberitahuan Status Verifikasi Akun UMKM {nama_perusahaan}",
   email_tpl_company_rejected_body: `Halo Tim {nama_perusahaan},
 
-Terima kasih telah mendaftar dan mengajukan verifikasi profil perusahaan di platform AI Recruit Pro.
+Terima kasih telah mendaftar dan mengajukan verifikasi profil UMKM di platform AI Recruit Pro.
 
-Setelah dilakukan peninjauan dokumen, saat ini pengajuan verifikasi perusahaan Anda belum dapat kami setujui dengan catatan penolakan berikut:
+Setelah dilakukan peninjauan dokumen, saat ini pengajuan verifikasi UMKM Anda belum dapat kami setujui dengan catatan penolakan berikut:
 "{alasan_penolakan}"
 
 Anda dapat memperbarui data atau mengunggah ulang dokumen legalitas yang sesuai dengan masuk kembali ke akun Anda melalui tautan berikut:
@@ -95,28 +95,28 @@ const TEMPLATE_CONFIGS: TemplateConfig[] = [
   },
   {
     id: 'company_approved',
-    title: 'Verifikasi Perusahaan Disetujui',
+    title: 'Verifikasi UMKM Disetujui',
     badge: 'Legalitas Disetujui',
     icon: CheckCircle2,
     subjectKey: 'email_tpl_company_approved_subject',
     bodyKey: 'email_tpl_company_approved_body',
-    description: 'Dikirim otomatis saat Admin menyetujui (verify) profil perusahaan dan dokumen legalitas (NIB/NPWP).',
+    description: 'Dikirim otomatis saat Admin menyetujui (verify) profil UMKM dan dokumen legalitas (NIB/NPWP).',
     variables: [
-      { tag: '{nama_perusahaan}', desc: 'Nama instansi/perusahaan', sample: 'PT Inovasi Teknologi Bangsa' },
-      { tag: '{email_perusahaan}', desc: 'Alamat email akun perusahaan', sample: 'hr@inovasiteknologi.co.id' },
+      { tag: '{nama_perusahaan}', desc: 'Nama instansi/UMKM', sample: 'PT Inovasi Teknologi Bangsa' },
+      { tag: '{email_perusahaan}', desc: 'Alamat email akun UMKM', sample: 'hr@inovasiteknologi.co.id' },
       { tag: '{login_url}', desc: 'Tautan ke halaman login dashboard', sample: 'https://airecruit-pro.com/login' }
     ]
   },
   {
     id: 'company_rejected',
-    title: 'Verifikasi Perusahaan Ditolak',
+    title: 'Verifikasi UMKM Ditolak',
     badge: 'Perlu Revisi Dokumen',
     icon: XCircle,
     subjectKey: 'email_tpl_company_rejected_subject',
     bodyKey: 'email_tpl_company_rejected_body',
     description: 'Dikirim otomatis saat Admin menolak dokumen legalitas dengan menyertakan alasan spesifik penolakan.',
     variables: [
-      { tag: '{nama_perusahaan}', desc: 'Nama instansi/perusahaan', sample: 'PT Maju Terus Semesta' },
+      { tag: '{nama_perusahaan}', desc: 'Nama instansi/UMKM', sample: 'PT Maju Terus Semesta' },
       { tag: '{alasan_penolakan}', desc: 'Catatan/alasan penolakan yang ditulis Admin', sample: 'Nomor NIB tidak valid di OSS dan dokumen KTP penanggung jawab buram.' },
       { tag: '{revisi_url}', desc: 'Tautan langsung ke form perbaikan data', sample: 'https://airecruit-pro.com/login' }
     ]
@@ -590,7 +590,7 @@ export default function SystemSettingsPage() {
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
                   <div>
                     <h2 className="text-base font-extrabold text-slate-900 dark:text-white">Konfigurasi SMTP Email</h2>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Server SMTP yang digunakan untuk mengirim kode OTP dan notifikasi perusahaan.</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Server SMTP yang digunakan untuk mengirim kode OTP dan notifikasi UMKM.</p>
                   </div>
                   <button
                     onClick={() => {
@@ -674,7 +674,7 @@ export default function SystemSettingsPage() {
                       <FileText size={18} /> Kustomisasi Template Pesan Email
                     </h2>
                     <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                      Atur susunan subjek dan isi pesan email yang otomatis terkirim untuk OTP pendaftaran, konfirmasi verifikasi, atau penolakan akun perusahaan.
+                      Atur susunan subjek dan isi pesan email yang otomatis terkirim untuk OTP pendaftaran, konfirmasi verifikasi, atau penolakan akun UMKM.
                     </p>
                   </div>
 
@@ -851,7 +851,7 @@ export default function SystemSettingsPage() {
                           <div className="flex items-center gap-2 text-[11px]">
                             <span className="text-slate-400 font-bold w-14 shrink-0">Kepada:</span>
                             <span className="text-slate-800 dark:text-slate-200 font-mono truncate">
-                              {selectedTemplateId === 'otp' ? 'user@example.com' : 'hr@perusahaan-tujuan.com'}
+                              {selectedTemplateId === 'otp' ? 'user@example.com' : 'hr@umkm-tujuan.com'}
                             </span>
                           </div>
                           <div className="flex items-start gap-2 text-[11px] pt-1">
@@ -869,7 +869,7 @@ export default function SystemSettingsPage() {
                       </div>
 
                       <div className="p-3 bg-slate-100/70 dark:bg-slate-800/40 rounded-xl border border-slate-200/60 dark:border-slate-700/50 text-[11px] text-slate-500 dark:text-slate-400 leading-normal">
-                        Nilai variabel seperti <code className="text-blue-600 dark:text-blue-400 font-mono font-bold">{"{nama_perusahaan}"}</code> di atas secara otomatis diisi dengan data asli perusahaan terkait saat sistem mengirimkan notifikasi.
+                        Nilai variabel seperti <code className="text-blue-600 dark:text-blue-400 font-mono font-bold">{"{nama_perusahaan}"}</code> di atas secara otomatis diisi dengan data asli UMKM terkait saat sistem mengirimkan notifikasi.
                       </div>
                     </div>
                   )}
@@ -893,7 +893,7 @@ export default function SystemSettingsPage() {
                       {settings.maintenance_mode ? 'Maintenance Mode Aktif' : 'Maintenance Mode Nonaktif'}
                     </h3>
                     <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 mb-4 font-medium leading-relaxed">
-                      Saat diaktifkan, seluruh platform tidak akan dapat diakses oleh pelamar maupun perusahaan. Hanya admin yang bisa masuk ke dashboard. Gunakan fitur ini saat Anda melakukan update sistem besar-besaran.
+                      Saat diaktifkan, seluruh platform tidak akan dapat diakses oleh pelamar maupun UMKM. Hanya admin yang bisa masuk ke dashboard. Gunakan fitur ini saat Anda melakukan update sistem besar-besaran.
                     </p>
                     <button
                       type="button"

@@ -103,7 +103,7 @@ export default function AdminDashboard() {
         
         setRoleData([
           { name: 'Pelamar', value: roles.pelamar, color: '#1E4B9F' }, 
-          { name: 'Perusahaan', value: roles.perusahaan, color: '#059669' },
+          { name: 'UMKM', value: roles.perusahaan, color: '#059669' },
           { name: 'Kampus', value: roles.kampus, color: '#D97706' },
           { name: 'Admin', value: roles.admin, color: '#4F46E5' },
         ].filter(d => d.value > 0));
@@ -138,7 +138,7 @@ export default function AdminDashboard() {
   const statCards = [
     { label: 'Total Pengguna', value: stats.totalUsers, icon: Users },
     { label: 'Total Pelamar', value: stats.pelamar, icon: UserPlus },
-    { label: 'Perusahaan Terdaftar', value: stats.perusahaan, icon: Building2 },
+    { label: 'UMKM Terdaftar', value: stats.perusahaan, icon: Building2 },
     { label: 'Kampus Mitra', value: stats.kampus, icon: GraduationCap },
   ];
 
@@ -165,7 +165,7 @@ export default function AdminDashboard() {
             <div>
               <h4 className="font-extrabold text-sm text-slate-900 dark:text-white">Butuh Perhatian Admin</h4>
               <p className="text-slate-500 dark:text-slate-400 text-xs mt-0.5 max-w-xl font-medium leading-relaxed">
-                Ada <strong className="text-slate-900 dark:text-white font-bold">{stats.pendingVerifications} perusahaan</strong> baru yang mendaftar dan menunggu proses verifikasi legalitas (NIB/NPWP).
+                Ada <strong className="text-slate-900 dark:text-white font-bold">{stats.pendingVerifications} UMKM</strong> baru yang mendaftar dan menunggu proses verifikasi legalitas (NIB/NPWP).
               </p>
             </div>
           </div>
@@ -297,7 +297,7 @@ export default function AdminDashboard() {
                   />
                   <Legend iconType="circle" wrapperStyle={{ paddingTop: '20px', fontSize: '12px' }} />
                   <Bar dataKey="kandidat" name="Pelamar" fill="#1E4B9F" radius={[6, 6, 0, 0]} maxBarSize={40} />
-                  <Bar dataKey="perusahaan" name="Perusahaan" fill="#059669" radius={[6, 6, 0, 0]} maxBarSize={40} />
+                  <Bar dataKey="perusahaan" name="UMKM" fill="#059669" radius={[6, 6, 0, 0]} maxBarSize={40} />
                 </BarChart>
               </ResponsiveContainer>
             )}

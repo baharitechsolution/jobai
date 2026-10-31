@@ -81,8 +81,8 @@ export default function Navbar({ activePage }: NavbarProps) {
 
         if (role === 'perusahaan') {
           url = '/jobs';
-          badge = 'Perusahaan';
-          defaultName = 'Perusahaan';
+          badge = 'UMKM';
+          defaultName = 'UMKM';
         } else if (role === 'campus' || role === 'kampus') {
           url = '/campus/dashboard';
           badge = 'Perguruan Tinggi';
@@ -197,32 +197,44 @@ export default function Navbar({ activePage }: NavbarProps) {
         </div>
 
         {/* Clean Nav Links */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-900 dark:text-slate-200">
+        <nav className="hidden md:flex items-center gap-8 text-sm font-semibold">
           <a
             href={isHome ? '#job-feed-section' : '/#job-feed-section'}
-            className={`transition-colors relative ${isJobs ? 'text-[#1A4B9F] font-bold after:content-[""] after:absolute after:bottom-[-29px] after:left-0 after:right-0 after:h-1 after:bg-[#1A4B9F]' : 'hover:text-[#1A4B9F]'
-              }`}
+            className={`transition-colors ${
+              isJobs
+                ? 'text-[#1A4B9F] dark:text-blue-400 font-bold'
+                : 'text-slate-700 dark:text-slate-300 hover:text-[#1A4B9F] dark:hover:text-blue-400'
+            }`}
           >
             Lowongan Terbaru
           </a>
           <a
             href={isHome ? '#categories-section' : '/#categories-section'}
-            className={`transition-colors relative ${isCategories ? 'text-[#1A4B9F] font-bold after:content-[""] after:absolute after:bottom-[-29px] after:left-0 after:right-0 after:h-1 after:bg-[#1A4B9F]' : 'hover:text-[#1A4B9F]'
-              }`}
+            className={`transition-colors ${
+              isCategories
+                ? 'text-[#1A4B9F] dark:text-blue-400 font-bold'
+                : 'text-slate-700 dark:text-slate-300 hover:text-[#1A4B9F] dark:hover:text-blue-400'
+            }`}
           >
             Kategori Pekerjaan
           </a>
           <Link
             href="/companies"
-            className={`transition-colors relative ${isCompanies ? 'text-[#1A4B9F] font-bold after:content-[""] after:absolute after:bottom-[-29px] after:left-0 after:right-0 after:h-1 after:bg-[#1A4B9F]' : 'hover:text-[#1A4B9F]'
-              }`}
+            className={`transition-colors ${
+              isCompanies
+                ? 'text-[#1A4B9F] dark:text-blue-400 font-bold'
+                : 'text-slate-700 dark:text-slate-300 hover:text-[#1A4B9F] dark:hover:text-blue-400'
+            }`}
           >
-            Perusahaan
+            UMKM
           </Link>
           <Link
             href="/about"
-            className={`transition-colors relative ${isAbout ? 'text-[#1A4B9F] font-bold after:content-[""] after:absolute after:bottom-[-29px] after:left-0 after:right-0 after:h-1 after:bg-[#1A4B9F]' : 'hover:text-[#1A4B9F]'
-              }`}
+            className={`transition-colors ${
+              isAbout
+                ? 'text-[#1A4B9F] dark:text-blue-400 font-bold'
+                : 'text-slate-700 dark:text-slate-300 hover:text-[#1A4B9F] dark:hover:text-blue-400'
+            }`}
           >
             Tentang Kami
           </Link>
@@ -370,7 +382,7 @@ export default function Navbar({ activePage }: NavbarProps) {
                         </div>
                       </Link>
 
-                      {/* 2. Perusahaan */}
+                      {/* 2. UMKM */}
                       <Link
                         href="/perusahaan/login"
                         onClick={() => setIsLoginDropdownOpen(false)}
@@ -381,7 +393,7 @@ export default function Navbar({ activePage }: NavbarProps) {
                         </div>
                         <div>
                           <div className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-[#1A4B9F] dark:group-hover:text-blue-400 transition-colors">
-                            Perusahaan/UMKM
+                            UMKM
                           </div>
                           <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-tight">
                             Kelola lowongan & pelamar
@@ -430,28 +442,44 @@ export default function Navbar({ activePage }: NavbarProps) {
           <a
             href={isHome ? '#job-feed-section' : '/#job-feed-section'}
             onClick={() => setIsMobileMenuOpen(false)}
-            className="text-slate-700 dark:text-slate-200 font-bold py-2 border-t border-slate-100 dark:border-slate-800"
+            className={`py-2 border-t border-slate-100 dark:border-slate-800 transition-colors font-bold ${
+              isJobs
+                ? 'text-[#1A4B9F] dark:text-blue-400'
+                : 'text-slate-700 dark:text-slate-200 hover:text-[#1A4B9F] dark:hover:text-blue-400'
+            }`}
           >
             Lowongan Terbaru
           </a>
           <a
             href={isHome ? '#categories-section' : '/#categories-section'}
             onClick={() => setIsMobileMenuOpen(false)}
-            className="text-slate-700 dark:text-slate-200 font-bold py-2 border-t border-slate-100 dark:border-slate-800"
+            className={`py-2 border-t border-slate-100 dark:border-slate-800 transition-colors font-bold ${
+              isCategories
+                ? 'text-[#1A4B9F] dark:text-blue-400'
+                : 'text-slate-700 dark:text-slate-200 hover:text-[#1A4B9F] dark:hover:text-blue-400'
+            }`}
           >
             Kategori Pekerjaan
           </a>
           <Link
             href="/companies"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="text-slate-700 dark:text-slate-200 font-bold py-2 border-t border-slate-100 dark:border-slate-800"
+            className={`py-2 border-t border-slate-100 dark:border-slate-800 transition-colors font-bold ${
+              isCompanies
+                ? 'text-[#1A4B9F] dark:text-blue-400'
+                : 'text-slate-700 dark:text-slate-200 hover:text-[#1A4B9F] dark:hover:text-blue-400'
+            }`}
           >
-            Perusahaan
+            UMKM
           </Link>
           <Link
             href="/about"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="text-slate-700 dark:text-slate-200 font-bold py-2 border-t border-slate-100 dark:border-slate-800"
+            className={`py-2 border-t border-slate-100 dark:border-slate-800 transition-colors font-bold ${
+              isAbout
+                ? 'text-[#1A4B9F] dark:text-blue-400'
+                : 'text-slate-700 dark:text-slate-200 hover:text-[#1A4B9F] dark:hover:text-blue-400'
+            }`}
           >
             Tentang Kami
           </Link>
@@ -507,7 +535,7 @@ export default function Navbar({ activePage }: NavbarProps) {
                   <div className="w-9 h-9 rounded-lg bg-slate-200/60 dark:bg-slate-700 text-slate-700 dark:text-slate-200 flex items-center justify-center mb-2 group-hover:bg-[#1A4B9F]/10 group-hover:text-[#1A4B9F] transition-colors">
                     <Building2 size={18} />
                   </div>
-                  <span className="text-xs font-bold truncate max-w-full">Perusahaan/UMKM</span>
+                  <span className="text-xs font-bold truncate max-w-full">UMKM</span>
                 </Link>
 
                 <Link

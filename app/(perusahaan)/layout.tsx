@@ -39,18 +39,18 @@ export default function PerusahaanLayout({
         const profil = data.profil;
         if (profil) {
           setCompanyProfile({
-            nama_perusahaan: profil.nama_perusahaan || 'Perusahaan',
+            nama_perusahaan: profil.nama_perusahaan || 'UMKM',
             industri: profil.industri || 'Industri Bisnis',
             logo_url: profil.logo_url ? getMediaUrl(profil.logo_url) : (data.avatar_url ? getMediaUrl(data.avatar_url) : '')
           });
 
           if (!profil.has_completed_profile) {
-            toast.error('Data diri dan dokumen legalitas perusahaan belum lengkap. Mengalihkan ke Tahap 3...', { id: 'incomplete-profile' });
+            toast.error('Data diri dan dokumen legalitas UMKM belum lengkap. Mengalihkan ke Tahap 3...', { id: 'incomplete-profile' });
             router.push('/register?step=3');
             return; // Do not setIsChecking(false) to hide dashboard while redirecting
           }
           if (!profil.is_verified) {
-            toast('Akun perusahaan Anda sedang menunggu peninjauan dokumen oleh Admin.', { icon: '⏳', id: 'pending-approval' });
+            toast('Akun UMKM Anda sedang menunggu peninjauan dokumen oleh Admin.', { icon: '⏳', id: 'pending-approval' });
             router.push('/pending-approval');
             return; // Do not setIsChecking(false)
           }
@@ -60,7 +60,7 @@ export default function PerusahaanLayout({
           if (!hasCompletedSettings) {
             setIsProfileIncomplete(true);
             if (pathname !== '/settings') {
-              toast.error('Mohon lengkapi profil perusahaan Anda terlebih dahulu.', { id: 'incomplete-settings' });
+              toast.error('Mohon lengkapi profil UMKM Anda terlebih dahulu.', { id: 'incomplete-settings' });
               router.push('/settings?onboarding=true');
               setIsChecking(false);
               return;
@@ -135,9 +135,9 @@ export default function PerusahaanLayout({
               <Link
                 href="/settings"
                 className="flex items-center gap-2.5 sm:gap-3 p-1 sm:p-1.5 pl-2.5 sm:pl-3 rounded-xl border border-slate-200/90 dark:border-slate-800 hover:border-[#1A4B9F]/40 dark:hover:border-blue-500/40 bg-white dark:bg-slate-900/90 hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-all group shadow-2xs"
-                title="Pengaturan Profil Perusahaan"
+                title="Pengaturan Profil UMKM"
               >
-                {/* Text Info: Nama Perusahaan & Bidang Industri */}
+                {/* Text Info: Nama UMKM & Bidang Industri */}
                 <div className="flex flex-col items-end text-right min-w-0">
                   <div className="flex items-center gap-1.5">
                     <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white group-hover:text-[#1A4B9F] dark:group-hover:text-blue-400 transition-colors truncate max-w-[130px] sm:max-w-[200px]">
@@ -150,12 +150,12 @@ export default function PerusahaanLayout({
                   </span>
                 </div>
 
-                {/* Logo Perusahaan */}
+                {/* Logo UMKM */}
                 <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl border border-slate-200 dark:border-slate-700 p-0.5 bg-white dark:bg-slate-800 overflow-hidden shrink-0 shadow-2xs flex items-center justify-center group-hover:scale-105 transition-transform">
                   {companyProfile.logo_url ? (
                     <img
                       src={companyProfile.logo_url}
-                      alt={companyProfile.nama_perusahaan || 'Logo Perusahaan'}
+                      alt={companyProfile.nama_perusahaan || 'Logo UMKM'}
                       className="w-full h-full object-contain rounded-lg"
                       onError={(e) => {
                         e.currentTarget.onerror = null;

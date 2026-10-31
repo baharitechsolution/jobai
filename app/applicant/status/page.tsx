@@ -251,7 +251,7 @@ const buildGeneralAiDetails = (
     compositeScore: composite,
     competencies,
     strengths,
-    hrNotice: 'Tahap ini merupakan Validasi Manusia (Human Validation). Hasil analisis AI bersifat sebagai bahan pertimbangan objektif awal. Tim HR perusahaan saat ini sedang meninjau hasil secara menyeluruh sebelum menentukan jadwal wawancara tatap muka atau tahap akhir.',
+    hrNotice: 'Tahap ini merupakan Validasi Manusia (Human Validation). Hasil analisis AI bersifat sebagai bahan pertimbangan objektif awal. Tim HR UMKM saat ini sedang meninjau hasil secara menyeluruh sebelum menentukan jadwal wawancara tatap muka atau tahap akhir.',
     realDetails: {
       durasiFormatted: aiResult?.durasi_formatted || null,
       ringkasanJawaban: aiResult?.ringkasan_jawaban || null,
@@ -267,7 +267,7 @@ const buildGeneralAiDetails = (
 const DEFAULT_INTERVIEW_QUESTIONS = [
   'Ceritakan tentang diri Anda, latar belakang pengalaman, dan keahlian utama yang relevan dengan posisi ini.',
   'Jelaskan pencapaian atau tantangan terbesar yang pernah Anda selesaikan dalam pekerjaan atau proyek sebelumnya.',
-  'Mengapa Anda tertarik untuk bergabung dengan perusahaan ini dan apa kontribusi yang ingin Anda berikan?'
+  'Mengapa Anda tertarik untuk bergabung dengan UMKM ini dan apa kontribusi yang ingin Anda berikan?'
 ];
 
 const getJobVideoQuestions = (item: any): string[] => {
@@ -425,7 +425,7 @@ function StatusValidasiContent() {
             if (s === 'upload_cv' || s === 'dikirim') {
               stageIndex = 1;
               tahapName = 'Stage 1: UPLOAD CV';
-              msg = 'Profil CV Anda telah masuk pipeline. Menunggu HR Perusahaan untuk memicu proses seleksi AI.';
+              msg = 'Profil CV Anda telah masuk pipeline. Menunggu HR UMKM untuk memicu proses seleksi AI.';
             } else if (s === 'cv_screening') {
               stageIndex = 2;
               tahapName = 'Stage 2: CV SCREENING ';
@@ -458,7 +458,7 @@ function StatusValidasiContent() {
             } else if (s === 'human_validation') {
               stageIndex = 5;
               tahapName = 'Stage 5: HUMAN VALIDATION';
-              msg = 'Hasil evaluasi AI (CV & Video) telah lengkap dan saat ini sedang divalidasi langsung oleh tim HR perusahaan.';
+              msg = 'Hasil evaluasi AI (CV & Video) telah lengkap dan saat ini sedang divalidasi langsung oleh tim HR UMKM.';
             } else if (s === 'interview_lanjutan' || s === 'interview_scheduled' || s === 'interview') {
               stageIndex = 5;
               tahapName = 'Stage 5: WAWANCARA LANJUTAN';
@@ -468,7 +468,7 @@ function StatusValidasiContent() {
               stageIndex = 5;
               tahapName = 'Stage 5: DITERIMA (HIRED)';
               statusLabel = 'Lolos';
-              msg = item.catatan_perusahaan || 'Selamat! Anda resmi dinyatakan DITERIMA bergabung di perusahaan ini.';
+              msg = item.catatan_perusahaan || 'Selamat! Anda resmi dinyatakan DITERIMA bergabung di UMKM ini.';
             } else if (s === 'Tidak Lolos') {
               stageIndex = 5;
               tahapName = 'Stage 5: KEPUTUSAN AKHIR';
@@ -526,7 +526,7 @@ function StatusValidasiContent() {
             return {
               id: item.id || idx + 1,
               jobTitle: item.job?.judul_posisi || item.judul_posisi || 'Lowongan Pekerjaan',
-              companyName: item.job?.perusahaan?.nama_perusahaan || item.nama_perusahaan || 'Perusahaan Partner',
+              companyName: item.job?.perusahaan?.nama_perusahaan || item.nama_perusahaan || 'UMKM Partner',
               logo: companyLogo,
               applyDate: item.applied_at ? new Date(item.applied_at).toLocaleDateString('id-ID') : 'Baru saja',
               kegiatan: 'WEBCAREER',
@@ -614,7 +614,7 @@ function StatusValidasiContent() {
     },
     {
       key: 'position_company',
-      header: 'Posisi & Perusahaan',
+      header: 'Posisi & UMKM',
       align: 'left',
       render: (item) => {
         const companyInitials = item.companyName
@@ -788,7 +788,7 @@ function StatusValidasiContent() {
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder={t.pelamar.status.searchPlaceholder || 'Cari posisi atau perusahaan...'}
+              placeholder={t.pelamar.status.searchPlaceholder || 'Cari posisi atau UMKM...'}
               className="w-full pl-10 sm:pl-11 pr-10 py-2.5 sm:py-3 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 focus:border-[#1A4B9F] focus:ring-2 focus:ring-[#1A4B9F]/10 rounded-xl text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-200 placeholder:text-slate-400 outline-none transition-all"
             />
             {searchTerm && (
@@ -1148,7 +1148,7 @@ function StatusValidasiContent() {
                 </p>
                 {selectedDetailApp.catatanPerusahaan && (
                   <div className="mt-2 pt-2 border-t border-black/5 dark:border-white/5 text-xs text-slate-600 dark:text-slate-400">
-                    <span className="font-bold">Catatan Perusahaan:</span> "{selectedDetailApp.catatanPerusahaan}"
+                    <span className="font-bold">Catatan UMKM:</span> "{selectedDetailApp.catatanPerusahaan}"
                   </div>
                 )}
               </div>
@@ -1408,9 +1408,9 @@ function StatusValidasiContent() {
                         {isFailedEdu ? (
                           <>Tingkat pendidikan pada profil Anda belum memenuhi kualifikasi minimal yang disyaratkan untuk posisi ini.</>
                         ) : isPassed ? (
-                          <>Kualifikasi profil dan keahlian Anda dinilai <strong>cocok ({activeCvModalJob.cvScore}%)</strong> dengan kriteria lowongan dan telah melampaui batas minimal kelulusan perusahaan (<strong>{activeCvModalJob.threshold}%</strong>).</>
+                          <>Kualifikasi profil dan keahlian Anda dinilai <strong>cocok ({activeCvModalJob.cvScore}%)</strong> dengan kriteria lowongan dan telah melampaui batas minimal kelulusan UMKM (<strong>{activeCvModalJob.threshold}%</strong>).</>
                         ) : (
-                          <>Tingkat kecocokan profil Anda saat ini sebesar <strong>{activeCvModalJob.cvScore}%</strong>, belum mencapai standar nilai kelulusan minimal yang ditentukan perusahaan (<strong>{activeCvModalJob.threshold}%</strong>).</>
+                          <>Tingkat kecocokan profil Anda saat ini sebesar <strong>{activeCvModalJob.cvScore}%</strong>, belum mencapai standar nilai kelulusan minimal yang ditentukan UMKM (<strong>{activeCvModalJob.threshold}%</strong>).</>
                         )}
                       </p>
                     </div>
@@ -1428,7 +1428,7 @@ function StatusValidasiContent() {
                     </div>
                     <div>
                       <strong className="block text-slate-800 dark:text-slate-200 mb-0.5">Pengalaman Kerja</strong>
-                      <p>Sistem menilai latar belakang dan pengalaman kerja Anda memiliki tingkat kecocokan sekitar <strong>{Math.round(activeCvModalJob.hybridDetails?.sbert_score ?? activeCvModalJob.cvScore)}%</strong> dengan yang dicari oleh perusahaan.</p>
+                      <p>Sistem menilai latar belakang dan pengalaman kerja Anda memiliki tingkat kecocokan sekitar <strong>{Math.round(activeCvModalJob.hybridDetails?.sbert_score ?? activeCvModalJob.cvScore)}%</strong> dengan yang dicari oleh UMKM.</p>
                     </div>
                   </div>
 
@@ -1451,7 +1451,7 @@ function StatusValidasiContent() {
                       {activeCvModalJob.kategori === 'tidak_memenuhi_syarat_pendidikan' ? (
                         <p className="text-rose-600 dark:text-rose-400 font-medium">Tingkat pendidikan pada profil Anda saat ini belum memenuhi kualifikasi minimal yang disyaratkan untuk posisi ini.</p>
                       ) : activeCvModalJob.cvScore >= activeCvModalJob.threshold ? (
-                        <p className="text-emerald-600 dark:text-emerald-400 font-medium">Selamat! Secara keseluruhan profil Anda sudah sangat baik dan memenuhi standar perusahaan.</p>
+                        <p className="text-emerald-600 dark:text-emerald-400 font-medium">Selamat! Secara keseluruhan profil Anda sudah sangat baik dan memenuhi standar UMKM.</p>
                       ) : (
                         <p>Saat ini profil Anda masih butuh peningkatan untuk bisa mencapai standar minimal ({activeCvModalJob.threshold}%). Jangan menyerah dan coba tambahkan pengalaman atau skill yang relevan di CV Anda!</p>
                       )}
@@ -1562,7 +1562,7 @@ function StatusValidasiContent() {
                     </div>
                     <div>
                       <strong className="block text-slate-800 dark:text-slate-200 mb-0.5">Penilaian Berkas (CV)</strong>
-                      <p>Latar belakang dan pengalaman Anda dinilai cocok sekitar <strong>{activeHumanModalJob.cvScore}%</strong>. Sistem juga mengenali kemampuan-kemampuan utama yang dicari oleh perusahaan dari profil Anda.</p>
+                      <p>Latar belakang dan pengalaman Anda dinilai cocok sekitar <strong>{activeHumanModalJob.cvScore}%</strong>. Sistem juga mengenali kemampuan-kemampuan utama yang dicari oleh UMKM dari profil Anda.</p>
                     </div>
                   </div>
 

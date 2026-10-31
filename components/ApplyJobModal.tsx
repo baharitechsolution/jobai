@@ -227,7 +227,7 @@ export function ApplyJobModal({ job, cvData, onClose, onSuccess }: ApplyJobModal
                             cvData.experiences.map((exp: any, idx: number) => (
                               <div key={idx} className="space-y-1">
                                 <div className="flex justify-between items-baseline text-xs font-bold text-slate-800">
-                                  <span>{exp.role || '[Posisi]'} - {exp.company || '[Perusahaan]'}</span>
+                                  <span>{exp.role || '[Posisi]'} - {exp.company || '[UMKM]'}</span>
                                   <span className="text-[10px] text-slate-500 font-normal">{exp.period}</span>
                                 </div>
                                 {exp.description && (

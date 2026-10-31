@@ -311,7 +311,7 @@ function DashboardContent() {
             industry: c.industri || 'Umum & Teknologi',
             location: c.alamat || c.kota || 'Indonesia',
             openJobsCount: c.jobs_count || c.open_jobs_count || 0,
-            description: c.deskripsi || 'Perusahaan terverifikasi di platform AI Recruit Pro.'
+            description: c.deskripsi || 'UMKM terverifikasi di platform AI Recruit Pro.'
           }));
           setCompaniesList(mappedComp);
         }
@@ -477,7 +477,7 @@ function DashboardContent() {
           return {
             id: j.id,
             title: j.judul_posisi,
-            company: j.perusahaan?.nama_perusahaan || 'Perusahaan',
+            company: j.perusahaan?.nama_perusahaan || 'UMKM',
             logo: (j.perusahaan?.logo_url && j.perusahaan.logo_url !== '')
               ? getMediaUrl(j.perusahaan.logo_url)
               : 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=120&auto=format&fit=crop&q=80',
@@ -505,7 +505,7 @@ function DashboardContent() {
             reason: j.reason || (language === 'id' ? 'Keahlian & kualifikasi Anda sesuai dengan posisi ini.' : 'Your skills and qualifications match this role.'),
             descriptionBullets: safeParseArray(j.deskripsi_pekerjaan),
             responsibilitiesBullets: safeParseArray(j.tanggung_jawab),
-            placementInfo: j.kota ? (language === 'id' ? `Untuk lokasi di ${j.kota}` : `Located in ${j.kota}`) : (j.lokasi_kerja === 'remote' ? (language === 'id' ? 'Remote (Kerja Dari Mana Saja)' : 'Remote (Work From Anywhere)') : (language === 'id' ? 'Lokasi Perusahaan' : 'Company Location')),
+            placementInfo: j.kota ? (language === 'id' ? `Untuk lokasi di ${j.kota}` : `Located in ${j.kota}`) : (j.lokasi_kerja === 'remote' ? (language === 'id' ? 'Remote (Kerja Dari Mana Saja)' : 'Remote (Work From Anywhere)') : (language === 'id' ? 'Lokasi UMKM' : 'Company Location')),
             criteriaBullets: safeParseArray(j.kualifikasi),
           };
         });
@@ -554,7 +554,7 @@ function DashboardContent() {
           industry: c.industri || 'Umum & Teknologi',
           location: c.alamat || c.kota || 'Indonesia',
           openJobsCount: c.jobs_count || c.open_jobs_count || 0,
-          description: c.deskripsi || 'Perusahaan terverifikasi di platform AI Recruit Pro.'
+          description: c.deskripsi || 'UMKM terverifikasi di platform AI Recruit Pro.'
         }));
         setCompaniesList(mappedComp);
       } else {
@@ -743,7 +743,7 @@ function DashboardContent() {
                 name="keyword"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder={activeTab === 'companies' ? (language === 'id' ? 'Cari perusahaan atau industri...' : 'Search company or industry...') : t.pelamar.dashboard.searchPlaceholder}
+                placeholder={activeTab === 'companies' ? (language === 'id' ? 'Cari UMKM atau industri...' : 'Search company or industry...') : t.pelamar.dashboard.searchPlaceholder}
                 className="w-full pl-10 pr-9 py-2.5 bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 text-slate-800 dark:text-white rounded-xl text-xs font-semibold placeholder:text-slate-400 outline-none focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-[#1A4B9F]/20 focus:border-[#1A4B9F] transition-all shadow-2xs"
               />
               {searchQuery && (
@@ -856,7 +856,7 @@ function DashboardContent() {
                 name="keyword"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder={activeTab === 'companies' ? (language === 'id' ? 'Cari nama perusahaan atau industri...' : 'Search company or industry...') : t.pelamar.dashboard.searchPlaceholder}
+                placeholder={activeTab === 'companies' ? (language === 'id' ? 'Cari nama UMKM atau industri...' : 'Search company or industry...') : t.pelamar.dashboard.searchPlaceholder}
                 className="w-full pl-10 pr-4 py-2.5 sm:py-3 bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700 text-slate-800 dark:text-white rounded-xl text-xs sm:text-sm font-semibold placeholder:text-slate-400 outline-none focus:bg-white focus:ring-2 focus:ring-[#1A4B9F]/20 focus:border-[#1A4B9F] transition-all shadow-2xs inset-ring-slate-100"
               />
             </div>
@@ -1124,7 +1124,7 @@ function DashboardContent() {
               {activeTab === 'companies' ? (
                 <div>
                   <label className="block text-slate-500 mb-1.5 font-bold">
-                    {language === 'id' ? 'Industri Perusahaan' : 'Company Industry'}
+                    {language === 'id' ? 'Industri UMKM' : 'Company Industry'}
                   </label>
                   <select
                     value={industryFilter}
@@ -1298,7 +1298,7 @@ function DashboardContent() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {filteredCompanies.length === 0 ? (
               <div className="col-span-full py-12 text-center">
-                <p className="text-slate-500 font-semibold">{language === 'id' ? 'Tidak ada perusahaan yang sesuai dengan pencarian Anda.' : 'No companies match your search.'}</p>
+                <p className="text-slate-500 font-semibold">{language === 'id' ? 'Tidak ada UMKM yang sesuai dengan pencarian Anda.' : 'No companies match your search.'}</p>
               </div>
             ) : (
               filteredCompanies.map((comp) => {
@@ -2200,7 +2200,7 @@ function DashboardContent() {
                     const url = typeof window !== 'undefined' ? window.location.origin + '/jobs/' + shareJob.id : '';
                     const subject = language === 'id' ? `Lowongan Pekerjaan: ${shareJob.title} di ${shareJob.company}` : `Job Opening: ${shareJob.title} at ${shareJob.company}`;
                     const body = language === 'id'
-                      ? `Halo,\n\nSaya ingin membagikan info lowongan pekerjaan berikut:\n\nPosisi: ${shareJob.title}\nPerusahaan: ${shareJob.company}\nLokasi: ${shareJob.location}\n\nLink detail & pendaftaran: ${url}`
+                      ? `Halo,\n\nSaya ingin membagikan info lowongan pekerjaan berikut:\n\nPosisi: ${shareJob.title}\nUMKM: ${shareJob.company}\nLokasi: ${shareJob.location}\n\nLink detail & pendaftaran: ${url}`
                       : `Hello,\n\nI would like to share the following job opening:\n\nPosition: ${shareJob.title}\nCompany: ${shareJob.company}\nLocation: ${shareJob.location}\n\nApply & view job details: ${url}`;
                     window.open(`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
                   }}

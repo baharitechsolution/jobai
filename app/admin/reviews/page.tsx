@@ -250,7 +250,7 @@ function AdminReviewsContent() {
             Manajemen Ulasan & Feedback
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
-            Kelola ulasan, masukan pengguna, dan penilaian bintang yang dikirimkan oleh pelamar & perusahaan.
+            Kelola ulasan, masukan pengguna, dan penilaian bintang yang dikirimkan oleh pelamar & UMKM.
           </p>
         </div>
 

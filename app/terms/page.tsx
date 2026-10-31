@@ -51,16 +51,16 @@ export default function TermsPage() {
                 1. Keabsahan Informasi
               </h2>
               <p>
-                Pengguna (baik pelamar maupun perusahaan) menjamin kebenaran, keaslian, dan kemutakhiran seluruh dokumen dan data yang diunggah. Memalsukan dokumen atau memberikan informasi yang menyesatkan dapat mengakibatkan penangguhan atau penghapusan akun secara permanen.
+                Pengguna (baik pelamar maupun UMKM) menjamin kebenaran, keaslian, dan kemutakhiran seluruh dokumen dan data yang diunggah. Memalsukan dokumen atau memberikan informasi yang menyesatkan dapat mengakibatkan penangguhan atau penghapusan akun secara permanen.
               </p>
             </div>
 
             <div className="space-y-4">
               <h2 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                2. Kerahasiaan Perusahaan
+                2. Kerahasiaan UMKM
               </h2>
               <p>
-                Segala informasi mengenai proses seleksi, struktur wawancara, dan materi soal tes yang disediakan oleh perusahaan bersifat sangat rahasia. Pelamar setuju untuk tidak menyebarluaskan, mendistribusikan, atau mereproduksi informasi tersebut ke pihak manapun.
+                Segala informasi mengenai proses seleksi, struktur wawancara, dan materi soal tes yang disediakan oleh UMKM bersifat sangat rahasia. Pelamar setuju untuk tidak menyebarluaskan, mendistribusikan, atau mereproduksi informasi tersebut ke pihak manapun.
               </p>
             </div>
 
@@ -78,7 +78,7 @@ export default function TermsPage() {
                 4. Batasan Tanggung Jawab
               </h2>
               <p>
-                Meskipun AI-RecruitPro menyediakan algoritma kecocokan (AI Matching) yang tingkat akurasinya tinggi, keputusan penerimaan akhir sepenuhnya merupakan hak prerogatif mutlak dari perusahaan yang merekrut. AI-RecruitPro tidak menjamin penempatan kerja secara pasti.
+                Meskipun AI-RecruitPro menyediakan algoritma kecocokan (AI Matching) yang tingkat akurasinya tinggi, keputusan penerimaan akhir sepenuhnya merupakan hak prerogatif mutlak dari UMKM yang merekrut. AI-RecruitPro tidak menjamin penempatan kerja secara pasti.
               </p>
             </div>
 

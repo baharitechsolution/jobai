@@ -32,7 +32,7 @@ export async function generateMetadata(): Promise<Metadata> {
     "applicant tracking system AI",
     "screening CV otomatis",
     "lowongan kerja AI",
-    "software rekrutmen perusahaan"
+    "software rekrutmen UMKM"
   ];
 
   let logoUrl = `${siteUrl}/logo_hd.png`;

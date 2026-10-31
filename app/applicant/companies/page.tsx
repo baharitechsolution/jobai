@@ -267,10 +267,10 @@ function CompaniesPageContent() {
           {/* Header Context */}
           <div>
             <h1 className="text-base sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              Eksplorasi Perusahaan
+              Eksplorasi UMKM
             </h1>
             <p className="text-[11px] sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-1 sm:line-clamp-none">
-              Temukan perusahaan terpercaya, dan lowongan karir terbaik di Indonesia.
+              Temukan UMKM terpercaya, dan lowongan karir terbaik di Indonesia.
             </p>
           </div>
 
@@ -285,7 +285,7 @@ function CompaniesPageContent() {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => handleSearchChange(e.target.value)}
-                  placeholder="Cari nama perusahaan..."
+                  placeholder="Cari nama UMKM..."
                   className="w-full text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-100 placeholder-slate-400 bg-transparent focus:outline-none"
                 />
                 {searchQuery && (
@@ -411,14 +411,14 @@ function CompaniesPageContent() {
         {/* Results Counter Sub-header */}
         <div className="flex items-center justify-between border-b border-slate-200/80 dark:border-slate-800 pb-2 sm:pb-3">
           <p className="text-[11px] sm:text-sm text-slate-500 dark:text-slate-400 font-medium">
-            Menampilkan <strong className="text-slate-900 dark:text-white font-bold">{startIndex} - {endIndex}</strong> dari <strong className="text-slate-900 dark:text-white font-bold">{filteredCompanies.length}</strong> perusahaan terverifikasi
+            Menampilkan <strong className="text-slate-900 dark:text-white font-bold">{startIndex} - {endIndex}</strong> dari <strong className="text-slate-900 dark:text-white font-bold">{filteredCompanies.length}</strong> UMKM terverifikasi
           </p>
         </div>
 
         {loading ? (
           <div className="py-20 text-center">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-slate-800 dark:border-slate-200 mx-auto mb-3"></div>
-            <p className="text-slate-500 text-xs font-semibold animate-pulse">Memuat daftar perusahaan...</p>
+            <p className="text-slate-500 text-xs font-semibold animate-pulse">Memuat daftar UMKM...</p>
           </div>
         ) : paginatedCompanies.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-5">
@@ -459,7 +459,7 @@ function CompaniesPageContent() {
                         <h3 className="font-bold text-xs sm:text-sm text-slate-900 dark:text-white group-hover:text-[#1A4B9F] dark:group-hover:text-blue-400 transition-colors truncate">
                           {comp.nama_perusahaan}
                         </h3>
-                        <span title="Perusahaan Terverifikasi" className="shrink-0">
+                        <span title="UMKM Terverifikasi" className="shrink-0">
                           <ShieldCheck size={14} className="text-emerald-600 dark:text-emerald-400" />
                         </span>
                       </div>
@@ -502,8 +502,8 @@ function CompaniesPageContent() {
         ) : (
           <div className="bg-white dark:bg-slate-900 p-12 rounded-xl border border-slate-200 dark:border-slate-800 text-center space-y-3 max-w-xl mx-auto">
             <Building2 size={40} className="text-slate-300 mx-auto" />
-            <h3 className="text-base font-bold text-slate-800 dark:text-white">Perusahaan tidak ditemukan</h3>
-            <p className="text-xs text-slate-500">Tidak ada perusahaan yang sesuai dengan kata kunci atau filter lokasi.</p>
+            <h3 className="text-base font-bold text-slate-800 dark:text-white">UMKM tidak ditemukan</h3>
+            <p className="text-xs text-slate-500">Tidak ada UMKM yang sesuai dengan kata kunci atau filter lokasi.</p>
             <button
               onClick={() => { setSearchQuery(''); setSelectedIndustry('Semua'); setSelectedCity('Semua'); }}
               className="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold cursor-pointer transition-colors"

@@ -52,7 +52,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     { label: 'Dashboard', icon: LayoutDashboard, href: '/admin/dashboard' },
     { label: 'Manajemen Lowongan', icon: Briefcase, href: '/admin/jobs' },
     { label: 'Manajemen Pengguna', icon: Users, href: '/admin/users' },
-    { label: 'Verifikasi Perusahaan', icon: ShieldCheck, href: '/admin/verifikasi' },
+    { label: 'Verifikasi UMKM', icon: ShieldCheck, href: '/admin/verifikasi' },
     { label: 'Ulasan & Feedback', icon: MessageSquareQuote, href: '/admin/reviews' },
     { label: 'Master Data', icon: Database, href: '/admin/master-data' },
   ];

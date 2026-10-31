@@ -39,7 +39,7 @@ const DEFAULT_COMPANY_TEMPLATES: Record<string, string> = {
 
 Mewakili tim rekrutmen {{company_name}}, kami mengucapkan terima kasih atas ketertarikan Anda untuk bergabung bersama kami. Kami telah meninjau profil dan kualifikasi Anda, dan dengan senang hati kami sampaikan bahwa Anda berhasil melangkah ke tahapan seleksi berikutnya untuk posisi {{job_title}}.
 
-Sebagai bagian dari proses seleksi standar di {{company_name}}, tahapan selanjutnya adalah Wawancara Video Asinkron (berbasis AI). Sesi ini bertujuan untuk mengenal lebih jauh potensi, kompetensi, dan kecocokan Anda dengan nilai-nilai perusahaan kami.
+Sebagai bagian dari proses seleksi standar di {{company_name}}, tahapan selanjutnya adalah Wawancara Video Asinkron (berbasis AI). Sesi ini bertujuan untuk mengenal lebih jauh potensi, kompetensi, dan kecocokan Anda dengan nilai-nilai UMKM kami.
 
 Anda dapat mengakses dan memulai sesi wawancara video melalui tautan aman berikut:
 {{interview_link}}
@@ -88,7 +88,7 @@ Tim Talent Acquisition
 
 Menindaklanjuti seluruh rangkaian proses rekrutmen yang telah Anda jalani, kami mengucapkan terima kasih atas dedikasi dan waktu yang Anda luangkan. Kami sangat terkesan dengan rekam jejak, kompetensi, dan visi yang Anda tunjukkan selama tahapan wawancara.
 
-Oleh karena itu, kami dengan bangga menawarkan kepada Anda posisi {{job_title}} di {{company_name}}. Kami yakin bahwa keahlian Anda akan memberikan kontribusi yang signifikan bagi pencapaian strategis perusahaan.
+Oleh karena itu, kami dengan bangga menawarkan kepada Anda posisi {{job_title}} di {{company_name}}. Kami yakin bahwa keahlian Anda akan memberikan kontribusi yang signifikan bagi pencapaian strategis UMKM.
 
 Dalam waktu dekat, Tim HR kami akan menghubungi Anda (melalui email terpisah atau telepon) untuk mengirimkan Dokumen Penawaran Kerja Resmi (Offering Letter) yang memuat rincian kompensasi, benefit, serta prosedur administrasi (Onboarding) yang perlu Anda selesaikan.
 
@@ -131,7 +131,7 @@ const COMPANY_TEMPLATE_CONFIGS: TemplateConfig[] = [
     variables: [
       { tag: '{{candidate_name}}', desc: 'Nama lengkap pelamar', sample: 'Ahmad Fauzi' },
       { tag: '{{job_title}}', desc: 'Judul posisi lowongan', sample: 'Frontend Engineer' },
-      { tag: '{{company_name}}', desc: 'Nama instansi / perusahaan', sample: 'PT Teknologi Inovasi' },
+      { tag: '{{company_name}}', desc: 'Nama instansi / UMKM', sample: 'PT Teknologi Inovasi' },
       { tag: '{{interview_link}}', desc: 'Link ke portal perekaman wawancara', sample: 'https://airecruit-pro.com/applicant/status' }
     ]
   },
@@ -146,7 +146,7 @@ const COMPANY_TEMPLATE_CONFIGS: TemplateConfig[] = [
     variables: [
       { tag: '{{candidate_name}}', desc: 'Nama lengkap pelamar', sample: 'Ahmad Fauzi' },
       { tag: '{{job_title}}', desc: 'Judul posisi lowongan', sample: 'Frontend Engineer' },
-      { tag: '{{company_name}}', desc: 'Nama instansi / perusahaan', sample: 'PT Teknologi Inovasi' },
+      { tag: '{{company_name}}', desc: 'Nama instansi / UMKM', sample: 'PT Teknologi Inovasi' },
       { tag: '{{jadwal_wawancara}}', desc: 'Hari, tanggal, dan jam wawancara', sample: 'Jumat, 12 September 2026, 14:00 WIB' },
       { tag: '{{lokasi_atau_link}}', desc: 'Tautan Google Meet atau alamat kantor', sample: 'https://meet.google.com/abc-defg-hij' },
       { tag: '{{catatan_hr}}', desc: 'Instruksi khusus atau catatan persiapan', sample: 'Siapkan laptop dan portofolio proyek terbaik Anda.' }
@@ -163,7 +163,7 @@ const COMPANY_TEMPLATE_CONFIGS: TemplateConfig[] = [
     variables: [
       { tag: '{{candidate_name}}', desc: 'Nama lengkap pelamar', sample: 'Ahmad Fauzi' },
       { tag: '{{job_title}}', desc: 'Judul posisi lowongan', sample: 'Frontend Engineer' },
-      { tag: '{{company_name}}', desc: 'Nama instansi / perusahaan', sample: 'PT Teknologi Inovasi' }
+      { tag: '{{company_name}}', desc: 'Nama instansi / UMKM', sample: 'PT Teknologi Inovasi' }
     ]
   },
   {
@@ -177,7 +177,7 @@ const COMPANY_TEMPLATE_CONFIGS: TemplateConfig[] = [
     variables: [
       { tag: '{{candidate_name}}', desc: 'Nama lengkap pelamar', sample: 'Ahmad Fauzi' },
       { tag: '{{job_title}}', desc: 'Judul posisi lowongan', sample: 'Frontend Engineer' },
-      { tag: '{{company_name}}', desc: 'Nama instansi / perusahaan', sample: 'PT Teknologi Inovasi' },
+      { tag: '{{company_name}}', desc: 'Nama instansi / UMKM', sample: 'PT Teknologi Inovasi' },
       { tag: '{{alasan_penolakan}}', desc: 'Alasan atau catatan penolakan dari HR', sample: 'Kualifikasi pengalaman teknis belum memenuhi standar minimum posisi ini.' }
     ]
   }
@@ -270,7 +270,7 @@ function SettingsPageContent() {
       }
     } catch (error) {
       console.error("Gagal memuat pengaturan", error);
-      toast.error('Gagal memuat pengaturan perusahaan');
+      toast.error('Gagal memuat pengaturan UMKM');
     } finally {
       setIsLoading(false);
     }
@@ -325,7 +325,7 @@ function SettingsPageContent() {
         method: 'POST',
         body: JSON.stringify({
           recipient: testEmailRecipient,
-          subject: `[TEST PERUSAHAAN] ${subject}`,
+          subject: `[TEST UMKM] ${subject}`,
           body: body
         })
       });
@@ -384,7 +384,7 @@ function SettingsPageContent() {
       });
 
       if (res.ok) {
-        toast.success(t.settings?.settingsSaved || 'Pengaturan perusahaan berhasil disimpan!');
+        toast.success(t.settings?.settingsSaved || 'Pengaturan UMKM berhasil disimpan!');
         if (typeof window !== 'undefined') {
           window.dispatchEvent(new Event('company_profile_updated'));
         }
@@ -426,7 +426,7 @@ function SettingsPageContent() {
         if (typeof window !== 'undefined') {
           window.dispatchEvent(new Event('company_profile_updated'));
         }
-        toast.success('Logo perusahaan berhasil diperbarui');
+        toast.success('Logo UMKM berhasil diperbarui');
       } else {
         toast.error('Gagal mengunggah logo');
       }
@@ -467,10 +467,10 @@ function SettingsPageContent() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="text-2xl font-extrabold text-foreground tracking-tight">
-            {t.settings?.title || 'Pengaturan Perusahaan'}
+            {t.settings?.title || 'Pengaturan UMKM'}
           </h1>
           <p className="text-xs text-muted-foreground font-medium mt-1">
-            {t.settings?.subtitle || 'Kelola profil resmi perusahaan dan sesuaikan template pesan email notifikasi untuk kandidat pelamar.'}
+            {t.settings?.subtitle || 'Kelola profil resmi UMKM dan sesuaikan template pesan email notifikasi untuk kandidat pelamar.'}
           </p>
         </div>
 
@@ -500,7 +500,7 @@ function SettingsPageContent() {
             }`}
         >
           <Building2 size={16} />
-          {t.settings?.companyProfileTab || 'Profil Perusahaan'}
+          {t.settings?.companyProfileTab || 'Profil UMKM'}
         </button>
 
         <button
@@ -523,12 +523,12 @@ function SettingsPageContent() {
       {activeTab === 'profile' && (
         <form onSubmit={handleSave} className="space-y-8 animate-in fade-in duration-200">
           <div className="bg-card p-6 sm:p-8 rounded-2xl border border-border shadow-xs space-y-6">
-            <h3 className="font-extrabold text-base text-foreground">Informasi Dasar Perusahaan</h3>
+            <h3 className="font-extrabold text-base text-foreground">Informasi Dasar UMKM</h3>
             {isOnboarding && (
               <div className="bg-rose-50 border border-rose-200 text-rose-800 p-4 rounded-xl text-sm font-medium flex items-start gap-3">
                 <AlertCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
                 <p>
-                  <strong>Aksi Diperlukan:</strong> Mohon lengkapi profil perusahaan Anda di bawah ini agar dapat mengakses Dashboard dan fitur lainnya. 
+                  <strong>Aksi Diperlukan:</strong> Mohon lengkapi profil UMKM Anda di bawah ini agar dapat mengakses Dashboard dan fitur lainnya. 
                   Data yang sudah Anda isi saat registrasi tidak dapat diubah di sini.
                 </p>
               </div>
@@ -546,7 +546,7 @@ function SettingsPageContent() {
               <div className="space-y-2">
                 <div className="flex items-center gap-3">
                   <span className="text-xs font-bold text-foreground">
-                    Logo Perusahaan {isOnboarding && <span className="text-rose-500">*</span>}
+                    Logo UMKM {isOnboarding && <span className="text-rose-500">*</span>}
                   </span>
                   <input
                     type="file"
@@ -579,7 +579,7 @@ function SettingsPageContent() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-4 border-t border-border">
               <div>
-                <label className="block text-xs font-bold text-foreground mb-1.5">Nama Perusahaan</label>
+                <label className="block text-xs font-bold text-foreground mb-1.5">Nama UMKM</label>
                 <input
                   type="text"
                   value={companyName}
@@ -602,7 +602,7 @@ function SettingsPageContent() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-foreground mb-1.5">Ukuran Perusahaan</label>
+                <label className="block text-xs font-bold text-foreground mb-1.5">Ukuran UMKM</label>
                 <select
                   value={companySize}
                   onChange={(e) => setCompanySize(e.target.value)}
@@ -632,7 +632,7 @@ function SettingsPageContent() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-foreground mb-1.5">Website Perusahaan</label>
+                <label className="block text-xs font-bold text-foreground mb-1.5">Website UMKM</label>
                 <input
                   type="url"
                   value={website}
@@ -659,14 +659,14 @@ function SettingsPageContent() {
 
               <div className="md:col-span-2">
                 <label className="block text-xs font-bold text-foreground mb-1.5">
-                  Deskripsi Perusahaan {isOnboarding && <span className="text-rose-500">*</span>}
+                  Deskripsi UMKM {isOnboarding && <span className="text-rose-500">*</span>}
                 </label>
                 <textarea
                   rows={3}
                   value={companyDesc}
                   onChange={(e) => setCompanyDesc(e.target.value)}
                   required={isOnboarding}
-                  placeholder="Jelaskan visi, misi, dan profil singkat perusahaan Anda..."
+                  placeholder="Jelaskan visi, misi, dan profil singkat UMKM Anda..."
                   className="w-full p-4 bg-muted/30 border border-border rounded-xl text-xs text-foreground focus:ring-2 focus:ring-primary/20 outline-none resize-none font-medium"
                 />
               </div>
@@ -933,7 +933,7 @@ function SettingsPageContent() {
                       <div className="w-2.5 h-2.5 rounded-full bg-amber-400" />
                       <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
                       <span className="ml-2 text-[10px] font-mono text-muted-foreground truncate">
-                        Preview: {companyName || 'Perusahaan Anda'}
+                        Preview: {companyName || 'UMKM Anda'}
                       </span>
                     </div>
 
@@ -942,7 +942,7 @@ function SettingsPageContent() {
                       <div className="flex items-center gap-2 text-[11px]">
                         <span className="text-muted-foreground font-bold w-14 shrink-0">Dari:</span>
                         <span className="text-foreground font-semibold truncate">
-                          {companyName || 'Perusahaan Anda'} &lt;noreply@airecruitpro.com&gt;
+                          {companyName || 'UMKM Anda'} &lt;noreply@airecruitpro.com&gt;
                         </span>
                       </div>
                       <div className="flex items-center gap-2 text-[11px]">
@@ -1003,13 +1003,13 @@ function SettingsPageContent() {
                 type="email"
                 value={testEmailRecipient}
                 onChange={(e) => setTestEmailRecipient(e.target.value)}
-                placeholder="email.anda@perusahaan.com"
+                placeholder="email.anda@umkm.com"
                 className="w-full px-4 py-2.5 bg-muted/30 border border-border rounded-xl text-xs text-foreground focus:ring-2 focus:ring-primary/20 outline-none font-medium"
               />
             </div>
 
             <div className="p-3 rounded-xl bg-muted/30 border border-border text-[11px] text-muted-foreground">
-              <span className="font-bold">Subjek:</span> [TEST PERUSAHAAN] {renderedPreview.subject}
+              <span className="font-bold">Subjek:</span> [TEST UMKM] {renderedPreview.subject}
             </div>
 
             <div className="flex justify-end gap-2 pt-2">

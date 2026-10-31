@@ -46,7 +46,7 @@ export default function PrivacyPolicyPage() {
                 1. Komitmen Kami
               </h2>
               <p>
-                AI-RecruitPro menjamin kerahasiaan dan keamanan data pribadi pelamar serta perusahaan secara menyeluruh. Kami berkomitmen untuk melindungi informasi Anda dengan standar keamanan tertinggi (standar ISO 27001) dan mematuhi peraturan perlindungan data yang berlaku di Indonesia.
+                AI-RecruitPro menjamin kerahasiaan dan keamanan data pribadi pelamar serta UMKM secara menyeluruh. Kami berkomitmen untuk melindungi informasi Anda dengan standar keamanan tertinggi (standar ISO 27001) dan mematuhi peraturan perlindungan data yang berlaku di Indonesia.
               </p>
             </div>
 
@@ -66,7 +66,7 @@ export default function PrivacyPolicyPage() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 size={18} className="text-emerald-500 shrink-0 mt-0.5" />
-                  <span><strong>Data Perusahaan:</strong> Nomor Induk Berusaha (NIB), profil perusahaan, dan identitas HR yang valid.</span>
+                  <span><strong>Data UMKM:</strong> Nomor Induk Berusaha (NIB), profil UMKM, dan identitas HR yang valid.</span>
                 </li>
               </ul>
             </div>

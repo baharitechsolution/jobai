@@ -106,10 +106,10 @@ function AdminVerificationContent() {
         const data = await res.json();
         setCompanies(Array.isArray(data) ? data : []);
       } else {
-        toast.error('Gagal memuat data perusahaan');
+        toast.error('Gagal memuat data UMKM');
       }
     } catch {
-      toast.error('Gagal memuat data perusahaan. Periksa koneksi backend.');
+      toast.error('Gagal memuat data UMKM. Periksa koneksi backend.');
     } finally {
       setIsLoading(false);
     }
@@ -138,7 +138,7 @@ function AdminVerificationContent() {
   const handleApprove = async (companyId: string, companyName: string) => {
     if (
       !window.confirm(
-        `Setujui akun perusahaan "${companyName || 'ini'}"? Akses dashboard rekrutmen akan langsung aktif.`
+        `Setujui akun UMKM "${companyName || 'ini'}"? Akses dashboard rekrutmen akan langsung aktif.`
       )
     )
       return;
@@ -147,16 +147,16 @@ function AdminVerificationContent() {
     try {
       const res = await fetchAuth(`/api/admin/perusahaan/${companyId}/verify`, { method: 'PUT' });
       if (res.ok) {
-        toast.success(`Akun "${companyName || 'Perusahaan'}" berhasil disetujui!`, { icon: '🎉' });
+        toast.success(`Akun "${companyName || 'UMKM'}" berhasil disetujui!`, { icon: '🎉' });
         if (selectedCompany?.id === companyId) {
           setSelectedCompany(null);
         }
         loadPendingCompanies(activeSearch);
       } else {
-        toast.error('Gagal memverifikasi perusahaan');
+        toast.error('Gagal memverifikasi UMKM');
       }
     } catch {
-      toast.error('Terjadi kesalahan saat memverifikasi perusahaan');
+      toast.error('Terjadi kesalahan saat memverifikasi UMKM');
     } finally {
       setApprovingId(null);
     }
@@ -185,7 +185,7 @@ function AdminVerificationContent() {
 
       if (res.ok) {
         toast.success(
-          `Verifikasi "${companyToReject.nama_perusahaan}" berhasil ditolak. Instruksi perbaikan telah dikirimkan ke perusahaan.`,
+          `Verifikasi "${companyToReject.nama_perusahaan}" berhasil ditolak. Instruksi perbaikan telah dikirimkan ke UMKM.`,
           { icon: '⚠️' }
         );
         if (selectedCompany?.id === companyToReject.id) {
@@ -197,7 +197,7 @@ function AdminVerificationContent() {
         loadPendingCompanies(activeSearch);
       } else {
         const err = await res.json().catch(() => ({}));
-        toast.error(typeof err.detail === 'string' ? err.detail : 'Gagal menolak verifikasi perusahaan');
+        toast.error(typeof err.detail === 'string' ? err.detail : 'Gagal menolak verifikasi UMKM');
       }
     } catch {
       toast.error('Terjadi kesalahan saat memproses penolakan.');
@@ -209,7 +209,7 @@ function AdminVerificationContent() {
   const handleBanCompany = async (company: CompanyVerificationItem) => {
     const targetUserId = company.user_id;
     if (!targetUserId) {
-      toast.error('ID Pengguna tidak ditemukan untuk akun perusahaan ini.');
+      toast.error('ID Pengguna tidak ditemukan untuk akun UMKM ini.');
       return;
     }
 
@@ -217,7 +217,7 @@ function AdminVerificationContent() {
     const actionLabel = isBanned ? 'Unban (Buka Blokir)' : 'Ban (Blokir Akun)';
     if (
       !window.confirm(
-        `Yakin ingin melakukan ${actionLabel} untuk perusahaan "${company.nama_perusahaan || 'ini'}"?`
+        `Yakin ingin melakukan ${actionLabel} untuk UMKM "${company.nama_perusahaan || 'ini'}"?`
       )
     )
       return;
@@ -282,7 +282,7 @@ function AdminVerificationContent() {
     },
     {
       key: 'nama_perusahaan',
-      header: 'Perusahaan',
+      header: 'UMKM',
       align: 'left',
       render: (c) => (
         <div className="flex items-center gap-3">
@@ -307,7 +307,7 @@ function AdminVerificationContent() {
                     ? 'bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300'
                     : 'bg-blue-100 text-blue-800 dark:bg-blue-950/80 dark:text-blue-300'
                 }`}>
-                  {c.is_gmail || c.email.toLowerCase().includes('@gmail.com') ? 'Gmail (Wajib NIB)' : 'Domain Perusahaan'}
+                  {c.is_gmail || c.email.toLowerCase().includes('@gmail.com') ? 'Gmail (Wajib NIB)' : 'Domain UMKM'}
                 </span>
               )}
             </div>
@@ -477,7 +477,7 @@ function AdminVerificationContent() {
                   ? 'bg-rose-100 dark:bg-rose-950/60 text-rose-700 dark:text-rose-400 border-rose-300 dark:border-rose-800'
                   : 'bg-slate-100 dark:bg-slate-800 text-black dark:text-white hover:bg-rose-100 dark:hover:bg-rose-950/60 hover:text-rose-600 border-slate-200 dark:border-slate-700'
               }`}
-              title={c.is_banned ? 'Unban Akun Perusahaan' : 'Ban Akun Perusahaan (Spam / Iseng)'}
+              title={c.is_banned ? 'Unban Akun UMKM' : 'Ban Akun UMKM (Spam / Iseng)'}
             >
               {c.is_banned ? (
                 <ShieldCheck size={14} className="text-emerald-600 dark:text-emerald-400" />
@@ -500,7 +500,7 @@ function AdminVerificationContent() {
               onClick={() => handleApprove(c.id, c.nama_perusahaan)}
               disabled={isApproving || isRejecting}
               className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-xs transition-all disabled:opacity-50"
-              title="Setujui Akun Perusahaan"
+              title="Setujui Akun UMKM"
             >
               {isApproving ? (
                 <RefreshCw size={13} className="animate-spin" />
@@ -528,7 +528,7 @@ function AdminVerificationContent() {
                   ? 'bg-rose-100 dark:bg-rose-950/60 text-rose-700 dark:text-rose-400 border-rose-300 dark:border-rose-800'
                   : 'bg-slate-100 dark:bg-slate-800 text-black dark:text-white hover:bg-rose-100 dark:hover:bg-rose-950/60 hover:text-rose-600 border-slate-200 dark:border-slate-700'
               }`}
-              title={c.is_banned ? 'Unban Akun Perusahaan' : 'Ban Akun Perusahaan (Spam / Iseng)'}
+              title={c.is_banned ? 'Unban Akun UMKM' : 'Ban Akun UMKM (Spam / Iseng)'}
             >
               {c.is_banned ? (
                 <ShieldCheck size={14} className="text-emerald-600 dark:text-emerald-400" />
@@ -549,7 +549,7 @@ function AdminVerificationContent() {
         <div>
           <div className="flex items-center gap-3">
             <h1 className="text-2xl font-bold text-slate-800 dark:text-white">
-              Verifikasi Legalitas Perusahaan
+              Verifikasi Legalitas UMKM
             </h1>
             {!isLoading && (
               <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-200 dark:border-amber-800">
@@ -558,7 +558,7 @@ function AdminVerificationContent() {
             )}
           </div>
           <p className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm mt-1">
-            Tinjau berkas legalitas (NIB &amp; ID Card HR) dan setujui perusahaan baru yang mendaftar.
+            Tinjau berkas legalitas (NIB &amp; ID Card HR) dan setujui UMKM baru yang mendaftar.
           </p>
         </div>
 
@@ -572,7 +572,7 @@ function AdminVerificationContent() {
                 type="text"
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
-                placeholder="Cari perusahaan, NIB, PIC..."
+                placeholder="Cari UMKM, NIB, PIC..."
                 className="w-full pl-9 pr-8 py-2 text-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 text-slate-800 dark:text-slate-200 shadow-xs"
               />
               {searchInput && (
@@ -716,7 +716,7 @@ function AdminVerificationContent() {
         </div>
 
         <span className="text-xs text-slate-400">
-          Menampilkan {filteredCompanies.length} perusahaan
+          Menampilkan {filteredCompanies.length} UMKM
         </span>
       </div>
 
@@ -751,17 +751,17 @@ function AdminVerificationContent() {
           onPageChange={setCurrentPage}
           emptyTitle={
             activeSearch
-              ? 'Tidak Ada Perusahaan Ditemukan'
+              ? 'Tidak Ada UMKM Ditemukan'
               : statusFilter === 'REJECTED'
-              ? 'Tidak Ada Perusahaan Ditolak'
+              ? 'Tidak Ada UMKM Ditolak'
               : 'Tidak Ada Antrean Verifikasi'
           }
           emptyDescription={
             activeSearch
-              ? `Tidak ada data perusahaan yang cocok dengan kata kunci "${activeSearch}".`
+              ? `Tidak ada data UMKM yang cocok dengan kata kunci "${activeSearch}".`
               : statusFilter === 'REJECTED'
-              ? 'Belum ada pendaftaran perusahaan yang berada pada status penolakan.'
-              : 'Semua pendaftaran perusahaan telah selesai diverifikasi atau belum ada pendaftaran baru.'
+              ? 'Belum ada pendaftaran UMKM yang berada pada status penolakan.'
+              : 'Semua pendaftaran UMKM telah selesai diverifikasi atau belum ada pendaftaran baru.'
           }
         />
       ) : (
@@ -770,7 +770,7 @@ function AdminVerificationContent() {
           {isLoading ? (
             <div className="p-12 text-center text-slate-400 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center justify-center gap-2">
               <RefreshCw size={18} className="animate-spin text-blue-500" />
-              <span className="text-sm font-medium">Memuat antrean verifikasi perusahaan...</span>
+              <span className="text-sm font-medium">Memuat antrean verifikasi UMKM...</span>
             </div>
           ) : filteredCompanies.length === 0 ? (
             <div className="p-12 text-center flex flex-col items-center bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
@@ -779,17 +779,17 @@ function AdminVerificationContent() {
               </div>
               <h3 className="text-lg font-bold text-slate-800 dark:text-white">
                 {activeSearch
-                  ? 'Tidak Ada Perusahaan Ditemukan'
+                  ? 'Tidak Ada UMKM Ditemukan'
                   : statusFilter === 'REJECTED'
-                  ? 'Tidak Ada Perusahaan Ditolak'
+                  ? 'Tidak Ada UMKM Ditolak'
                   : 'Tidak Ada Antrean Verifikasi'}
               </h3>
               <p className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm max-w-sm mt-1.5">
                 {activeSearch
-                  ? `Tidak ada data perusahaan yang cocok dengan kata kunci "${activeSearch}".`
+                  ? `Tidak ada data UMKM yang cocok dengan kata kunci "${activeSearch}".`
                   : statusFilter === 'REJECTED'
-                  ? 'Belum ada pendaftaran perusahaan yang ditolak.'
-                  : 'Semua pendaftaran perusahaan telah selesai diverifikasi.'}
+                  ? 'Belum ada pendaftaran UMKM yang ditolak.'
+                  : 'Semua pendaftaran UMKM telah selesai diverifikasi.'}
               </p>
             </div>
           ) : (
@@ -925,7 +925,7 @@ function AdminVerificationContent() {
                                   ? 'bg-rose-100 dark:bg-rose-950/60 text-rose-700 dark:text-rose-400 border-rose-300 dark:border-rose-800'
                                   : 'bg-slate-100 dark:bg-slate-800 text-black dark:text-white hover:bg-rose-100 dark:hover:bg-rose-950/60 hover:text-rose-600 border-slate-200 dark:border-slate-700'
                               }`}
-                              title={c.is_banned ? 'Unban Akun Perusahaan' : 'Ban Akun Perusahaan (Spam / Iseng)'}
+                              title={c.is_banned ? 'Unban Akun UMKM' : 'Ban Akun UMKM (Spam / Iseng)'}
                             >
                               {c.is_banned ? (
                                 <ShieldCheck size={14} className="text-emerald-600 dark:text-emerald-400" />
@@ -974,7 +974,7 @@ function AdminVerificationContent() {
                                   ? 'bg-rose-100 dark:bg-rose-950/60 text-rose-700 dark:text-rose-400 border-rose-300 dark:border-rose-800'
                                   : 'bg-slate-100 dark:bg-slate-800 text-black dark:text-white hover:bg-rose-100 dark:hover:bg-rose-950/60 hover:text-rose-600 border-slate-200 dark:border-slate-700'
                               }`}
-                              title={c.is_banned ? 'Unban Akun Perusahaan' : 'Ban Akun Perusahaan (Spam / Iseng)'}
+                              title={c.is_banned ? 'Unban Akun UMKM' : 'Ban Akun UMKM (Spam / Iseng)'}
                             >
                               {c.is_banned ? (
                                 <ShieldCheck size={14} className="text-emerald-600 dark:text-emerald-400" />
@@ -1019,7 +1019,7 @@ function AdminVerificationContent() {
                     {selectedCompany.nama_perusahaan || '-'}
                   </h2>
                   <span className="text-xs text-slate-400">
-                    {[selectedCompany.industri, selectedCompany.ukuran].filter(Boolean).join(' • ') || 'Profil Perusahaan'}
+                    {[selectedCompany.industri, selectedCompany.ukuran].filter(Boolean).join(' • ') || 'Profil UMKM'}
                   </span>
                 </div>
               </div>
@@ -1040,7 +1040,7 @@ function AdminVerificationContent() {
                   <Clock size={16} className="text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
                   <div>
                     <span className="font-bold block text-xs text-amber-800 dark:text-amber-300">
-                      Status: Menunggu Upload Ulang dari Perusahaan
+                      Status: Menunggu Upload Ulang dari UMKM
                     </span>
                     <span className="text-[11px] text-amber-700 dark:text-amber-400 block mt-0.5">
                       Catatan penolakan sebelumnya: &ldquo;{selectedCompany.rejection_reason || 'Persyaratan dokumen belum lengkap'}&rdquo;.
@@ -1052,10 +1052,10 @@ function AdminVerificationContent() {
               {/* Deskripsi */}
               <div>
                 <span className="block font-semibold text-slate-400 text-[11px] mb-1">
-                  Deskripsi Perusahaan
+                  Deskripsi UMKM
                 </span>
                 <p className="p-3 bg-slate-50 dark:bg-slate-950/60 rounded-xl border border-slate-100 dark:border-slate-800 leading-relaxed font-normal">
-                  {selectedCompany.deskripsi || 'Tidak ada deskripsi profil perusahaan.'}
+                  {selectedCompany.deskripsi || 'Tidak ada deskripsi profil UMKM.'}
                 </p>
               </div>
 
@@ -1236,7 +1236,7 @@ function AdminVerificationContent() {
                       ? 'bg-rose-100 dark:bg-rose-950/60 text-rose-700 dark:text-rose-400 border-rose-300 dark:border-rose-800'
                       : 'bg-slate-100 dark:bg-slate-800 text-black dark:text-white hover:bg-rose-100 dark:hover:bg-rose-950/60 hover:text-rose-600 border-slate-200 dark:border-slate-700'
                   }`}
-                  title={selectedCompany.is_banned ? 'Unban Akun Perusahaan' : 'Ban Akun Perusahaan (Spam / Iseng)'}
+                  title={selectedCompany.is_banned ? 'Unban Akun UMKM' : 'Ban Akun UMKM (Spam / Iseng)'}
                 >
                   {selectedCompany.is_banned ? (
                     <>
@@ -1300,7 +1300,7 @@ function AdminVerificationContent() {
                       ) : (
                         <ShieldCheck size={16} />
                       )}
-                      <span>Setujui Akun Perusahaan</span>
+                      <span>Setujui Akun UMKM</span>
                     </button>
                   </>
                 )}
@@ -1322,7 +1322,7 @@ function AdminVerificationContent() {
                 </div>
                 <div>
                   <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                    Tolak Verifikasi Perusahaan
+                    Tolak Verifikasi UMKM
                   </h2>
                   <span className="text-xs text-slate-400">
                     {companyToReject.nama_perusahaan}
@@ -1348,7 +1348,7 @@ function AdminVerificationContent() {
                   Pemberitahuan Instruksi Otomatis
                 </p>
                 <span>
-                  Alasan yang Anda tulis di bawah akan langsung ditampilkan kepada perwakilan perusahaan di halaman status akun mereka, dan sistem akan menginstruksikan mereka untuk memperbaiki data serta mengunggah ulang dokumen.
+                  Alasan yang Anda tulis di bawah akan langsung ditampilkan kepada perwakilan UMKM di halaman status akun mereka, dan sistem akan menginstruksikan mereka untuk memperbaiki data serta mengunggah ulang dokumen.
                 </span>
               </div>
 
@@ -1376,8 +1376,8 @@ function AdminVerificationContent() {
                     'Dokumen NIB / NPWP buram atau tidak terbaca dengan jelas.',
                     'Foto ID Card / KTP HR tidak sesuai dengan nama PIC pendaftar.',
                     'Nomor NIB tidak valid atau belum terdaftar resmi di OSS.',
-                    'Data profil perusahaan belum lengkap, mohon lengkapi alamat & sektor.',
-                    'Website resmi perusahaan tidak dapat diakses atau tidak aktif.'
+                    'Data profil UMKM belum lengkap, mohon lengkapi alamat & sektor.',
+                    'Website resmi UMKM tidak dapat diakses atau tidak aktif.'
                   ].map((preset, idx) => (
                     <button
                       key={idx}

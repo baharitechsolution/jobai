@@ -64,19 +64,19 @@ export default function KampusSupportPage() {
     },
     {
       q: 'Apakah data laporan Tracer Study dapat diunduh untuk kebutuhan Akreditasi (BAN-PT / LAM)?',
-      a: 'Sangat bisa. Seluruh statistik tingkat kelulusan kerja (Employment Rate), daftar perusahaan mitra perekrut, posisi jabatan, serta rentang periode dapat diekspor langsung ke dokumen laporan PDF atau spreadsheet yang siap dilampirkan dalam borang akreditasi perguruan tinggi.'
+      a: 'Sangat bisa. Seluruh statistik tingkat kelulusan kerja (Employment Rate), daftar UMKM mitra perekrut, posisi jabatan, serta rentang periode dapat diekspor langsung ke dokumen laporan PDF atau spreadsheet yang siap dilampirkan dalam borang akreditasi perguruan tinggi.'
     },
     {
-      q: 'Bagaimana skor AI PO-FIT menilai kesesuaian profil mahasiswa dengan kualifikasi perusahaan?',
-      a: 'Algoritma AI PO-FIT menganalisis kesesuaian antara latar belakang pendidikan, keahlian teknis (skills), dan pengalaman mahasiswa dengan kualifikasi deskripsi pekerjaan perusahaan mitra. Nilai persentase match (misal ≥60%) membantu memprediksi keberhasilan mahasiswa pada tahap wawancara.'
+      q: 'Bagaimana skor AI PO-FIT menilai kesesuaian profil mahasiswa dengan kualifikasi UMKM?',
+      a: 'Algoritma AI PO-FIT menganalisis kesesuaian antara latar belakang pendidikan, keahlian teknis (skills), dan pengalaman mahasiswa dengan kualifikasi deskripsi pekerjaan UMKM mitra. Nilai persentase match (misal ≥60%) membantu memprediksi keberhasilan mahasiswa pada tahap wawancara.'
     },
     {
-      q: 'Bagaimana cara mengetahui perusahaan mana saja yang merekrut mahasiswa dari kampus kami?',
-      a: 'Seluruh perusahaan yang membuka lowongan pekerjaan dan menerima lamaran dari mahasiswa/alumni kampus Anda akan terdata secara otomatis pada Dasbor Karir, Distribusi Karir per Fakultas, serta Laporan PDF Mahasiswa.'
+      q: 'Bagaimana cara mengetahui UMKM mana saja yang merekrut mahasiswa dari kampus kami?',
+      a: 'Seluruh UMKM yang membuka lowongan pekerjaan dan menerima lamaran dari mahasiswa/alumni kampus Anda akan terdata secara otomatis pada Dasbor Karir, Distribusi Karir per Fakultas, serta Laporan PDF Mahasiswa.'
     },
     {
       q: 'Bagaimana standar keamanan dan kerahasiaan data pribadi mahasiswa?',
-      a: 'Seluruh berkas CV, sertifikat, dan rekaman wawancara virtual mahasiswa dilindungi sesuai standar UU Perlindungan Data Pribadi (PDP) dan GDPR. Data hanya dapat diakses oleh perusahaan mitra resmi yang dilamar oleh mahasiswa yang bersangkutan.'
+      a: 'Seluruh berkas CV, sertifikat, dan rekaman wawancara virtual mahasiswa dilindungi sesuai standar UU Perlindungan Data Pribadi (PDP) dan GDPR. Data hanya dapat diakses oleh UMKM mitra resmi yang dilamar oleh mahasiswa yang bersangkutan.'
     }
   ];
 
@@ -136,7 +136,7 @@ export default function KampusSupportPage() {
               2. Penilaian AI PO-FIT
             </div>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              Perusahaan menyeleksi profil dan CV mahasiswa menggunakan skor pencocokan AI (Threshold Lolos ≥60%) secara obyektif.
+              UMKM menyeleksi profil dan CV mahasiswa menggunakan skor pencocokan AI (Threshold Lolos ≥60%) secara obyektif.
             </p>
           </div>
 
@@ -217,7 +217,7 @@ export default function KampusSupportPage() {
               >
                 <option value="Akreditasi & Tracer Study">Akreditasi & Tracer Study</option>
                 <option value="Verifikasi Data Mahasiswa">Verifikasi Data Mahasiswa</option>
-                <option value="Informasi Perekrutan Perusahaan">Informasi Perekrutan Perusahaan</option>
+                <option value="Informasi Perekrutan Perusahaan">Informasi Perekrutan UMKM</option>
                 <option value="Kendala Teknis Account & Portal">Kendala Teknis Account & Portal</option>
               </select>
             </div>

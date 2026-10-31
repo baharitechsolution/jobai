@@ -45,7 +45,7 @@ function CompanyRegistrationInner() {
     try {
       const res = await api.get(`/auth/check-email?email=${encodeURIComponent(email.trim())}&role=perusahaan`);
       if (res.exists && res.is_active && (res.role === 'perusahaan' || !res.role)) {
-        setErrorStep1('Alamat email ini sudah terdaftar sebagai akun perusahaan/UMKM yang aktif. Silakan langsung masuk ke akun Anda.');
+        setErrorStep1('Alamat email ini sudah terdaftar sebagai akun UMKM yang aktif. Silakan langsung masuk ke akun Anda.');
       } else if (errorStep1.toLowerCase().includes('terdaftar')) {
         setErrorStep1('');
       }
@@ -188,12 +188,12 @@ function CompanyRegistrationInner() {
 
   const handleStep1Submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !email.includes('@')) { setErrorStep1('Masukkan alamat email perusahaan/UMKM yang valid.'); return; }
+    if (!email || !email.includes('@')) { setErrorStep1('Masukkan alamat email UMKM yang valid.'); return; }
     const domain = email.split('@')[1]?.toLowerCase();
     const isAcId = domain?.endsWith('.ac.id') || domain === 'ac.id';
     const isBlockedDomain = blockedPersonalEmailDomains.includes(domain);
     if (isBlockedDomain && !isAcId) {
-      setErrorStep1(`Pendaftaran Ditolak: Anda menggunakan penyedia email pribadi (@${domain}). Untuk pendaftaran perusahaan/UMKM, gunakan email domain resmi perusahaan (langsung aktif) atau email Gmail (wajib unggah dokumen NIB/izin usaha untuk verifikasi manual oleh Admin).`);
+      setErrorStep1(`Pendaftaran Ditolak: Anda menggunakan penyedia email pribadi (@${domain}). Untuk pendaftaran UMKM, gunakan email domain resmi UMKM (langsung aktif) atau email Gmail (wajib unggah dokumen NIB/izin usaha untuk verifikasi manual oleh Admin).`);
       return;
     }
 
@@ -208,7 +208,7 @@ function CompanyRegistrationInner() {
     }
 
     if (!agreedConsent) {
-      setErrorStep1('Anda harus menyetujui pemrosesan dan penyimpanan data perusahaan/UMKM untuk melanjutkan pendaftaran.');
+      setErrorStep1('Anda harus menyetujui pemrosesan dan penyimpanan data UMKM untuk melanjutkan pendaftaran.');
       return;
     }
 
@@ -356,7 +356,7 @@ function CompanyRegistrationInner() {
     const isGmail = emailDomain === 'gmail.com' || emailDomain === 'googlemail.com';
 
     if (!companyName.trim()) {
-      setErrorStep3('Harap isi Nama Perusahaan/UMKM Resmi.');
+      setErrorStep3('Harap isi Nama UMKM Resmi.');
       return;
     }
     if (!industri.trim()) {
@@ -368,7 +368,7 @@ function CompanyRegistrationInner() {
       return;
     }
     if (!ukuran.trim()) {
-      setErrorStep3('Harap pilih Ukuran Perusahaan/UMKM.');
+      setErrorStep3('Harap pilih Ukuran UMKM.');
       return;
     }
 
@@ -390,7 +390,7 @@ function CompanyRegistrationInner() {
     }
 
     if (!companyAddress.trim()) {
-      setErrorStep3('Harap isi Alamat Lengkap Perusahaan/UMKM.');
+      setErrorStep3('Harap isi Alamat Lengkap UMKM.');
       return;
     }
 
@@ -454,7 +454,7 @@ function CompanyRegistrationInner() {
         localStorage.removeItem('pendingNibNumber');
         localStorage.removeItem('pendingHrName');
         localStorage.removeItem('pendingWhatsapp');
-        toast.success('Selamat! Akun perusahaan resmi Anda telah aktif.', { icon: '🎉' });
+        toast.success('Selamat! Akun UMKM resmi Anda telah aktif.', { icon: '🎉' });
         router.push('/dashboard');
       } else {
         // Akun Gmail wajib peninjauan manual dokumen NIB oleh admin
@@ -484,7 +484,7 @@ function CompanyRegistrationInner() {
   const steps = [
     { label: 'Akun & Email' },
     { label: 'Verifikasi Email' },
-    { label: 'Data Perusahaan/UMKM' },
+    { label: 'Data UMKM' },
   ];
 
   return (
@@ -552,15 +552,15 @@ function CompanyRegistrationInner() {
               <div className="w-12 h-12 rounded-2xl bg-[#1A4B9F]/10 dark:bg-slate-800 border border-[#1A4B9F]/20 dark:border-slate-700 flex items-center justify-center text-[#1A4B9F] dark:text-blue-400 mx-auto">
                 <Building2 size={24} />
               </div>
-              <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">Daftar Akun Perusahaan/UMKM</h1>
+              <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">Daftar Akun UMKM</h1>
               <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-                Gunakan email domain perusahaan/UMKM Anda untuk memulai proses pendaftaran.
+                Gunakan email domain UMKM Anda untuk memulai proses pendaftaran.
               </p>
             </div>
 
             <form onSubmit={handleStep1Submit} className="space-y-5">
               <div>
-                <label className={labelBase}>Email Resmi Perusahaan/UMKM <span className="text-red-500">*</span></label>
+                <label className={labelBase}>Email Resmi UMKM <span className="text-red-500">*</span></label>
                 <div className="relative flex items-center">
                   <Mail size={18} className="absolute left-4 text-slate-400 pointer-events-none" />
                   <input
@@ -569,7 +569,7 @@ function CompanyRegistrationInner() {
                     onChange={(e) => { setEmail(e.target.value); setErrorStep1(''); }}
                     onBlur={handleCheckEmail}
                     onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); document.getElementById('reg-password')?.focus(); } }}
-                    placeholder="contoh: hrd@perusahaan.com"
+                    placeholder="contoh: hrd@umkm.com"
                     className={inputWithIcon}
                   />
                 </div>
@@ -602,9 +602,9 @@ function CompanyRegistrationInner() {
                         <div className="mt-2.5 p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/70 text-emerald-900 dark:text-emerald-200 text-xs flex items-start gap-2.5">
                           <CheckCircle2 size={16} className="text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                           <div className="space-y-0.5">
-                            <span className="font-bold block">Email Domain Perusahaan Resmi</span>
+                            <span className="font-bold block">Email Domain UMKM Resmi</span>
                             <span className="text-[11px] text-emerald-800 dark:text-emerald-300">
-                              Akun perusahaan Anda <strong>bisa langsung jadi &amp; aktif otomatis</strong> setelah melengkapi data tanpa perlu menunggu verifikasi manual Admin!
+                              Akun UMKM Anda <strong>bisa langsung jadi &amp; aktif otomatis</strong> setelah melengkapi data tanpa perlu menunggu verifikasi manual Admin!
                             </span>
                           </div>
                         </div>
@@ -614,7 +614,7 @@ function CompanyRegistrationInner() {
                   })()
                 )}
                 <p className="text-[11px] text-slate-400 mt-2">
-                  Gunakan email resmi domain perusahaan (bisa langsung aktif) atau email Gmail (wajib mengunggah dokumen NIB/izin usaha untuk verifikasi manual Admin).
+                  Gunakan email resmi domain UMKM (bisa langsung aktif) atau email Gmail (wajib mengunggah dokumen NIB/izin usaha untuk verifikasi manual Admin).
                 </p>
               </div>
 
@@ -688,7 +688,7 @@ function CompanyRegistrationInner() {
                 )}
               </div>
 
-              {/* Checkbox Persetujuan Pemrosesan & Penyimpanan Data Perusahaan */}
+              {/* Checkbox Persetujuan Pemrosesan & Penyimpanan Data UMKM */}
               <div className="flex items-start gap-2.5 pt-2">
                 <input
                   id="company-register-consent"
@@ -701,7 +701,7 @@ function CompanyRegistrationInner() {
                   className="mt-1 w-4 h-4 text-[#1A4B9F] rounded border-slate-300 dark:border-slate-700 focus:ring-[#1A4B9F] dark:focus:ring-blue-400 cursor-pointer shrink-0"
                 />
                 <label htmlFor="company-register-consent" className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed cursor-pointer select-none">
-                  Saya menyetujui pemrosesan dan penyimpanan data perusahaan/UMKM serta informasi penanggung jawab (seperti profil perusahaan/UMKM, NIB/NPWP, dan kontak HR) untuk keperluan pengelolaan akun, verifikasi legalitas, dan rekrutmen pekerjaan di platform AI-RecruitPro.
+                  Saya menyetujui pemrosesan dan penyimpanan data UMKM serta informasi penanggung jawab (seperti profil UMKM, NIB/NPWP, dan kontak HR) untuk keperluan pengelolaan akun, verifikasi legalitas, dan rekrutmen pekerjaan di platform AI-RecruitPro.
                 </label>
               </div>
 
@@ -735,7 +735,7 @@ function CompanyRegistrationInner() {
                         href="/login"
                         className="inline-block mt-1.5 text-blue-600 dark:text-blue-400 hover:underline font-bold"
                       >
-                        Sudah punya akun? Masuk ke portal perusahaan/UMKM
+                        Sudah punya akun? Masuk ke portal UMKM
                       </Link>
                     )}
                   </div>
@@ -754,9 +754,9 @@ function CompanyRegistrationInner() {
 
             {/* Bottom Switch to Login */}
             <div className="pt-2 text-center text-xs text-slate-600 dark:text-slate-400 font-medium">
-              Sudah memiliki akun perusahaan/UMKM?{' '}
+              Sudah memiliki akun UMKM?{' '}
               <Link href="/login" className="font-semibold text-[#1A4B9F] dark:text-blue-400 hover:underline">
-                Masuk ke Akun Perusahaan/UMKM
+                Masuk ke Akun UMKM
               </Link>
             </div>
           </div>
@@ -875,7 +875,7 @@ function CompanyRegistrationInner() {
         {step === 3 && (
           <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 sm:p-10 shadow-2xl border border-slate-200 dark:border-slate-800 space-y-8">
             <div className="space-y-1.5 border-b border-slate-100 dark:border-slate-800 pb-5">
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Dokumen & Data Perusahaan/UMKM</h2>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Dokumen & Data UMKM</h2>
             </div>
 
             {rejectionReason ? (
@@ -897,8 +897,8 @@ function CompanyRegistrationInner() {
               <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 flex items-start gap-3 text-amber-800 text-xs sm:text-sm">
                 <AlertCircle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
                 <div>
-                  <strong className="font-bold block">Pemeriksaan Kelengkapan Akun Perusahaan/UMKM</strong>
-                  <span>Akun Anda telah melewati verifikasi OTP. Untuk mengaktifkan akun dan melanjutkan ke dashboard, Anda wajib melengkapi data profil perusahaan/UMKM serta mengunggah dokumen legalitas resmi di bawah ini.</span>
+                  <strong className="font-bold block">Pemeriksaan Kelengkapan Akun UMKM</strong>
+                  <span>Akun Anda telah melewati verifikasi OTP. Untuk mengaktifkan akun dan melanjutkan ke dashboard, Anda wajib melengkapi data profil UMKM serta mengunggah dokumen legalitas resmi di bawah ini.</span>
                 </div>
               </div>
             ) : email.toLowerCase().includes('@gmail.com') || email.toLowerCase().includes('@googlemail.com') ? (
@@ -907,7 +907,7 @@ function CompanyRegistrationInner() {
                 <div className="space-y-1">
                   <strong className="font-bold block">Pendaftaran UMKM via Gmail: Wajib Verifikasi NIB Manual</strong>
                   <span className="text-xs text-amber-800 dark:text-amber-300 leading-relaxed block">
-                    Pendaftaran perusahaan/UMKM dengan akun Gmail <strong>wajib mengisi nomor NIB dan mengunggah dokumen NIB/Izin Usaha</strong>. Berkas Anda akan diperiksa dan di-ACC secara manual oleh Admin sebelum dapat mengakses fitur rekrutmen.
+                    Pendaftaran UMKM dengan akun Gmail <strong>wajib mengisi nomor NIB dan mengunggah dokumen NIB/Izin Usaha</strong>. Berkas Anda akan diperiksa dan di-ACC secara manual oleh Admin sebelum dapat mengakses fitur rekrutmen.
                   </span>
                 </div>
               </div>
@@ -915,9 +915,9 @@ function CompanyRegistrationInner() {
               <div className="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/80 flex items-start gap-3 text-emerald-900 dark:text-emerald-200 text-xs sm:text-sm">
                 <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                 <div className="space-y-1">
-                  <strong className="font-bold block">Email Domain Perusahaan: Akun Bisa Langsung Jadi</strong>
+                  <strong className="font-bold block">Email Domain UMKM: Akun Bisa Langsung Jadi</strong>
                   <span className="text-xs text-emerald-800 dark:text-emerald-300 leading-relaxed block">
-                    Karena menggunakan email domain perusahaan resmi ({email}), akun Anda <strong>langsung aktif secara otomatis</strong> setelah data diri disimpan. Pengunggahan dokumen NIB bersifat opsional.
+                    Karena menggunakan email domain UMKM resmi ({email}), akun Anda <strong>langsung aktif secara otomatis</strong> setelah data diri disimpan. Pengunggahan dokumen NIB bersifat opsional.
                   </span>
                 </div>
               </div>
@@ -925,15 +925,15 @@ function CompanyRegistrationInner() {
 
             <form onSubmit={handleStep3Submit} onKeyDown={handleEnterToNext} className="space-y-8">
 
-              {/* Data Perusahaan */}
+              {/* Data UMKM */}
               <div className={sectionBox}>
                 <div className="flex items-center gap-2.5 text-sm font-semibold text-slate-700 dark:text-slate-200 border-b border-slate-200 dark:border-slate-700 pb-3">
                   <Building2 size={16} className="text-[#1A4B9F]" />
-                  <span>Data Perusahaan/UMKM</span>
+                  <span>Data UMKM</span>
                 </div>
 
                 <div>
-                  <label className={labelBase}>Nama Perusahaan/UMKM Resmi <span className="text-red-500">*</span></label>
+                  <label className={labelBase}>Nama UMKM Resmi <span className="text-red-500">*</span></label>
                   <input type="text" value={companyName} onChange={(e) => setCompanyName(e.target.value)}
                     placeholder="Contoh: PT Tokopedia Indonesia" className={inputBase} />
                 </div>
@@ -992,10 +992,10 @@ function CompanyRegistrationInner() {
 
                 <div>
                   <label className={labelBase}>
-                    Website Perusahaan/UMKM <span className="text-slate-400 font-normal text-[11px]">(Opsional)</span>
+                    Website UMKM <span className="text-slate-400 font-normal text-[11px]">(Opsional)</span>
                   </label>
                   <input type="url" value={websiteUrl} onChange={(e) => setWebsiteUrl(e.target.value)}
-                    placeholder="https://www.perusahaan.com (Opsional)" className={inputBase} />
+                    placeholder="https://www.umkm.com (Opsional)" className={inputBase} />
                 </div>
 
                 <div>
@@ -1004,7 +1004,7 @@ function CompanyRegistrationInner() {
                     {email.toLowerCase().includes('@gmail.com') || email.toLowerCase().includes('@googlemail.com') ? (
                       <span className="text-red-500 font-bold">* (Wajib untuk akun Gmail)</span>
                     ) : (
-                      <span className="text-slate-400 font-normal text-[11px]">(Opsional untuk email perusahaan)</span>
+                      <span className="text-slate-400 font-normal text-[11px]">(Opsional untuk email UMKM)</span>
                     )}
                   </label>
                   <input type="text" value={nibNpwpNumber}
@@ -1019,7 +1019,7 @@ function CompanyRegistrationInner() {
                     {email.toLowerCase().includes('@gmail.com') || email.toLowerCase().includes('@googlemail.com') ? (
                       <span className="text-red-500 font-bold">* (Wajib untuk akun Gmail)</span>
                     ) : (
-                      <span className="text-slate-400 font-normal text-[11px]">(Opsional untuk email perusahaan)</span>
+                      <span className="text-slate-400 font-normal text-[11px]">(Opsional untuk email UMKM)</span>
                     )}
                   </label>
                   <div className="border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-[#1A4B9F] bg-white dark:bg-slate-950 p-5 rounded-2xl text-center space-y-2 cursor-pointer relative transition-colors">
@@ -1166,7 +1166,7 @@ export default function CompanyRegistrationFlow() {
         <div className="min-h-screen flex items-center justify-center bg-[#F0F8FB] text-[#1b7b9e] font-sans">
           <div className="flex flex-col items-center gap-3">
             <div className="w-8 h-8 border-4 border-[#1b7b9e] border-t-transparent rounded-full animate-spin"></div>
-            <span className="text-xs font-bold">Memuat Formulir Pendaftaran Perusahaan/UMKM...</span>
+            <span className="text-xs font-bold">Memuat Formulir Pendaftaran UMKM...</span>
           </div>
         </div>
       }

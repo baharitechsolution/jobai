@@ -45,7 +45,7 @@ export default function AboutPage() {
               </h1>
 
               <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-xl font-normal leading-relaxed mx-auto lg:mx-0">
-                AI-RecruitPro adalah platform rekrutmen cerdas yang dirancang untuk menciptakan proses seleksi kerja yang transparan, efisien, dan objektif bagi pencari kerja dan perusahaan.
+                AI-RecruitPro adalah platform rekrutmen cerdas yang dirancang untuk menciptakan proses seleksi kerja yang transparan, efisien, dan objektif bagi pencari kerja dan UMKM.
               </p>
 
               {/* Stats Strip */}
@@ -125,7 +125,7 @@ export default function AboutPage() {
 
             <div className="space-y-1">
               <p className="text-2xl sm:text-3xl font-bold tracking-tighter text-slate-900 dark:text-white">2.500+</p>
-              <p className="text-slate-900 dark:text-white font-bold text-xs sm:text-sm">Perusahaan Mitra</p>
+              <p className="text-slate-900 dark:text-white font-bold text-xs sm:text-sm">UMKM Mitra</p>
               <p className="text-xs text-slate-500 dark:text-slate-400 font-normal leading-relaxed">Startup unicorn hingga korporasi besar</p>
             </div>
 
@@ -189,7 +189,7 @@ export default function AboutPage() {
                 <div className="border-l-2 border-slate-400 dark:border-slate-500 pl-3.5 space-y-1">
                   <h3 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">Misi Kami</h3>
                   <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-normal">
-                    Mengeliminasi bias seleksi, memberi transparansi status pelamar, dan mempercepat pertemuan talenta dengan perusahaan impian.
+                    Mengeliminasi bias seleksi, memberi transparansi status pelamar, dan mempercepat pertemuan talenta dengan UMKM impian.
                   </p>
                 </div>
 
@@ -266,7 +266,7 @@ export default function AboutPage() {
                 Prinsip Kerja & Nilai Utama Kami
               </h2>
               <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-                Nilai-nilai fundamental yang menjadi komitmen kami dalam membangun hubungan saling percaya antara pelamar dan perusahaan.
+                Nilai-nilai fundamental yang menjadi komitmen kami dalam membangun hubungan saling percaya antara pelamar dan UMKM.
               </p>
             </div>
 
@@ -330,7 +330,7 @@ export default function AboutPage() {
                 Siap Memulai Langkah Karir Berikutnya?
               </h2>
               <p className="text-sm sm:text-base text-blue-100/90 font-normal leading-relaxed">
-                Bergabunglah bersama ribuan talenta dan perusahaan yang telah merasakan kemudahan rekrutmen di AI-RecruitPro.
+                Bergabunglah bersama ribuan talenta dan UMKM yang telah merasakan kemudahan rekrutmen di AI-RecruitPro.
               </p>
               <div className="pt-1">
                 <Link

@@ -1193,7 +1193,7 @@ export default function AtsCvBuilderPage() {
                     <div key={idx} className="space-y-1">
                       <div className="flex justify-between items-baseline text-xs font-bold text-slate-900">
                         <span>
-                          {exp.role || '[Posisi]'} — {exp.company || '[Perusahaan]'}
+                          {exp.role || '[Posisi]'} — {exp.company || '[UMKM]'}
                         </span>
                         <span className="text-[11px] text-slate-500 font-semibold">{exp.period}</span>
                       </div>
@@ -1207,7 +1207,7 @@ export default function AtsCvBuilderPage() {
                 ) : (
                   <div className="space-y-1 text-slate-400 italic">
                     <div className="flex justify-between items-baseline text-xs">
-                      <span>[Posisi Jabatan] — [Nama Perusahaan]</span>
+                      <span>[Posisi Jabatan] — [Nama UMKM]</span>
                       <span className="text-[11px]">[Periode Kerja]</span>
                     </div>
                     <p className="text-xs leading-normal pl-3 border-l-2 border-slate-200 text-justify">

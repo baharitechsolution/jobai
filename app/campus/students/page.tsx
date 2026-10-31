@@ -178,7 +178,7 @@ function KampusMahasiswaContent() {
     const batchYear = student.batch && student.batch !== '-' ? (student.batch.startsWith('20') ? student.batch : `20${student.batch}`) : '';
 
     exps.forEach(exp => {
-      streamLines.push(`BT /F1 9.5 Tf 50 ${y} Td (${pdfEsc(`${exp.role || 'Posisi'} - ${exp.company || 'Perusahaan'}`)}) Tj ET`);
+      streamLines.push(`BT /F1 9.5 Tf 50 ${y} Td (${pdfEsc(`${exp.role || 'Posisi'} - ${exp.company || 'UMKM'}`)}) Tj ET`);
       streamLines.push(`BT /F2 9 Tf 460 ${y} Td (${pdfEsc(exp.period || '')}) Tj ET`);
       y -= 14;
       if (exp.description) {
@@ -906,7 +906,7 @@ function KampusMahasiswaContent() {
     streamLines.push(`BT /F1 8 Tf 75 ${y} Td (NAMA MAHASISWA) Tj ET`);
     streamLines.push(`BT /F1 8 Tf 190 ${y} Td (PROGRAM STUDI) Tj ET`);
     streamLines.push(`BT /F1 8 Tf 315 ${y} Td (IPK) Tj ET`);
-    streamLines.push(`BT /F1 8 Tf 345 ${y} Td (PERUSAHAAN & POSISI) Tj ET`);
+    streamLines.push(`BT /F1 8 Tf 345 ${y} Td (UMKM & POSISI) Tj ET`);
     streamLines.push(`BT /F1 8 Tf 485 ${y} Td (STATUS) Tj ET`);
 
     y -= 18;
@@ -1003,7 +1003,7 @@ function KampusMahasiswaContent() {
             {t.kampus?.studentsTitle || 'Status Rekrutmen Mahasiswa'}
           </h1>
           <p className="text-sm text-muted-foreground">
-            {t.kampus?.studentsSubtitle || 'Status penerimaan kerja mahasiswa secara real-time di berbagai perusahaan.'}
+            {t.kampus?.studentsSubtitle || 'Status penerimaan kerja mahasiswa secara real-time di berbagai UMKM.'}
           </p>
         </div>
 
@@ -1066,7 +1066,7 @@ function KampusMahasiswaContent() {
                 setSearchQuery(val.trim());
                 updateUrlParams({ keyword: val.trim(), major: majorFilter, status: statusFilter, startDate, endDate });
               }}
-              placeholder="Cari nama, jurusan, perusahaan..."
+              placeholder="Cari nama, jurusan, UMKM..."
               className="w-full pl-9 pr-4 py-2.5 bg-muted/30 border border-border rounded-xl text-xs text-foreground focus:outline-none focus:border-[#1A4B9F] font-medium"
             />
           </div>
@@ -1134,7 +1134,7 @@ function KampusMahasiswaContent() {
                 <th className="px-4 py-3.5 align-middle w-[25%] font-bold">NAMA MAHASISWA</th>
                 <th className="px-4 py-3.5 align-middle w-[23%] font-bold">FAKULTAS / JURUSAN</th>
                 <th className="px-4 py-3.5 align-middle w-[10%] font-bold text-center">IPK</th>
-                <th className="px-4 py-3.5 align-middle w-[22%] font-bold">PERUSAHAAN TARGET & POSISI</th>
+                <th className="px-4 py-3.5 align-middle w-[22%] font-bold">UMKM TARGET & POSISI</th>
                 <th className="px-4 py-3.5 align-middle w-[12%] font-bold text-center">STATUS REKRUTMEN</th>
                 <th className="px-4 py-3.5 align-middle w-[8%] font-bold text-right">AKSI / MEDIA</th>
               </tr>
@@ -1266,7 +1266,7 @@ function KampusMahasiswaContent() {
             {/* Modal Tabs Navigation */}
             <div className="flex border-b border-border gap-2 overflow-x-auto">
               {[
-                { id: 'applications', label: 'Riwayat Lamaran Perusahaan', icon: Building2 },
+                { id: 'applications', label: 'Riwayat Lamaran UMKM', icon: Building2 },
                 { id: 'cv', label: 'Berkas CV Mahasiswa', icon: FileText },
                 { id: 'video', label: 'Rekaman Video Wawancara AI', icon: Video },
               ].map(tab => {
@@ -1406,7 +1406,7 @@ function KampusMahasiswaContent() {
                       selectedStudent.experiences.map((exp, idx) => (
                         <div key={idx} className="space-y-1">
                           <div className="flex justify-between items-baseline text-xs font-bold text-slate-900">
-                            <span>{exp.role || '[Posisi]'} — {exp.company || '[Perusahaan]'}</span>
+                            <span>{exp.role || '[Posisi]'} — {exp.company || '[UMKM]'}</span>
                             <span className="text-[11px] text-slate-500 font-semibold">{exp.period}</span>
                           </div>
                           {exp.description && (

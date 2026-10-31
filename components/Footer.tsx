@@ -36,7 +36,7 @@ export default function Footer() {
               <span className="font-bold text-lg text-white tracking-tight">AI-RecruitPro</span>
             </Link>
             <p className="text-slate-400 leading-relaxed text-xs sm:text-sm max-w-md">
-              Platform rekrutmen berbasis AI yang menghubungkan talenta terbaik dengan perusahaan teknologi terkemuka secara fair, cepat, dan transparan.
+              Platform rekrutmen berbasis AI yang menghubungkan talenta terbaik dengan UMKM terkemuka secara fair, cepat, dan transparan.
             </p>
           </div>
 
@@ -61,7 +61,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/companies" className="hover:text-white transition-colors">
-                  Direktori Perusahaan
+                  Direktori UMKM
                 </Link>
               </li>
               <li>
@@ -83,7 +83,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/perusahaan/login" className="hover:text-white transition-colors">
-                  Portal Mitra Perusahaan/UMKM
+                  Portal Mitra UMKM
                 </Link>
               </li>
               <li>
@@ -103,7 +103,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/register" className="hover:text-white transition-colors">
-                  Registrasi Perusahaan/UMKM
+                  Registrasi UMKM
                 </Link>
               </li>
             </ul>

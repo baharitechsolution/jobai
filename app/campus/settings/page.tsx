@@ -438,7 +438,7 @@ export default function KampusSettingsPage() {
                 <div>
                   <p className="text-xs font-bold text-foreground">Notifikasi Penerimaan Kerja Mahasiswa</p>
                   <p className="text-[11px] text-muted-foreground">
-                    Kirim pemberitahuan email ke tim Career Center setiap kali ada mahasiswa yang dikonfirmasi Diterima (Hired) oleh perusahaan mitra.
+                    Kirim pemberitahuan email ke tim Career Center setiap kali ada mahasiswa yang dikonfirmasi Diterima (Hired) oleh UMKM mitra.
                   </p>
                 </div>
                 <input 

@@ -167,7 +167,7 @@ function SavedJobsContent() {
             return {
               id: j.id,
               title: j.judul_posisi,
-              company: j.perusahaan?.nama_perusahaan || (language === 'id' ? 'Perusahaan' : 'Company'),
+              company: j.perusahaan?.nama_perusahaan || (language === 'id' ? 'UMKM' : 'Company'),
               logo: (j.perusahaan?.logo_url && j.perusahaan.logo_url !== '')
                 ? getMediaUrl(j.perusahaan.logo_url)
                 : 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=120&auto=format&fit=crop&q=80',
@@ -192,7 +192,7 @@ function SavedJobsContent() {
               reason: j.reason || (language === 'id' ? 'Keahlian & kualifikasi Anda sesuai dengan posisi ini.' : 'Your skills and qualifications match this role.'),
               descriptionBullets: safeParseArray(j.deskripsi_pekerjaan),
               responsibilitiesBullets: safeParseArray(j.tanggung_jawab),
-              placementInfo: j.kota ? (language === 'id' ? `Untuk lokasi di ${j.kota}` : `Located in ${j.kota}`) : (j.lokasi_kerja === 'remote' ? (language === 'id' ? 'Remote (Kerja Dari Mana Saja)' : 'Remote (Work From Anywhere)') : (language === 'id' ? 'Lokasi Perusahaan' : 'Company Location')),
+              placementInfo: j.kota ? (language === 'id' ? `Untuk lokasi di ${j.kota}` : `Located in ${j.kota}`) : (j.lokasi_kerja === 'remote' ? (language === 'id' ? 'Remote (Kerja Dari Mana Saja)' : 'Remote (Work From Anywhere)') : (language === 'id' ? 'Lokasi UMKM' : 'Company Location')),
               criteriaBullets: safeParseArray(j.kualifikasi),
               savedAt: j.tanggal_buka ? new Date(j.tanggal_buka).toLocaleDateString('id-ID') : (language === 'id' ? 'Terbaru' : 'Newest')
             };
