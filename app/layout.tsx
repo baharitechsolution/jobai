@@ -106,20 +106,20 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: "JOB-AI",
       images: [
         {
-          url: logoUrl,
+          url: `${siteUrl}/og-image.png`,
           width: 1200,
-          height: 630,
-          alt: "JOB-AI Logo",
+          height: 1200,
+          alt: "JOB-AI",
         },
       ],
       locale: "id_ID",
       type: "website",
     },
     twitter: {
-      card: "summary_large_image",
+      card: "summary",
       title: title,
       description: description,
-      images: [logoUrl],
+      images: [`${siteUrl}/og-image.png`],
       creator: "@jobai",
     },
     robots: {
