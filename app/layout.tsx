@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 import MaintenanceProvider from '@/components/MaintenanceProvider';
 import { getBaseUrl } from '@/lib/api';
 
-const siteUrl = "https://www.airecruit-pro.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.jobai.id";
 
 export async function generateMetadata(): Promise<Metadata> {
   let title = "JOB-AI - Platform Rekrutmen Cerdas Berbasis AI";
@@ -42,18 +42,37 @@ export async function generateMetadata(): Promise<Metadata> {
     const res = await fetch(`${getBaseUrl()}/config/public`, { next: { revalidate: 60 } });
     if (res.ok) {
       const config = await res.json();
-      if (config.seo_title) title = config.seo_title;
-      if (config.seo_description) description = config.seo_description;
+      if (config.seo_title) {
+        title = config.seo_title
+          .replace(/AI[- ]?Recruit[- ]?Pro/gi, 'JOB-AI')
+          .replace(/airecruit/gi, 'jobai');
+      }
+      if (config.seo_description) {
+        description = config.seo_description
+          .replace(/AI[- ]?Recruit[- ]?Pro/gi, 'JOB-AI')
+          .replace(/airecruit/gi, 'jobai');
+      }
       if (config.app_logo_url) {
-        logoUrl = config.app_logo_url.startsWith('http') 
-          ? config.app_logo_url 
-          : `${siteUrl}${config.app_logo_url.startsWith('/') ? '' : '/'}${config.app_logo_url}`;
+        let cleanAppLogo = config.app_logo_url;
+        if (cleanAppLogo.includes('airecruit-pro.com') || cleanAppLogo.includes('airecruitpro.com')) {
+          cleanAppLogo = '/logo_hd.png';
+        }
+        logoUrl = cleanAppLogo.startsWith('http') 
+          ? cleanAppLogo 
+          : `${siteUrl}${cleanAppLogo.startsWith('/') ? '' : '/'}${cleanAppLogo}`;
       }
       if (config.seo_keywords) {
         if (typeof config.seo_keywords === 'string') {
-          keywordsList = config.seo_keywords.split(',').map((k: string) => k.trim()).filter(Boolean);
+          keywordsList = config.seo_keywords
+            .replace(/AI[- ]?Recruit[- ]?Pro/gi, 'JOB-AI')
+            .replace(/airecruit/gi, 'jobai')
+            .split(',')
+            .map((k: string) => k.trim())
+            .filter(Boolean);
         } else if (Array.isArray(config.seo_keywords)) {
-          keywordsList = config.seo_keywords;
+          keywordsList = config.seo_keywords.map((k: string) =>
+            k.replace(/AI[- ]?Recruit[- ]?Pro/gi, 'JOB-AI').replace(/airecruit/gi, 'jobai')
+          );
         }
       }
     }
