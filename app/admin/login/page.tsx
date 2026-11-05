@@ -58,11 +58,11 @@ export default function AdminLoginPage() {
         <div className="flex flex-col items-center text-center">
           <Image
             src="/logo_hd.png"
-            alt="AI-RecruitPro Logo"
-            width={70}
-            height={70}
+            alt="JOB-AI Logo"
+            width={180}
+            height={50}
             unoptimized
-            className="h-14 w-auto object-contain mb-3"
+            className="h-12 w-auto object-contain mb-3"
             priority
           />
           <h1 className="text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">Portal Admin</h1>

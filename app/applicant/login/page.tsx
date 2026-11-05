@@ -323,16 +323,13 @@ export default function PelamarLoginPage() {
         <Link href="/" className="flex items-center gap-2 sm:gap-2.5 group shrink-0">
           <Image
             src="/logo_hd.png"
-            alt="AI-RecruitPro Logo"
-            width={70}
-            height={70}
+            alt="JOB-AI Logo"
+            width={140}
+            height={40}
             unoptimized
             className="h-7 sm:h-9 md:h-10 w-auto object-contain shrink-0 transition-transform group-hover:scale-105"
             priority
           />
-          <span className="font-extrabold text-xs sm:text-sm md:text-base tracking-tight text-slate-900 dark:text-white leading-none">
-            AI-RecruitPro
-          </span>
         </Link>
 
         <Link

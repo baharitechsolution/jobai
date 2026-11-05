@@ -66,15 +66,12 @@ export function Sidebar({ isBlocked = false }: { isBlocked?: boolean }) {
           <div className="flex items-center gap-2.5 mb-2 px-1 cursor-default">
             <Image
               src="/logo_hd.png"
-              alt="AI-RecruitPro Logo"
-              width={44}
-              height={44}
+              alt="JOB-AI Logo"
+              width={140}
+              height={40}
               unoptimized
-              className="h-10 w-auto object-contain shrink-0"
+              className="h-9 w-auto object-contain shrink-0"
             />
-            <span className="font-bold text-lg tracking-tight text-[#0D3880] dark:text-white leading-none">
-              AI-RecruitPro
-            </span>
           </div>
 
 
