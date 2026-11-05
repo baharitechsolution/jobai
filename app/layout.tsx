@@ -106,7 +106,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: "JOB-AI",
       images: [
         {
-          url: `${siteUrl}/og-image.png`,
+          url: `${siteUrl}/opengraph-image.png`,
           width: 1200,
           height: 1200,
           alt: "JOB-AI",
@@ -119,7 +119,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: "summary",
       title: title,
       description: description,
-      images: [`${siteUrl}/og-image.png`],
+      images: [`${siteUrl}/opengraph-image.png`],
       creator: "@jobai",
     },
     robots: {
