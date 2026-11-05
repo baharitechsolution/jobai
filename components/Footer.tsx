@@ -26,14 +26,13 @@ export default function Footer() {
             <Link href="/" onClick={handleHomeClick} className="flex items-center gap-3 group">
               <Image
                 src="/logo_hd.png"
-                alt="AI-RecruitPro Logo"
+                alt="JOB-AI Logo"
                 width={160}
-                height={160}
+                height={45}
                 quality={100}
                 unoptimized
                 className="h-9 w-auto object-contain shrink-0 transition-transform group-hover:scale-105"
               />
-              <span className="font-bold text-lg text-white tracking-tight">AI-RecruitPro</span>
             </Link>
             <p className="text-slate-400 leading-relaxed text-xs sm:text-sm max-w-md">
               Platform rekrutmen berbasis AI yang menghubungkan talenta terbaik dengan UMKM terkemuka secara fair, cepat, dan transparan.

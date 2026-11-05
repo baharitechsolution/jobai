@@ -105,17 +105,14 @@ export default function MaintenanceProvider({ children }: { children: React.Reac
               <div className="flex items-center gap-2.5 sm:gap-3">
                 <Image
                   src="/logo_hd.png"
-                  alt="AI-RecruitPro Logo"
+                  alt="JOB-AI Logo"
                   width={280}
-                  height={280}
+                  height={80}
                   quality={100}
                   unoptimized
                   className="h-8 sm:h-9 md:h-10 w-auto object-contain shrink-0"
                   priority
                 />
-                <span className="font-extrabold text-xs sm:text-sm md:text-base tracking-tight text-white leading-none">
-                  AI-RecruitPro
-                </span>
               </div>
 
               <div className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-[#3886F6]">

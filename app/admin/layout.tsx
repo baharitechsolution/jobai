@@ -81,18 +81,15 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <Link href="/admin/dashboard" className="flex items-center gap-2.5 group">
                 <Image
                   src="/logo_hd.png"
-                  alt="AI-RecruitPro Logo"
-                  width={44}
-                  height={44}
+                  alt="JOB-AI Logo"
+                  width={120}
+                  height={35}
                   unoptimized
                   className="h-7 sm:h-8 w-auto object-contain shrink-0"
                   priority
                 />
-                <div className="flex flex-col justify-center">
-                  <span className="font-extrabold text-xs sm:text-sm tracking-tight text-slate-900 dark:text-white leading-tight">
-                    AI-RecruitPro
-                  </span>
-                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">
+                <div className="flex flex-col justify-center border-l border-slate-200 dark:border-slate-700 pl-2">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                     Portal Admin
                   </span>
                 </div>
