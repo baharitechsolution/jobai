@@ -2,8 +2,8 @@ import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'AI Recruit Pro',
-    short_name: 'airecruitpro',
+    name: 'JOB-AI',
+    short_name: 'jobai',
     description: 'Platform Rekrutmen Cerdas Berbasis AI',
     start_url: '/',
     display: 'standalone',

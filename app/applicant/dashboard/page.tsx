@@ -311,7 +311,7 @@ function DashboardContent() {
             industry: c.industri || 'Umum & Teknologi',
             location: c.alamat || c.kota || 'Indonesia',
             openJobsCount: c.jobs_count || c.open_jobs_count || 0,
-            description: c.deskripsi || 'UMKM terverifikasi di platform AI Recruit Pro.'
+            description: c.deskripsi || 'UMKM terverifikasi di platform JOB-AI.'
           }));
           setCompaniesList(mappedComp);
         }
@@ -554,7 +554,7 @@ function DashboardContent() {
           industry: c.industri || 'Umum & Teknologi',
           location: c.alamat || c.kota || 'Indonesia',
           openJobsCount: c.jobs_count || c.open_jobs_count || 0,
-          description: c.deskripsi || 'UMKM terverifikasi di platform AI Recruit Pro.'
+          description: c.deskripsi || 'UMKM terverifikasi di platform JOB-AI.'
         }));
         setCompaniesList(mappedComp);
       } else {
@@ -641,7 +641,7 @@ function DashboardContent() {
 
   const handleCopyLink = () => {
     if (!shareJob) return;
-    const url = typeof window !== 'undefined' ? window.location.origin + '/jobs/' + shareJob.id : 'https://airecruit-pro.com/jobs/' + shareJob.id;
+    const url = typeof window !== 'undefined' ? window.location.origin + '/jobs/' + shareJob.id : 'https://jobai.id/jobs/' + shareJob.id;
     navigator.clipboard.writeText(url);
     toast.success(language === 'id' ? 'Link berhasil disalin ke clipboard!' : 'Link copied to clipboard!');
     setShareJob(null);

@@ -143,7 +143,7 @@ export default function Footer() {
 
         {/* Bottom Bar Footer */}
         <div className="pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <p>&copy; {new Date().getFullYear()} AI-RecruitPro. Hak Cipta Dilindungi.</p>
+          <p>&copy; {new Date().getFullYear()} JOB-AI. Hak Cipta Dilindungi.</p>
 
           <div className="flex items-center gap-6">
             <span>Indonesia (ID)</span>

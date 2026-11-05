@@ -42,7 +42,7 @@ export default function TermsPage() {
             
             <div className="space-y-4">
               <p>
-                Selamat datang di AI-RecruitPro. Dengan mengakses dan menggunakan platform ini, Anda menyetujui dan tunduk pada Syarat dan Ketentuan berikut. Harap membaca dengan saksama. Penggunaan layanan AI-RecruitPro tunduk pada prinsip transparansi dan integritas profesional.
+                Selamat datang di JOB-AI. Dengan mengakses dan menggunakan platform ini, Anda menyetujui dan tunduk pada Syarat dan Ketentuan berikut. Harap membaca dengan saksama. Penggunaan layanan JOB-AI tunduk pada prinsip transparansi dan integritas profesional.
               </p>
             </div>
 
@@ -78,7 +78,7 @@ export default function TermsPage() {
                 4. Batasan Tanggung Jawab
               </h2>
               <p>
-                Meskipun AI-RecruitPro menyediakan algoritma kecocokan (AI Matching) yang tingkat akurasinya tinggi, keputusan penerimaan akhir sepenuhnya merupakan hak prerogatif mutlak dari UMKM yang merekrut. AI-RecruitPro tidak menjamin penempatan kerja secara pasti.
+                Meskipun JOB-AI menyediakan algoritma kecocokan (AI Matching) yang tingkat akurasinya tinggi, keputusan penerimaan akhir sepenuhnya merupakan hak prerogatif mutlak dari UMKM yang merekrut. JOB-AI tidak menjamin penempatan kerja secara pasti.
               </p>
             </div>
 
@@ -87,7 +87,7 @@ export default function TermsPage() {
                 5. Perubahan Syarat dan Ketentuan
               </h2>
               <p>
-                AI-RecruitPro berhak sewaktu-waktu memperbarui atau mengubah Syarat dan Ketentuan ini. Perubahan akan diinformasikan kepada pengguna melalui platform. Melanjutkan penggunaan platform setelah perubahan berarti Anda menyetujui syarat yang telah diperbarui.
+                JOB-AI berhak sewaktu-waktu memperbarui atau mengubah Syarat dan Ketentuan ini. Perubahan akan diinformasikan kepada pengguna melalui platform. Melanjutkan penggunaan platform setelah perubahan berarti Anda menyetujui syarat yang telah diperbarui.
               </p>
             </div>
 

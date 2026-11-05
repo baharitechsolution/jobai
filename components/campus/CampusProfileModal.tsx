@@ -471,7 +471,7 @@ export default function CampusProfileModal({
           <div className="p-4 bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800/60 rounded-2xl flex items-start gap-3">
             <ShieldAlert size={18} className="text-[#1A4B9F] dark:text-blue-400 shrink-0 mt-0.5" />
             <p className="text-[11px] text-[#1A4B9F] dark:text-blue-300 leading-relaxed font-medium">
-              Data profil ini digunakan untuk verifikasi resmi integrasi AI-RecruitPro dengan universitas Anda. Seluruh fitur dasbor rekrutmen akan langsung aktif begitu profil disimpan.
+              Data profil ini digunakan untuk verifikasi resmi integrasi JOB-AI dengan universitas Anda. Seluruh fitur dasbor rekrutmen akan langsung aktif begitu profil disimpan.
             </p>
           </div>
 

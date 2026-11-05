@@ -159,8 +159,8 @@ export default function GlintsCleanCompanyDetailPage({ params }: { params: Promi
           setCompany(loadedCompany);
 
           if (typeof window !== 'undefined' && loadedCompany.nama_perusahaan) {
-            // Glints-style Document Title: "PT. Transafe Dharma Persada Karir & Profil Terbaru 2026 | AI-RecruitPro"
-            document.title = `${loadedCompany.nama_perusahaan} Karir & Profil Terbaru 2026 | AI-RecruitPro`;
+            // Glints-style Document Title: "PT. Transafe Dharma Persada Karir & Profil Terbaru 2026 | JOB-AI"
+            document.title = `${loadedCompany.nama_perusahaan} Karir & Profil Terbaru 2026 | JOB-AI`;
 
             // Glints-style Canonical URL: /companies/pt-transafe-dharma-persada/220b03a0-bcac-4d98-a8b0-28397916f80e
             const compSlug = slugify(loadedCompany.nama_perusahaan);

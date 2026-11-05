@@ -129,7 +129,7 @@ export default function PendingApprovalPage() {
     return raw.length > 25 ? `${raw.slice(0, 12)}...${raw.slice(-8)}` : raw;
   };
 
-  const targetAdminEmail = adminEmail || 'admin@airecruitpro.com';
+  const targetAdminEmail = adminEmail || 'admin@jobai.com';
   const companyName = profileData?.profil?.nama_perusahaan || '-';
   const nibNumber = profileData?.profil?.nib_number || '-';
   const accountEmail = profileData?.email || '-';
@@ -139,7 +139,7 @@ export default function PendingApprovalPage() {
 
   const emailSubject = `Konfirmasi Verifikasi Akun UMKM - ${companyName}`;
   const emailBody =
-    `Yth. Tim Administrator AI-Recruit Pro,
+    `Yth. Tim Administrator JOB-AI,
 
 Saya ingin mengonfirmasi status peninjauan dan verifikasi akun UMKM kami:
 
@@ -150,7 +150,7 @@ Saya ingin mengonfirmasi status peninjauan dan verifikasi akun UMKM kami:
 • Nomor WhatsApp HRD     : ${hrWhatsapp}
 • Waktu Pendaftaran      : ${formattedRegistrationDate}
 
-Seluruh dokumen persyaratan legalitas (NIB/NPWP dan ID Card HRD) telah berhasil kami unggah ke sistem. Mohon bantuannya untuk meninjau dan mengaktifkan akun UMKM kami agar kami dapat mulai menggunakan platform AI-Recruit Pro.
+Seluruh dokumen persyaratan legalitas (NIB/NPWP dan ID Card HRD) telah berhasil kami unggah ke sistem. Mohon bantuannya untuk meninjau dan mengaktifkan akun UMKM kami agar kami dapat mulai menggunakan platform JOB-AI.
 
 Terima kasih atas perhatian dan kerja samanya.
 

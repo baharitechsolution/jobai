@@ -2,10 +2,10 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Tentang Kami',
-  description: 'Kenali lebih dekat AI Recruit Pro, platform rekrutmen cerdas terdepan di Indonesia yang menghubungkan talenta terbaik dengan UMKM impian.',
+  description: 'Kenali lebih dekat JOB-AI, platform rekrutmen cerdas terdepan di Indonesia yang menghubungkan talenta terbaik dengan UMKM impian.',
   openGraph: {
-    title: 'Tentang Kami | AI Recruit Pro',
-    description: 'Kenali lebih dekat AI Recruit Pro, platform rekrutmen cerdas terdepan di Indonesia yang menghubungkan talenta terbaik dengan UMKM impian.',
+    title: 'Tentang Kami | JOB-AI',
+    description: 'Kenali lebih dekat JOB-AI, platform rekrutmen cerdas terdepan di Indonesia yang menghubungkan talenta terbaik dengan UMKM impian.',
   },
 };
 

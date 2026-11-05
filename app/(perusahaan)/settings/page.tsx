@@ -132,7 +132,7 @@ const COMPANY_TEMPLATE_CONFIGS: TemplateConfig[] = [
       { tag: '{{candidate_name}}', desc: 'Nama lengkap pelamar', sample: 'Ahmad Fauzi' },
       { tag: '{{job_title}}', desc: 'Judul posisi lowongan', sample: 'Frontend Engineer' },
       { tag: '{{company_name}}', desc: 'Nama instansi / UMKM', sample: 'PT Teknologi Inovasi' },
-      { tag: '{{interview_link}}', desc: 'Link ke portal perekaman wawancara', sample: 'https://airecruit-pro.com/applicant/status' }
+      { tag: '{{interview_link}}', desc: 'Link ke portal perekaman wawancara', sample: 'https://jobai.id/applicant/status' }
     ]
   },
   {
@@ -942,7 +942,7 @@ function SettingsPageContent() {
                       <div className="flex items-center gap-2 text-[11px]">
                         <span className="text-muted-foreground font-bold w-14 shrink-0">Dari:</span>
                         <span className="text-foreground font-semibold truncate">
-                          {companyName || 'UMKM Anda'} &lt;noreply@airecruitpro.com&gt;
+                          {companyName || 'UMKM Anda'} &lt;noreply@jobai.com&gt;
                         </span>
                       </div>
                       <div className="flex items-center gap-2 text-[11px]">

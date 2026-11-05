@@ -49,7 +49,7 @@ export default function MaintenanceProvider({ children }: { children: React.Reac
     return (
       <div className="fixed inset-0 z-[9999] min-h-screen w-screen bg-[#040814] text-slate-100 flex flex-col justify-between font-sans antialiased overflow-hidden selection:bg-[#1A4B9F] selection:text-white">
         
-        {/* Right Side 3D Geometric Prism Artwork (AWS-style geometric facet design in AI-RecruitPro brand colors) */}
+        {/* Right Side 3D Geometric Prism Artwork (AWS-style geometric facet design in JOB-AI brand colors) */}
         <div className="absolute top-0 right-0 w-full lg:w-3/5 h-full pointer-events-none overflow-hidden opacity-90">
           {/* Subtle Ambient Glow Orbs */}
           <div className="absolute top-1/4 right-10 w-[500px] h-[500px] bg-[#1A4B9F]/30 rounded-full blur-[130px]" />
@@ -134,7 +134,7 @@ export default function MaintenanceProvider({ children }: { children: React.Reac
 
           {/* Footer Section */}
           <footer className="pt-6 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
-            <p>&copy; {new Date().getFullYear()} AI-RecruitPro. Seluruh Hak Cipta Dilindungi.</p>
+            <p>&copy; {new Date().getFullYear()} JOB-AI. Seluruh Hak Cipta Dilindungi.</p>
           </footer>
 
         </div>

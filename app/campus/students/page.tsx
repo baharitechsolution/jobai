@@ -581,7 +581,7 @@ function KampusMahasiswaContent() {
                   company: resolvedCompany,
                   role: resolvedRole,
                   status: computedPrimaryStatus,
-                  stageText: computedPrimaryStatus === 'rejected' ? 'Ditolak / Tidak Lolos Seleksi' : computedPrimaryStatus === 'hired' ? 'Diterima Kerja' : 'Sedang Dalam Seleksi AI-RecruitPro',
+                  stageText: computedPrimaryStatus === 'rejected' ? 'Ditolak / Tidak Lolos Seleksi' : computedPrimaryStatus === 'hired' ? 'Diterima Kerja' : 'Sedang Dalam Seleksi JOB-AI',
                   poFitScore: u.avgPoFit || 0,
                   dateApplied: 'Terbaru',
                   video_url: extractedVideoUrl,

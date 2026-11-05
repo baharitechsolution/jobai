@@ -20,13 +20,13 @@ import { getBaseUrl } from '@/lib/api';
 const siteUrl = "https://www.airecruit-pro.com";
 
 export async function generateMetadata(): Promise<Metadata> {
-  let title = "AI Recruit Pro - Platform Rekrutmen Cerdas Berbasis AI";
-  let description = "AI Recruit Pro adalah platform rekrutmen berbasis AI terdepan di Indonesia untuk mempercepat pencocokan kandidat, screening CV otomatis, dan seleksi talenta terbaik.";
+  let title = "JOB-AI - Platform Rekrutmen Cerdas Berbasis AI";
+  let description = "JOB-AI adalah platform rekrutmen berbasis AI terdepan di Indonesia untuk mempercepat pencocokan kandidat, screening CV otomatis, dan seleksi talenta terbaik.";
   let keywordsList = [
-    "AI Recruit Pro",
-    "airecruitpro",
-    "airecruit-pro",
-    "ai recruit pro indonesia",
+    "JOB-AI",
+    "jobai",
+    "job-ai",
+    "job ai indonesia",
     "platform rekrutmen AI",
     "rekrutmen cerdas",
     "applicant tracking system AI",
@@ -65,13 +65,13 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: new URL(siteUrl),
     title: {
       default: title,
-      template: "%s | AI Recruit Pro",
+      template: "%s | JOB-AI",
     },
     description: description,
     keywords: keywordsList,
-    authors: [{ name: "AI Recruit Pro Team", url: siteUrl }],
-    creator: "AI Recruit Pro",
-    publisher: "AI Recruit Pro",
+    authors: [{ name: "JOB-AI Team", url: siteUrl }],
+    creator: "JOB-AI",
+    publisher: "JOB-AI",
     formatDetection: {
       email: false,
       address: false,
@@ -84,13 +84,13 @@ export async function generateMetadata(): Promise<Metadata> {
       title: title,
       description: description,
       url: siteUrl,
-      siteName: "AI Recruit Pro",
+      siteName: "JOB-AI",
       images: [
         {
           url: logoUrl,
           width: 1200,
           height: 630,
-          alt: "AI Recruit Pro Logo",
+          alt: "JOB-AI Logo",
         },
       ],
       locale: "id_ID",
@@ -101,7 +101,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: title,
       description: description,
       images: [logoUrl],
-      creator: "@airecruitpro",
+      creator: "@jobai",
     },
     robots: {
       index: true,
@@ -140,8 +140,8 @@ export default function RootLayout({
       {
         "@type": "Organization",
         "@id": `${siteUrl}/#organization`,
-        "name": "AI Recruit Pro",
-        "alternateName": ["airecruitpro", "airecruit-pro", "AI Recruit Pro Indonesia"],
+        "name": "JOB-AI",
+        "alternateName": ["jobai", "job-ai", "JOB-AI Indonesia"],
         "url": siteUrl,
         "logo": `${siteUrl}/logo_hd.png`,
         "description": "Platform rekrutmen cerdas berbasis AI untuk efisiensi seleksi talenta dan screening CV otomatis."
@@ -150,8 +150,8 @@ export default function RootLayout({
         "@type": "WebSite",
         "@id": `${siteUrl}/#website`,
         "url": siteUrl,
-        "name": "AI Recruit Pro",
-        "alternateName": "airecruitpro",
+        "name": "JOB-AI",
+        "alternateName": "jobai",
         "publisher": {
           "@id": `${siteUrl}/#organization`
         },

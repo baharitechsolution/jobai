@@ -438,7 +438,7 @@ export default function PelamarRegisterPage() {
                   className="mt-1 w-4 h-4 text-[#1A4B9F] rounded border-slate-300 dark:border-slate-700 focus:ring-[#1A4B9F] dark:focus:ring-blue-400 cursor-pointer shrink-0"
                 />
                 <label htmlFor="register-consent" className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed cursor-pointer select-none">
-                  Saya menyetujui pemrosesan dan penyimpanan data diri (seperti biodata, riwayat pendidikan, pengalaman kerja, dan berkas CV) untuk keperluan melengkapi CV dan lamaran pekerjaan di platform AI-RecruitPro.
+                  Saya menyetujui pemrosesan dan penyimpanan data diri (seperti biodata, riwayat pendidikan, pengalaman kerja, dan berkas CV) untuk keperluan melengkapi CV dan lamaran pekerjaan di platform JOB-AI.
                 </label>
               </div>
 

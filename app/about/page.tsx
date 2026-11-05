@@ -45,7 +45,7 @@ export default function AboutPage() {
               </h1>
 
               <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-xl font-normal leading-relaxed mx-auto lg:mx-0">
-                AI-RecruitPro adalah platform rekrutmen cerdas yang dirancang untuk menciptakan proses seleksi kerja yang transparan, efisien, dan objektif bagi pencari kerja dan UMKM.
+                JOB-AI adalah platform rekrutmen cerdas yang dirancang untuk menciptakan proses seleksi kerja yang transparan, efisien, dan objektif bagi pencari kerja dan UMKM.
               </p>
 
               {/* Stats Strip */}
@@ -95,7 +95,7 @@ export default function AboutPage() {
                 <div className="relative z-10 w-full h-full flex items-end justify-center group">
                   <Image
                     src="/model_tentang_kami_hd.png"
-                    alt="Model Utama AI-RecruitPro"
+                    alt="Model Utama JOB-AI"
                     width={1024}
                     height={1024}
                     quality={100}
@@ -155,7 +155,7 @@ export default function AboutPage() {
               <div className="relative w-full max-w-[440px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xs border border-slate-200/80 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 group cursor-pointer">
                 <Image
                   src="/team_meeting_model.jpg"
-                  alt="Tim AI-RecruitPro Berdiskusi"
+                  alt="Tim JOB-AI Berdiskusi"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -174,7 +174,7 @@ export default function AboutPage() {
               </h2>
 
               <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 font-normal leading-relaxed">
-                AI-RecruitPro lahir dari keinginan untuk memecahkan hambatan utama pencari kerja: lamaran yang hilang tanpa kepastian dan proses seleksi yang terpengaruh penilaian subjektif. Dengan mengintegrasikan sistem Natural Language Processing (NLP) dan AI Video Assessment, kami memastikan setiap kandidat mendapatkan evaluasi murni berdasarkan keahlian riil mereka.
+                JOB-AI lahir dari keinginan untuk memecahkan hambatan utama pencari kerja: lamaran yang hilang tanpa kepastian dan proses seleksi yang terpengaruh penilaian subjektif. Dengan mengintegrasikan sistem Natural Language Processing (NLP) dan AI Video Assessment, kami memastikan setiap kandidat mendapatkan evaluasi murni berdasarkan keahlian riil mereka.
               </p>
 
               <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -209,7 +209,7 @@ export default function AboutPage() {
               Keunggulan Utama
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tighter text-slate-900 dark:text-white leading-tight">
-              Mengapa AI-RecruitPro Berbeda?
+              Mengapa JOB-AI Berbeda?
             </h2>
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 font-normal leading-relaxed">
               Pendekatan modern yang menempatkan kesetaraan dan kebebasan kandidat sebagai prioritas utama.
@@ -330,7 +330,7 @@ export default function AboutPage() {
                 Siap Memulai Langkah Karir Berikutnya?
               </h2>
               <p className="text-sm sm:text-base text-blue-100/90 font-normal leading-relaxed">
-                Bergabunglah bersama ribuan talenta dan UMKM yang telah merasakan kemudahan rekrutmen di AI-RecruitPro.
+                Bergabunglah bersama ribuan talenta dan UMKM yang telah merasakan kemudahan rekrutmen di JOB-AI.
               </p>
               <div className="pt-1">
                 <Link

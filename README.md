@@ -1,6 +1,6 @@
-# AI Recruit Pro - Frontend
+# JOB-AI - Frontend
 
-AI Recruit Pro is a modern, AI-powered recruitment platform designed to streamline the hiring process. This repository contains the frontend application built with the latest web technologies, offering dedicated portals for both companies (Perusahaan) and applicants (Pelamar).
+JOB-AI is a modern, AI-powered recruitment platform designed to streamline the hiring process. This repository contains the frontend application built with the latest web technologies, offering dedicated portals for both companies (Perusahaan) and applicants (Pelamar).
 
 ## 🚀 Tech Stack
 
@@ -25,7 +25,7 @@ AI Recruit Pro is a modern, AI-powered recruitment platform designed to streamli
 ## 📂 Project Structure
 
 ```text
-frontend-airecruitpro/
+frontend-jobai/
 ├── app/
 │   ├── (pelamar)/       # Routes and pages for applicants
 │   ├── (perusahaan)/    # Routes and pages for companies
@@ -54,7 +54,7 @@ Ensure you have [Node.js](https://nodejs.org/) (v20 or higher recommended) and `
 1. Clone the repository:
    ```bash
    git clone <your-repository-url>
-   cd frontend-airecruitpro
+   cd frontend-jobai
    ```
 
 2. Install dependencies:

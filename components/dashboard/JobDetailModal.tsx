@@ -214,7 +214,7 @@ export function JobDetailModal({ jobId, onClose }: JobDetailModalProps) {
                   <div>
                     <span className="font-bold block text-slate-900 dark:text-white">Pratinjau Tampilan Publik</span>
                     <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5 leading-relaxed">
-                      Berikut adalah format lowongan sebagaimana dilihat oleh pelamar di portal karir AI-RecruitPro.
+                      Berikut adalah format lowongan sebagaimana dilihat oleh pelamar di portal karir JOB-AI.
                     </p>
                   </div>
                 </div>

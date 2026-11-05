@@ -147,7 +147,7 @@ export function CandidateReviewModal({
             Bagikan Pengalaman Anda
           </h3>
           <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm mx-auto leading-relaxed">
-            Terima kasih telah melamar lowongan di AI-RecruitPro. Berikan ulasan atau kesan mengenai pengalaman Anda.
+            Terima kasih telah melamar lowongan di JOB-AI. Berikan ulasan atau kesan mengenai pengalaman Anda.
           </p>
         </div>
 
@@ -223,7 +223,7 @@ export function CandidateReviewModal({
               rows={3}
               value={comment}
               onChange={(e) => setComment(e.target.value)}
-              placeholder="Tuliskan ulasan atau pengalaman Anda menggunakan platform AI-RecruitPro..."
+              placeholder="Tuliskan ulasan atau pengalaman Anda menggunakan platform JOB-AI..."
               className="w-full px-4 py-3 bg-white dark:bg-slate-950 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 focus:border-[#1A4B9F] dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-100 dark:focus:ring-blue-900 rounded-2xl text-xs sm:text-sm outline-none transition-all resize-none"
             />
           </div>

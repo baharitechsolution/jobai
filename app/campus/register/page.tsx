@@ -403,7 +403,7 @@ export default function CampusRegisterPage() {
                   className="mt-0.5 w-4 h-4 rounded border-slate-300 dark:border-slate-700 text-[#1A4B9F] focus:ring-[#1A4B9F] cursor-pointer"
                 />
                 <label htmlFor="consent-check" className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed cursor-pointer select-none">
-                  Saya menyetujui pemrosesan data institusi kampus & verifikasi email resmi untuk kebutuhan integrasi AI-RecruitPro.
+                  Saya menyetujui pemrosesan data institusi kampus & verifikasi email resmi untuk kebutuhan integrasi JOB-AI.
                 </label>
               </div>
 

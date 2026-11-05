@@ -23,7 +23,7 @@ import { fetchAuth } from '@/lib/api/auth';
 import { toast } from 'react-hot-toast';
 
 const DEFAULT_TEMPLATES: Record<string, string> = {
-  email_tpl_otp_subject: "Kode OTP Verifikasi - AI Recruit Pro",
+  email_tpl_otp_subject: "Kode OTP Verifikasi - JOB-AI",
   email_tpl_otp_body: `Halo {nama_penerima},
 
 Kode OTP verifikasi akun Anda adalah:
@@ -33,27 +33,27 @@ Kode OTP verifikasi akun Anda adalah:
 Kode ini berlaku selama {kadaluarsa_menit} menit. Harap jangan memberikan kode ini kepada siapapun demi keamanan akun Anda.
 
 Salam hormat,
-Tim AI Recruit Pro`,
+Tim JOB-AI`,
 
   email_tpl_company_approved_subject: "Selamat! Pengajuan Akun UMKM {nama_perusahaan} Telah Terverifikasi",
   email_tpl_company_approved_body: `Halo Tim {nama_perusahaan},
 
-Kabar baik! Dokumen legalitas dan data profil UMKM Anda telah diverifikasi dan disetujui oleh tim kurator AI Recruit Pro.
+Kabar baik! Dokumen legalitas dan data profil UMKM Anda telah diverifikasi dan disetujui oleh tim kurator JOB-AI.
 
 Akun UMKM Anda kini berstatus Resmi & Terverifikasi (Verified). Anda sudah dapat membuat lowongan kerja baru, mengelola pelamar, dan memanfaatkan fitur AI ATS.
 
 Silakan login ke portal dashboard UMKM Anda:
 {login_url}
 
-Terima kasih telah mempercayakan kebutuhan rekrutmen Anda kepada AI Recruit Pro!
+Terima kasih telah mempercayakan kebutuhan rekrutmen Anda kepada JOB-AI!
 
 Salam sukses,
-Tim AI Recruit Pro`,
+Tim JOB-AI`,
 
   email_tpl_company_rejected_subject: "Pemberitahuan Status Verifikasi Akun UMKM {nama_perusahaan}",
   email_tpl_company_rejected_body: `Halo Tim {nama_perusahaan},
 
-Terima kasih telah mendaftar dan mengajukan verifikasi profil UMKM di platform AI Recruit Pro.
+Terima kasih telah mendaftar dan mengajukan verifikasi profil UMKM di platform JOB-AI.
 
 Setelah dilakukan peninjauan dokumen, saat ini pengajuan verifikasi UMKM Anda belum dapat kami setujui dengan catatan penolakan berikut:
 "{alasan_penolakan}"
@@ -64,7 +64,7 @@ Anda dapat memperbarui data atau mengunggah ulang dokumen legalitas yang sesuai 
 Jika ada kendala atau pertanyaan lebih lanjut, silakan hubungi tim dukungan kami.
 
 Salam hormat,
-Tim Verifikasi AI Recruit Pro`
+Tim Verifikasi JOB-AI`
 };
 
 interface TemplateConfig {
@@ -104,7 +104,7 @@ const TEMPLATE_CONFIGS: TemplateConfig[] = [
     variables: [
       { tag: '{nama_perusahaan}', desc: 'Nama instansi/UMKM', sample: 'PT Inovasi Teknologi Bangsa' },
       { tag: '{email_perusahaan}', desc: 'Alamat email akun UMKM', sample: 'hr@inovasiteknologi.co.id' },
-      { tag: '{login_url}', desc: 'Tautan ke halaman login dashboard', sample: 'https://airecruit-pro.com/login' }
+      { tag: '{login_url}', desc: 'Tautan ke halaman login dashboard', sample: 'https://jobai.id/login' }
     ]
   },
   {
@@ -118,7 +118,7 @@ const TEMPLATE_CONFIGS: TemplateConfig[] = [
     variables: [
       { tag: '{nama_perusahaan}', desc: 'Nama instansi/UMKM', sample: 'PT Maju Terus Semesta' },
       { tag: '{alasan_penolakan}', desc: 'Catatan/alasan penolakan yang ditulis Admin', sample: 'Nomor NIB tidak valid di OSS dan dokumen KTP penanggung jawab buram.' },
-      { tag: '{revisi_url}', desc: 'Tautan langsung ke form perbaikan data', sample: 'https://airecruit-pro.com/login' }
+      { tag: '{revisi_url}', desc: 'Tautan langsung ke form perbaikan data', sample: 'https://jobai.id/login' }
     ]
   }
 ];
@@ -491,10 +491,10 @@ export default function SystemSettingsPage() {
                       type="text" 
                       value={settings.public_domain_url || ''}
                       onChange={(e) => handleChange('public_domain_url', e.target.value)}
-                      placeholder="https://airecruitpro.com"
+                      placeholder="https://jobai.id"
                       className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:ring-2 focus:ring-slate-400 outline-none font-medium"
                     />
-                    <p className="text-[11px] text-slate-400 mt-1">Alamat domain resmi website utama yang diakses oleh publik (misal: https://airecruitpro.com).</p>
+                    <p className="text-[11px] text-slate-400 mt-1">Alamat domain resmi website utama yang diakses oleh publik (misal: https://jobai.id).</p>
                   </div>
 
                   <div>
@@ -503,7 +503,7 @@ export default function SystemSettingsPage() {
                       type="text" 
                       value={settings.public_backend_url || ''}
                       onChange={(e) => handleChange('public_backend_url', e.target.value)}
-                      placeholder="https://api.airecruitpro.com"
+                      placeholder="https://api.jobai.id"
                       className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:ring-2 focus:ring-slate-400 outline-none font-medium"
                     />
                     <p className="text-[11px] text-slate-400 mt-1">Alamat URL server backend API resmi untuk pengiriman email notifikasi, reset password & media.</p>
@@ -515,7 +515,7 @@ export default function SystemSettingsPage() {
                       type="text" 
                       value={settings.seo_title || ''}
                       onChange={(e) => handleChange('seo_title', e.target.value)}
-                      placeholder="AI Recruit Pro - Platform Rekrutmen & Lowongan Kerja Berbasis AI"
+                      placeholder="JOB-AI - Platform Rekrutmen & Lowongan Kerja Berbasis AI"
                       className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:ring-2 focus:ring-slate-400 outline-none font-medium"
                     />
                   </div>
@@ -526,7 +526,7 @@ export default function SystemSettingsPage() {
                       value={settings.seo_description || ''}
                       onChange={(e) => handleChange('seo_description', e.target.value)}
                       rows={3}
-                      placeholder="Temukan talenta terbaik dan lowongan kerja impian dengan analisis CV otomatis, screening video, dan proses transparan di AI Recruit Pro."
+                      placeholder="Temukan talenta terbaik dan lowongan kerja impian dengan analisis CV otomatis, screening video, dan proses transparan di JOB-AI."
                       className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:ring-2 focus:ring-slate-400 outline-none resize-none font-medium"
                     />
                   </div>
@@ -537,7 +537,7 @@ export default function SystemSettingsPage() {
                       value={settings.seo_keywords || ''}
                       onChange={(e) => handleChange('seo_keywords', e.target.value)}
                       rows={2}
-                      placeholder="AI Recruit Pro, airecruitpro, airecruit-pro, rekrutmen AI, platform rekrutmen, screening CV otomatis"
+                      placeholder="JOB-AI, jobai, job-ai, rekrutmen AI, platform rekrutmen, screening CV otomatis"
                       className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:ring-2 focus:ring-slate-400 outline-none resize-none font-medium"
                     />
                     <p className="text-[11px] text-slate-400 mt-1">Masukkan kata kunci pencarian yang relevan, dipisahkan dengan koma.</p>
@@ -554,7 +554,7 @@ export default function SystemSettingsPage() {
                       type="email" 
                       value={settings.admin_email || ''}
                       onChange={(e) => handleChange('admin_email', e.target.value)}
-                      placeholder="support@airecruitpro.id"
+                      placeholder="support@jobai.id"
                       className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:ring-2 focus:ring-slate-400 outline-none font-medium"
                     />
                   </div>
@@ -630,7 +630,7 @@ export default function SystemSettingsPage() {
                       type="email" 
                       value={settings.smtp_from || ''}
                       onChange={(e) => handleChange('smtp_from', e.target.value)}
-                      placeholder="noreply@airecruitpro.com"
+                      placeholder="noreply@jobai.com"
                       className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs text-slate-800 dark:text-slate-100 focus:ring-2 focus:ring-slate-400 outline-none font-medium"
                     />
                   </div>
@@ -836,7 +836,7 @@ export default function SystemSettingsPage() {
                           <div className="w-2.5 h-2.5 rounded-full bg-amber-400" />
                           <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
                           <span className="ml-2 text-[10px] font-mono text-slate-400 truncate">
-                            Preview: {settings.smtp_from || 'noreply@airecruitpro.com'}
+                            Preview: {settings.smtp_from || 'noreply@jobai.com'}
                           </span>
                         </div>
 
@@ -845,7 +845,7 @@ export default function SystemSettingsPage() {
                           <div className="flex items-center gap-2 text-[11px]">
                             <span className="text-slate-400 font-bold w-14 shrink-0">Dari:</span>
                             <span className="text-slate-800 dark:text-slate-200 font-semibold truncate">
-                              AI Recruit Pro &lt;{settings.smtp_from || 'noreply@airecruitpro.com'}&gt;
+                              JOB-AI &lt;{settings.smtp_from || 'noreply@jobai.com'}&gt;
                             </span>
                           </div>
                           <div className="flex items-center gap-2 text-[11px]">

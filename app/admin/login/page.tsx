@@ -66,7 +66,7 @@ export default function AdminLoginPage() {
             priority
           />
           <h1 className="text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">Portal Admin</h1>
-          <p className="text-slate-500 dark:text-slate-400 text-xs mt-1 font-medium">Sistem Manajemen AI-RecruitPro</p>
+          <p className="text-slate-500 dark:text-slate-400 text-xs mt-1 font-medium">Sistem Manajemen JOB-AI</p>
         </div>
 
         <form onSubmit={handleLogin} className="space-y-4">

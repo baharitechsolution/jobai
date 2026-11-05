@@ -2,10 +2,10 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Syarat & Ketentuan',
-  description: 'Syarat dan ketentuan penggunaan layanan platform AI Recruit Pro untuk pelamar, UMKM, dan mitra institusi.',
+  description: 'Syarat dan ketentuan penggunaan layanan platform JOB-AI untuk pelamar, UMKM, dan mitra institusi.',
   openGraph: {
-    title: 'Syarat & Ketentuan | AI Recruit Pro',
-    description: 'Syarat dan ketentuan penggunaan layanan platform AI Recruit Pro untuk pelamar, UMKM, dan mitra institusi.',
+    title: 'Syarat & Ketentuan | JOB-AI',
+    description: 'Syarat dan ketentuan penggunaan layanan platform JOB-AI untuk pelamar, UMKM, dan mitra institusi.',
   },
 };
 

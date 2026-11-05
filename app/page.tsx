@@ -106,7 +106,7 @@ function LandingPageContent() {
     applicantPortal: 'Login',
     heroTag: 'Platform Cari Kerja Seamless & Transparan',
     heroTitleLine1: 'Temukan Talenta yang Tepat',
-    heroTitleLine2: 'di AI-RecruitPro',
+    heroTitleLine2: 'di JOB-AI',
     heroSubtitle: 'Kita bantu Anda find career yang paling fit dengan skill dan interest melalui proses AI yang fair dan transparan.',
     accuracyStat: 'Match Rate',
     successfulApplicants: 'Successful Hires',
@@ -122,7 +122,7 @@ function LandingPageContent() {
     biasFreeDesc: 'CV Anda di-review pure berdasarkan skill, no bias against background personal.',
     topEmployersTitle: 'Top Employers',
     activePartners: '500+ Hiring Partners',
-    pillarsTag: 'Why AI-Recruit?',
+    pillarsTag: 'Why JOB-AI?',
     pillarsTitle: 'The New Way to Apply Job',
     pillarsSub: '3 simple steps untuk secure role yang paling fit buat Anda.',
     pillar1Title: '1. Auto-Match CV',
@@ -157,7 +157,7 @@ function LandingPageContent() {
     faqTag: 'FAQ',
     faqTitle: 'Candidate Information',
     footerDesc: 'Job platform yang connect Anda dengan top tech companies secara fair dan transparan.',
-    copyright: 'AI-Recruit Pro. All rights reserved.',
+    copyright: 'JOB-AI. All rights reserved.',
     jobDetailsModalTitle: 'Estimated Profile Match:',
     closeModal: 'Close',
   };
@@ -383,7 +383,7 @@ function LandingPageContent() {
   const faqItems = [
     {
       q: 'Apa itu platform pencarian kerja ini?',
-      a: 'AI-RecruitPro adalah platform rekrutmen berbasis AI yang menghubungkan pencari kerja dengan UMKM secara transparan, adil, dan efisien.'
+      a: 'JOB-AI adalah platform rekrutmen berbasis AI yang menghubungkan pencari kerja dengan UMKM secara transparan, adil, dan efisien.'
     },
     {
       q: 'Apakah perlu membuat akun untuk mencari lowongan?',
@@ -399,7 +399,7 @@ function LandingPageContent() {
     },
     {
       q: 'Apakah layanan ini gratis untuk pelamar kerja?',
-      a: 'Ya! Seluruh layanan pencarian kerja dan pengiriman lamaran di AI-RecruitPro 100% gratis untuk pelamar.'
+      a: 'Ya! Seluruh layanan pencarian kerja dan pengiriman lamaran di JOB-AI 100% gratis untuk pelamar.'
     }
   ];
 
@@ -632,7 +632,7 @@ function LandingPageContent() {
             <div className="p-5 text-center rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
               <Building2 className="w-7 h-7 text-slate-400 mx-auto mb-1.5" />
               <p className="text-slate-600 dark:text-slate-300 font-semibold text-xs">Belum ada UMKM terverifikasi yang ditampilkan.</p>
-              <p className="text-slate-400 text-[10px] mt-0.5">Mitra UMKM resmi AI-RecruitPro akan segera muncul di sini.</p>
+              <p className="text-slate-400 text-[10px] mt-0.5">Mitra UMKM resmi JOB-AI akan segera muncul di sini.</p>
             </div>
           )}
         </div>
@@ -649,7 +649,7 @@ function LandingPageContent() {
                 <div className="absolute inset-0 bg-[#1A4B9F]/10 blur-2xl rounded-full transform -translate-y-2 scale-105"></div>
                 <img
                   src="/feature_model.jpg"
-                  alt="AI-Recruit Professional"
+                  alt="JOB-AI Professional"
                   className="relative z-10 w-full h-auto hover:scale-105 transition-transform duration-500 mix-blend-multiply"
                 />
               </div>
@@ -1169,8 +1169,8 @@ function LandingPageContent() {
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-normal leading-relaxed">
               {language === 'en'
-                ? 'A few notes from people using AI-RecruitPro to make their next move with more confidence.'
-                : 'Pengalaman dari mereka yang menggunakan AI-RecruitPro untuk melangkah ke karier berikutnya dengan lebih percaya diri.'}
+                ? 'A few notes from people using JOB-AI to make their next move with more confidence.'
+                : 'Pengalaman dari mereka yang menggunakan JOB-AI untuk melangkah ke karier berikutnya dengan lebih percaya diri.'}
             </p>
           </div>
 
@@ -1300,7 +1300,7 @@ function LandingPageContent() {
 
               <div className="pt-1">
                 <a
-                  href="mailto:support@airecruitpro.com"
+                  href="mailto:support@jobai.id"
                   className="inline-flex items-center gap-1.5 text-[#1A4B9F] dark:text-blue-400 font-bold text-xs sm:text-sm hover:text-[#133878] dark:hover:text-blue-300 transition-colors group"
                 >
                   <span>{language === 'en' ? 'Contact support' : 'Hubungi tim support'}</span>

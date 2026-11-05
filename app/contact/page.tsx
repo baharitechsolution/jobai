@@ -20,7 +20,7 @@ import {
 export default function ContactPage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [contactData, setContactData] = useState({
-    email: 'support@airecruitpro.id',
+    email: 'support@jobai.id',
     whatsapp: '+62 812-3456-7890',
     location: 'Jakarta, Indonesia'
   });
@@ -30,7 +30,7 @@ export default function ContactPage() {
       .then(res => res.json())
       .then(data => {
         setContactData({
-          email: data.admin_email || 'support@airecruitpro.id',
+          email: data.admin_email || 'support@jobai.id',
           whatsapp: data.support_whatsapp || '+62 812-3456-7890',
           location: data.lokasi_kantor_pusat || 'Jakarta, Indonesia'
         });
@@ -53,7 +53,7 @@ export default function ContactPage() {
               Hubungi Tim Bantuan
             </h1>
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-normal leading-relaxed max-w-lg mx-auto">
-              Memiliki pertanyaan terkait platform, proses registrasi, atau kendala teknis? Tim layanan pelanggan AI-RecruitPro siap sedia membantu Anda.
+              Memiliki pertanyaan terkait platform, proses registrasi, atau kendala teknis? Tim layanan pelanggan JOB-AI siap sedia membantu Anda.
             </p>
           </div>
 
