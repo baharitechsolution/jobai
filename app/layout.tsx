@@ -117,6 +117,15 @@ export async function generateMetadata(): Promise<Metadata> {
     verification: {
       google: "Q9U_ioI63DeHw7bSPhF2FOPEjXf-KuAufpUFXkaNad0",
     },
+    icons: {
+      icon: [
+        { url: '/favicon.ico' },
+        { url: '/icon.png', type: 'image/png' },
+      ],
+      apple: [
+        { url: '/icon.png' },
+      ],
+    },
   };
 }
 
