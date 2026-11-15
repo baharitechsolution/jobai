@@ -89,7 +89,7 @@ function AdminJobDetailView() {
       const job = await res.json();
 
       setJobTitle(job.judul_posisi || '');
-      setCompanyName(job.perusahaan?.nama_perusahaan || 'UMKM');
+      setCompanyName(job.perusahaan?.nama_perusahaan || 'Perusahaan/UMKM');
       setJobStatus(job.status || 'active');
       setCategoryId(job.kategori_id || '');
       setCategoryName(job.kategori?.nama_kategori || '');
@@ -204,7 +204,7 @@ function AdminJobDetailView() {
             )}
           </div>
           <p className="text-xs text-slate-500 dark:text-slate-400 font-medium mt-1 flex items-center gap-2">
-            <span>UMKM: <strong className="text-slate-800 dark:text-slate-200">{companyName}</strong></span>
+            <span>Perusahaan/UMKM: <strong className="text-slate-800 dark:text-slate-200">{companyName}</strong></span>
             <span>•</span>
             <span className="font-mono text-[11px] text-slate-400">ID: {jobId}</span>
           </p>

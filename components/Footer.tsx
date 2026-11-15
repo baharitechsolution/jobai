@@ -35,7 +35,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-slate-400 leading-relaxed text-xs sm:text-sm max-w-md">
-              Platform rekrutmen berbasis AI yang menghubungkan talenta terbaik dengan UMKM terkemuka secara fair, cepat, dan transparan.
+              Platform rekrutmen berbasis AI yang menghubungkan talenta terbaik dengan Perusahaan/UMKM terkemuka secara fair, cepat, dan transparan.
             </p>
           </div>
 
@@ -60,7 +60,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/companies" className="hover:text-white transition-colors">
-                  Direktori UMKM
+                  Direktori Perusahaan/UMKM
                 </Link>
               </li>
               <li>
@@ -82,7 +82,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/perusahaan/login" className="hover:text-white transition-colors">
-                  Portal Mitra UMKM
+                  Portal Mitra Perusahaan/UMKM
                 </Link>
               </li>
               <li>
@@ -102,7 +102,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/register" className="hover:text-white transition-colors">
-                  Registrasi UMKM
+                  Registrasi Perusahaan/UMKM
                 </Link>
               </li>
             </ul>

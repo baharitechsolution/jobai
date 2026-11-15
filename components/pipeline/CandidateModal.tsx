@@ -231,13 +231,13 @@ export function CandidateModal({ candidate, onClose, onStatusUpdated }: Candidat
     company: string,
     notes: string
   ) => {
-    const resolvedCompany = company || 'UMKM';
+    const resolvedCompany = company || 'Perusahaan/UMKM';
     return `Halo Rekan *${candidateName}*,
 
 Selamat! Kami dari *${resolvedCompany}* dengan senang hati menginformasikan bahwa Anda dinyatakan *LOLOS* seluruh tahapan seleksi dan secara resmi diterima (*Hired*) untuk bergabung bersama kami pada posisi:
 
 📌 *Posisi:* ${role}
-🏢 *UMKM:* ${resolvedCompany}
+🏢 *Perusahaan/UMKM:* ${resolvedCompany}
 
 *Pesan / Instruksi Penawaran Kerja:*
 ${notes || 'Selamat bergabung! Rincian offering letter resmi dan dokumen onboarding telah kami kirimkan ke email terdaftar Anda.'}
@@ -825,7 +825,7 @@ Salam hangat,
                             <div key={idx} className="space-y-1">
                               <div className="flex justify-between items-baseline text-xs font-bold text-slate-900">
                                 <span>
-                                  {exp.role || '[Posisi]'} — {exp.company || '[UMKM]'}
+                                  {exp.role || '[Posisi]'} — {exp.company || '[Perusahaan/UMKM]'}
                                 </span>
                                 <span className="text-[11px] text-slate-500 font-semibold">{exp.period}</span>
                               </div>
@@ -839,7 +839,7 @@ Salam hangat,
                         ) : (
                           <div className="space-y-1 text-slate-400 italic">
                             <div className="flex justify-between items-baseline text-xs">
-                              <span>[Posisi Jabatan] — [Nama UMKM]</span>
+                              <span>[Posisi Jabatan] — [Nama Perusahaan/UMKM]</span>
                               <span className="text-[11px]">[Periode Kerja]</span>
                             </div>
                             <p className="text-xs leading-normal pl-3 border-l-2 border-slate-200 text-justify">
@@ -972,7 +972,7 @@ Salam hangat,
                         <p className="text-xs text-muted-foreground leading-relaxed">
                           {isFailedEducation ? (
                             <>
-                              Pendidikan terakhir kandidat (<strong>{candidate.cvDocument?.pendidikan_tertinggi || candidate.education || 'Tidak tercantum'}</strong>) belum memenuhi syarat minimal yang ditentukan UMKM (<strong>{candidate.jobData?.pendidikan_min || 'Sesuai Ketentuan'}</strong>).
+                              Pendidikan terakhir kandidat (<strong>{candidate.cvDocument?.pendidikan_tertinggi || candidate.education || 'Tidak tercantum'}</strong>) belum memenuhi syarat minimal yang ditentukan Perusahaan/UMKM (<strong>{candidate.jobData?.pendidikan_min || 'Sesuai Ketentuan'}</strong>).
                             </>
                           ) : isPassed ? (
                             <>
@@ -980,7 +980,7 @@ Salam hangat,
                             </>
                           ) : (
                             <>
-                              Tingkat kecocokan profil kandidat saat ini sebesar <strong>{candidate.cvScore || 0}%</strong>, belum mencapai batas nilai minimal yang ditetapkan UMKM yaitu <strong>{threshold}%</strong>.
+                              Tingkat kecocokan profil kandidat saat ini sebesar <strong>{candidate.cvScore || 0}%</strong>, belum mencapai batas nilai minimal yang ditetapkan Perusahaan/UMKM yaitu <strong>{threshold}%</strong>.
                             </>
                           )}
                         </p>
@@ -2195,7 +2195,7 @@ Salam hangat,
                         )}
                       </div>
                       <div className="text-[10px] text-muted-foreground">
-                        Atas nama UMKM: <strong className="text-foreground">{companyName || 'UMKM'}</strong>
+                        Atas nama Perusahaan/UMKM: <strong className="text-foreground">{companyName || 'Perusahaan/UMKM'}</strong>
                       </div>
                     </div>
                   </div>

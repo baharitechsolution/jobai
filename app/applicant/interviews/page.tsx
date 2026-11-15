@@ -104,7 +104,7 @@ export default function WawancaraVideoPage() {
         return;
       }
       await api.post(`/applications/${appId}/upload-video`, formData);
-      alert("Video Anda berhasil diunggah! Data Anda telah dikirim dan akan segera direview oleh tim rekrutmen UMKM.");
+      alert("Video Anda berhasil diunggah! Data Anda telah dikirim dan akan segera direview oleh tim rekrutmen Perusahaan/UMKM.");
       router.push('/applicant/status?showReview=true');
     } catch (error) {
       console.error(error);

@@ -83,11 +83,11 @@ export default function CompanyLoginPage() {
     setError('');
 
     if (!email || !email.includes('@')) {
-      setError('Masukkan email resmi UMKM yang valid.');
+      setError('Masukkan email resmi Perusahaan/UMKM yang valid.');
       return;
     }
     if (!password) {
-      setError('Masukkan password akun UMKM Anda.');
+      setError('Masukkan password akun Perusahaan/UMKM Anda.');
       return;
     }
 
@@ -110,14 +110,14 @@ export default function CompanyLoginPage() {
 
         const userObj = {
           id: userId,
-          name: data.user?.name || email.split('@')[0] || 'UMKM',
+          name: data.user?.name || email.split('@')[0] || 'Perusahaan/UMKM',
           email: email,
           role: userRole,
         };
 
         setUser(userObj);
         useAppStore.getState().setUser(userObj);
-        toast.success('Berhasil masuk ke Dashboard UMKM.');
+        toast.success('Berhasil masuk ke Dashboard Perusahaan/UMKM.');
         router.push('/dashboard');
       } else {
         setError('Token autentikasi tidak ditemukan.');
@@ -166,7 +166,7 @@ export default function CompanyLoginPage() {
       try {
         const checkRes = await api.get(`/auth/check-email?email=${encodeURIComponent(email.trim())}&role=perusahaan`);
         if (checkRes && checkRes.exists === false) {
-          setError('Akun UMKM belum terdaftar. Silakan daftarkan UMKM Anda terlebih dahulu.');
+          setError('Akun Perusahaan/UMKM belum terdaftar. Silakan daftarkan Perusahaan/UMKM Anda terlebih dahulu.');
           return;
         }
       } catch (_) {}
@@ -183,7 +183,7 @@ export default function CompanyLoginPage() {
         lowerMsg.includes('account not found');
 
       if (isUnregistered) {
-        setError('Akun UMKM belum terdaftar. Silakan daftarkan UMKM Anda terlebih dahulu.');
+        setError('Akun Perusahaan/UMKM belum terdaftar. Silakan daftarkan Perusahaan/UMKM Anda terlebih dahulu.');
       } else {
         setError(errorMsg);
       }
@@ -290,14 +290,14 @@ export default function CompanyLoginPage() {
 
         const userObj = {
           id: userId,
-          name: data.user?.name || email.split('@')[0] || 'UMKM',
+          name: data.user?.name || email.split('@')[0] || 'Perusahaan/UMKM',
           email: email,
           role: userRole,
         };
 
         setUser(userObj);
         useAppStore.getState().setUser(userObj);
-        toast.success('Akun UMKM berhasil diverifikasi! Selamat datang.');
+        toast.success('Akun Perusahaan/UMKM berhasil diverifikasi! Selamat datang.');
         router.push('/dashboard');
       } else {
         toast.success('Verifikasi berhasil! Silakan masuk dengan kata sandi Anda.');
@@ -317,7 +317,7 @@ export default function CompanyLoginPage() {
 
     try {
       await api.post('/auth/resend-otp', { email });
-      toast.success('Kode OTP baru telah dikirimkan ke email UMKM Anda.');
+      toast.success('Kode OTP baru telah dikirimkan ke email Perusahaan/UMKM Anda.');
       setCountdown(60);
     } catch (err: any) {
       setOtpError(parseErrorMessage(err));
@@ -330,7 +330,7 @@ export default function CompanyLoginPage() {
   const handleForgotEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !email.includes('@')) {
-      setResetError('Masukkan alamat email UMKM yang valid.');
+      setResetError('Masukkan alamat email Perusahaan/UMKM yang valid.');
       return;
     }
 
@@ -339,7 +339,7 @@ export default function CompanyLoginPage() {
 
     try {
       await api.post('/auth/forgot-password', { email });
-      toast.success('Kode OTP reset password telah dikirim ke email UMKM Anda.');
+      toast.success('Kode OTP reset password telah dikirim ke email Perusahaan/UMKM Anda.');
       setMode('forgot_otp');
       setResetOtpCode('');
     } catch (err: any) {
@@ -372,7 +372,7 @@ export default function CompanyLoginPage() {
     setResetError('');
     try {
       await api.post('/auth/forgot-password', { email });
-      toast.success('Kode OTP reset baru telah dikirimkan ke email UMKM Anda.');
+      toast.success('Kode OTP reset baru telah dikirimkan ke email Perusahaan/UMKM Anda.');
     } catch (err: any) {
       setResetError(parseErrorMessage(err));
     }
@@ -400,7 +400,7 @@ export default function CompanyLoginPage() {
         new_password: newPassword
       });
 
-      toast.success('Password UMKM berhasil diperbarui! Silakan masuk dengan password baru Anda.');
+      toast.success('Password Perusahaan/UMKM berhasil diperbarui! Silakan masuk dengan password baru Anda.');
       setPassword('');
       setNewPassword('');
       setConfirmPassword('');
@@ -443,7 +443,7 @@ export default function CompanyLoginPage() {
       <main className="flex-1 max-w-[1440px] w-full mx-auto px-6 sm:px-10 lg:px-14 py-8 flex items-center justify-center">
         <div className="w-full max-w-md bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-xl p-6 sm:p-8 space-y-6">
 
-          {/* 1. VIEW: LOGIN UMKM */}
+          {/* 1. VIEW: LOGIN Perusahaan/UMKM */}
           {mode === 'login' && (
             <>
               <div className="space-y-2 text-center">
@@ -459,7 +459,7 @@ export default function CompanyLoginPage() {
               </div>
 
               <form onSubmit={handleLoginSubmit} className="space-y-4">
-                {/* Email UMKM */}
+                {/* Email Perusahaan/UMKM */}
                 <div className="space-y-1">
                   <label htmlFor="company-email" className="block text-xs font-semibold text-slate-700 dark:text-slate-300">
                     {t.employerAuth.emailLabel}
@@ -484,7 +484,7 @@ export default function CompanyLoginPage() {
                     />
                   </div>
                   <span className="text-[11px] text-slate-500 dark:text-slate-400 block pt-0.5 font-medium">
-                    {t.employerAuth.emailHelp || 'Gunakan alamat email resmi UMKM Anda.'}
+                    {t.employerAuth.emailHelp || 'Gunakan alamat email resmi Perusahaan/UMKM Anda.'}
                   </span>
                 </div>
 
@@ -591,9 +591,9 @@ export default function CompanyLoginPage() {
                 <div className="w-14 h-14 bg-blue-50 dark:bg-slate-800 border border-blue-100 dark:border-slate-700 rounded-2xl flex items-center justify-center text-[#1A4B9F] dark:text-blue-400 mx-auto">
                   <KeyRound size={28} />
                 </div>
-                <h2 className="text-xl font-bold text-slate-900 dark:text-white">Verifikasi OTP UMKM</h2>
+                <h2 className="text-xl font-bold text-slate-900 dark:text-white">Verifikasi OTP Perusahaan/UMKM</h2>
                 <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-xs mx-auto leading-relaxed">
-                  Akun UMKM Anda belum aktif. Masukkan 6 digit kode OTP yang telah dikirimkan ke email: <strong className="text-[#1A4B9F] dark:text-blue-400 block break-all">{email}</strong>
+                  Akun Perusahaan/UMKM Anda belum aktif. Masukkan 6 digit kode OTP yang telah dikirimkan ke email: <strong className="text-[#1A4B9F] dark:text-blue-400 block break-all">{email}</strong>
                 </p>
               </div>
 
@@ -666,17 +666,17 @@ export default function CompanyLoginPage() {
                   <KeyRound size={24} />
                 </div>
                 <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tighter">
-                  Lupa Password UMKM?
+                  Lupa Password Perusahaan/UMKM?
                 </h1>
                 <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-                  Masukkan email resmi UMKM terdaftar. Kami akan mengirimkan 6-digit kode OTP untuk mereset password Anda.
+                  Masukkan email resmi Perusahaan/UMKM terdaftar. Kami akan mengirimkan 6-digit kode OTP untuk mereset password Anda.
                 </p>
               </div>
 
               <form onSubmit={handleForgotEmailSubmit} className="space-y-4">
                 <div className="space-y-1">
                   <label htmlFor="forgot-email" className="block text-xs font-semibold text-slate-700 dark:text-slate-300">
-                    Email UMKM <span className="text-red-500">*</span>
+                    Email Perusahaan/UMKM <span className="text-red-500">*</span>
                   </label>
                   <div className="relative flex items-center">
                     <Mail size={18} className="absolute left-4 text-slate-400 pointer-events-none" />
@@ -720,7 +720,7 @@ export default function CompanyLoginPage() {
                     className="text-xs font-semibold text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 hover:underline inline-flex items-center gap-1 cursor-pointer"
                   >
                     <ArrowLeft size={14} />
-                    <span>Kembali ke Login UMKM</span>
+                    <span>Kembali ke Login Perusahaan/UMKM</span>
                   </button>
                 </div>
               </form>
@@ -736,7 +736,7 @@ export default function CompanyLoginPage() {
                 </div>
                 <h2 className="text-xl font-bold text-slate-900 dark:text-white">Verifikasi OTP Reset Password</h2>
                 <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-xs mx-auto leading-relaxed">
-                  Masukkan 6 digit kode OTP yang telah dikirim ke email UMKM: <strong className="text-[#1A4B9F] dark:text-blue-400 block break-all">{email}</strong>
+                  Masukkan 6 digit kode OTP yang telah dikirim ke email Perusahaan/UMKM: <strong className="text-[#1A4B9F] dark:text-blue-400 block break-all">{email}</strong>
                 </p>
               </div>
 
@@ -820,7 +820,7 @@ export default function CompanyLoginPage() {
                   <ShieldCheck size={24} />
                 </div>
                 <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tighter">
-                  Atur Password Baru UMKM
+                  Atur Password Baru Perusahaan/UMKM
                 </h1>
                 <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
                   Silakan buat password baru yang kuat untuk akun <span className="font-semibold text-slate-900 dark:text-white">{email}</span>.
@@ -831,7 +831,7 @@ export default function CompanyLoginPage() {
                 {/* Password Baru */}
                 <div className="space-y-1">
                   <label htmlFor="company-new-password" className="block text-xs font-semibold text-slate-700 dark:text-slate-300">
-                    Password Baru UMKM <span className="text-red-500">*</span>
+                    Password Baru Perusahaan/UMKM <span className="text-red-500">*</span>
                   </label>
                   <div className="relative flex items-center">
                     <Lock size={18} className="absolute left-4 text-slate-400 pointer-events-none" />
@@ -913,7 +913,7 @@ export default function CompanyLoginPage() {
                   disabled={isLoading || !isValidNewPassword || newPassword !== confirmPassword}
                   className="w-full py-3.5 rounded-full bg-[#1A4B9F] hover:bg-[#133878] active:scale-[0.99] text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                 >
-                  <span>{isLoading ? 'Menyimpan...' : 'Simpan Password Baru UMKM'}</span>
+                  <span>{isLoading ? 'Menyimpan...' : 'Simpan Password Baru Perusahaan/UMKM'}</span>
                 </button>
               </form>
             </div>
