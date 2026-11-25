@@ -822,12 +822,12 @@ function LandingPageContent() {
                 <Briefcase size={16} className="text-slate-900 dark:text-white" />
               </div>
               <div>
-                <h2 className="text-base font-bold text-slate-900 dark:text-slate-200">
+                <h2 className="text-base font-semibold text-slate-800 dark:text-slate-100 tracking-tight">
                   {lang.highPrecisionJobsTitle}
                 </h2>
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className="text-xs text-slate-500 dark:text-slate-400">
-                    {lang.activeJobsCount} <strong className="text-slate-900 dark:text-white">{filteredJobs.length}</strong> {lang.activeJobsSuffix}
+                    {lang.activeJobsCount} <strong className="text-slate-800 dark:text-slate-200 font-semibold">{filteredJobs.length}</strong> {lang.activeJobsSuffix}
                   </span>
                   {selectedCategory !== 'Semua' && selectedCategory !== 'All' && (
                     <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#1A4B9F]/10 dark:bg-blue-900/40 border border-[#1A4B9F]/30 dark:border-blue-700 text-[#1A4B9F] dark:text-blue-300 text-[11px] font-bold">
@@ -920,7 +920,7 @@ function LandingPageContent() {
                 name="workType"
                 value={workTypeInput}
                 onChange={(e) => setWorkTypeInput(e.target.value)}
-                className="w-full appearance-none px-3 py-2 pr-8 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-[#1A4B9F] cursor-pointer"
+                className="w-full appearance-none px-3 py-2 pr-8 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-medium text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-[#1A4B9F] cursor-pointer"
               >
                 <option value="Semua">Semua Sistem Kerja</option>
                 <option value="Remote">Remote</option>
@@ -936,7 +936,7 @@ function LandingPageContent() {
                 name="statusKerja"
                 value={statusKerjaInput}
                 onChange={(e) => setStatusKerjaInput(e.target.value)}
-                className="w-full appearance-none px-3 py-2 pr-8 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-[#1A4B9F] cursor-pointer"
+                className="w-full appearance-none px-3 py-2 pr-8 bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-medium text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-[#1A4B9F] cursor-pointer"
               >
                 <option value="Semua">Semua Status</option>
                 <option value="Full Time">Full Time</option>
@@ -998,14 +998,14 @@ function LandingPageContent() {
                           />
                           <div className="space-y-0.5">
                             <div className="flex items-center gap-1.5">
-                              <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 block truncate">{job.company}</span>
+                              <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400 block truncate">{job.company}</span>
                               {job.isNew && (
-                                <span className="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 shrink-0">
+                                <span className="text-[11px] font-medium text-emerald-600 dark:text-emerald-400 shrink-0">
                                   • Baru
                                 </span>
                               )}
                             </div>
-                            <h3 className="font-bold text-sm sm:text-base text-slate-900 dark:text-white line-clamp-1">
+                            <h3 className="font-semibold text-sm sm:text-base text-slate-800 dark:text-slate-100 line-clamp-1 tracking-tight">
                               {job.title}
                             </h3>
                           </div>
@@ -1015,7 +1015,7 @@ function LandingPageContent() {
                           href="/applicant/login"
                           onClick={(e) => e.stopPropagation()}
                           title="Simpan Lowongan"
-                          className="p-1.5 rounded-lg border transition-colors cursor-pointer bg-slate-50 dark:bg-slate-800/60 border-slate-200/70 dark:border-slate-700/70 text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-700"
+                          className="p-1.5 rounded-lg border transition-colors cursor-pointer bg-slate-50 dark:bg-slate-800/60 border-slate-200/70 dark:border-slate-700/70 text-slate-400 hover:text-slate-700 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-700"
                         >
                           <Bookmark size={16} />
                         </Link>
@@ -1023,13 +1023,13 @@ function LandingPageContent() {
 
                       {/* Location, WorkType & Salary Metadata */}
                       <div className="space-y-1 text-xs text-slate-600 dark:text-slate-300">
-                        <div className="flex items-center gap-1.5 font-medium">
+                        <div className="flex items-center gap-1.5 font-normal text-slate-500 dark:text-slate-400">
                           <MapPin size={13} className="text-slate-400 shrink-0" />
-                          <span>{job.location} • <strong className="text-slate-800 dark:text-slate-200">{job.workType}</strong> ({job.experienceLevel} • {job.educationLevel})</span>
+                          <span>{job.location} • <span className="text-slate-700 dark:text-slate-200 font-medium">{job.workType}</span> ({job.experienceLevel} • {job.educationLevel})</span>
                         </div>
-                        <div className="flex items-center gap-1.5 font-medium">
+                        <div className="flex items-center gap-1.5 font-normal">
                           <DollarSign size={13} className="text-slate-400 shrink-0" />
-                          <span className="font-bold text-slate-900 dark:text-slate-100">{job.salary}</span>
+                          <span className="font-semibold text-slate-800 dark:text-slate-100">{job.salary}</span>
                           <span className="text-slate-300 dark:text-slate-700">•</span>
                           <span className="text-slate-500 text-[11px]">{job.openingsCount} Kuota Posisi</span>
                         </div>
@@ -1117,41 +1117,41 @@ function LandingPageContent() {
                       }}
                     />
                     <div className="space-y-0.5">
-                      <span className="text-xs font-bold text-slate-900 dark:text-slate-200 block">{selectedPreviewJob.company}</span>
-                      <h3 className="font-bold text-base text-slate-900 dark:text-white leading-snug">{selectedPreviewJob.title}</h3>
-                      <div className="flex flex-wrap items-center gap-1.5 text-xs text-slate-500 font-medium">
+                      <span className="text-xs font-medium text-slate-500 dark:text-slate-400 block">{selectedPreviewJob.company}</span>
+                      <h3 className="font-semibold text-base text-slate-800 dark:text-slate-100 leading-snug tracking-tight">{selectedPreviewJob.title}</h3>
+                      <div className="flex flex-wrap items-center gap-1.5 text-xs text-slate-500 font-normal">
                         <span>{selectedPreviewJob.location}</span>
                         <span>•</span>
-                        <span className="text-slate-700 dark:text-slate-200 font-bold">{selectedPreviewJob.workType}</span>
+                        <span className="text-slate-700 dark:text-slate-200 font-medium">{selectedPreviewJob.workType}</span>
                         <span>•</span>
-                        <span className="text-slate-900 dark:text-slate-200 font-semibold">{selectedPreviewJob.salary}</span>
+                        <span className="text-slate-800 dark:text-slate-100 font-semibold">{selectedPreviewJob.salary}</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Requirements */}
-                  <div className="space-y-3 text-xs text-slate-600 dark:text-slate-300">
+                  <div className="space-y-3.5 text-xs text-slate-600 dark:text-slate-300">
                     <div>
-                      <h4 className="font-bold text-slate-900 dark:text-slate-200 text-xs mb-1">{lang.roleDescription}</h4>
-                      <p className="leading-relaxed whitespace-pre-line">{selectedPreviewJob.description}</p>
+                      <h4 className="font-semibold text-slate-800 dark:text-slate-200 text-xs mb-1.5">{lang.roleDescription}</h4>
+                      <p className="leading-relaxed whitespace-pre-line text-slate-600 dark:text-slate-300">{selectedPreviewJob.description}</p>
                     </div>
 
                     {selectedPreviewJob.responsibilities && selectedPreviewJob.responsibilities.length > 0 && (
                       <div>
-                        <h4 className="font-bold text-slate-900 dark:text-slate-200 text-xs mb-1">{lang.keyResponsibilities}</h4>
+                        <h4 className="font-semibold text-slate-800 dark:text-slate-200 text-xs mb-1.5">{lang.keyResponsibilities}</h4>
                         <ul className="list-disc list-inside space-y-1">
                           {selectedPreviewJob.responsibilities.map((resp: string, idx: number) => (
-                            <li key={idx}>{resp}</li>
+                            <li key={idx} className="leading-relaxed">{resp}</li>
                           ))}
                         </ul>
                       </div>
                     )}
 
                     <div>
-                      <h4 className="font-bold text-slate-900 dark:text-slate-200 text-xs mb-1">{lang.keyQualifications}</h4>
+                      <h4 className="font-semibold text-slate-800 dark:text-slate-200 text-xs mb-1.5">{lang.keyQualifications}</h4>
                       <ul className="list-disc list-inside space-y-1">
                         {selectedPreviewJob.requirements?.map((req: string, idx: number) => (
-                          <li key={idx}>{req}</li>
+                          <li key={idx} className="leading-relaxed">{req}</li>
                         ))}
                       </ul>
                     </div>
@@ -1193,12 +1193,12 @@ function LandingPageContent() {
               {/* Drag handle & Header */}
               <div className="pt-3 pb-2.5 px-5 flex items-center justify-between border-b border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 sticky top-0 z-20">
                 <div className="w-10 h-1.5 rounded-full bg-slate-300 dark:bg-slate-700 mx-auto absolute left-1/2 -translate-x-1/2 top-2.5" />
-                <span className="text-xs font-bold text-slate-700 dark:text-slate-300 pt-2">
+                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300 pt-2">
                   {language === 'en' ? 'Job Details' : 'Detail Lowongan'}
                 </span>
                 <button
                   onClick={() => setIsMobileDetailOpen(false)}
-                  className="p-1.5 rounded-full text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors"
+                  className="p-1.5 rounded-full text-slate-400 hover:text-slate-700 dark:text-slate-400 dark:hover:text-white bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors"
                   aria-label="Tutup"
                 >
                   <X size={18} />
@@ -1219,14 +1219,14 @@ function LandingPageContent() {
                     }}
                   />
                   <div className="space-y-0.5">
-                    <span className="text-xs font-bold text-slate-900 dark:text-slate-200 block">{selectedPreviewJob.company}</span>
-                    <h3 className="font-bold text-base text-slate-900 dark:text-white leading-snug">{selectedPreviewJob.title}</h3>
-                    <div className="flex flex-wrap items-center gap-1.5 text-xs text-slate-500 font-medium">
+                    <span className="text-xs font-medium text-slate-500 dark:text-slate-400 block">{selectedPreviewJob.company}</span>
+                    <h3 className="font-semibold text-base text-slate-800 dark:text-slate-100 leading-snug tracking-tight">{selectedPreviewJob.title}</h3>
+                    <div className="flex flex-wrap items-center gap-1.5 text-xs text-slate-500 font-normal">
                       <span>{selectedPreviewJob.location}</span>
                       <span>•</span>
-                      <span className="text-slate-700 dark:text-slate-200 font-bold">{selectedPreviewJob.workType}</span>
+                      <span className="text-slate-700 dark:text-slate-200 font-medium">{selectedPreviewJob.workType}</span>
                       <span>•</span>
-                      <span className="text-slate-900 dark:text-slate-200 font-semibold">{selectedPreviewJob.salary}</span>
+                      <span className="text-slate-800 dark:text-slate-100 font-semibold">{selectedPreviewJob.salary}</span>
                     </div>
                   </div>
                 </div>
@@ -1243,28 +1243,28 @@ function LandingPageContent() {
                 )}
 
                 {/* Job Details & Requirements */}
-                <div className="space-y-3 text-xs text-slate-600 dark:text-slate-300">
+                <div className="space-y-3.5 text-xs text-slate-600 dark:text-slate-300">
                   <div>
-                    <h4 className="font-bold text-slate-900 dark:text-slate-200 text-xs mb-1">{lang.roleDescription}</h4>
-                    <p className="leading-relaxed whitespace-pre-line">{selectedPreviewJob.description}</p>
+                    <h4 className="font-semibold text-slate-800 dark:text-slate-200 text-xs mb-1.5">{lang.roleDescription}</h4>
+                    <p className="leading-relaxed whitespace-pre-line text-slate-600 dark:text-slate-300">{selectedPreviewJob.description}</p>
                   </div>
 
                   {selectedPreviewJob.responsibilities && selectedPreviewJob.responsibilities.length > 0 && (
                     <div>
-                      <h4 className="font-bold text-slate-900 dark:text-slate-200 text-xs mb-1">{lang.keyResponsibilities}</h4>
+                      <h4 className="font-semibold text-slate-800 dark:text-slate-200 text-xs mb-1.5">{lang.keyResponsibilities}</h4>
                       <ul className="list-disc list-inside space-y-1">
                         {selectedPreviewJob.responsibilities.map((resp: string, idx: number) => (
-                          <li key={idx}>{resp}</li>
+                          <li key={idx} className="leading-relaxed">{resp}</li>
                         ))}
                       </ul>
                     </div>
                   )}
 
                   <div>
-                    <h4 className="font-bold text-slate-900 dark:text-slate-200 text-xs mb-1">{lang.keyQualifications}</h4>
+                    <h4 className="font-semibold text-slate-800 dark:text-slate-200 text-xs mb-1.5">{lang.keyQualifications}</h4>
                     <ul className="list-disc list-inside space-y-1">
                       {selectedPreviewJob.requirements?.map((req: string, idx: number) => (
-                        <li key={idx}>{req}</li>
+                        <li key={idx} className="leading-relaxed">{req}</li>
                       ))}
                     </ul>
                   </div>
