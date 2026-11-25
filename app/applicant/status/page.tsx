@@ -924,22 +924,6 @@ function StatusValidasiContent() {
                   </div>
                 </div>
 
-                {/* Urgent Action Banner (Stage 3 Virtual Interview) */}
-                {item.currentStageIndex === 3 && item.status === 'Dalam Proses' && (
-                  <div className="p-2.5 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/70 rounded-xl flex items-center justify-between gap-2 text-xs" onClick={(e) => e.stopPropagation()}>
-                    <div className="flex items-center gap-2 text-amber-800 dark:text-amber-300 font-semibold min-w-0">
-                      <Video size={14} className="shrink-0 animate-pulse text-amber-600" />
-                      <span className="truncate">Wawancara video siap direkam</span>
-                    </div>
-                    <Link
-                      href={`/applicant/interviews?id=${item.id}`}
-                      className="px-3 py-1 bg-amber-500 hover:bg-amber-600 text-white font-bold text-[11px] rounded-lg shrink-0 shadow-xs transition-colors"
-                    >
-                      Rekam
-                    </Link>
-                  </div>
-                )}
-
                 {/* Card Action Button */}
                 <div className="pt-1 border-t border-slate-100 dark:border-slate-800" onClick={(e) => e.stopPropagation()}>
                   <button
