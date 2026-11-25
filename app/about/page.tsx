@@ -322,9 +322,6 @@ export default function AboutPage() {
       <section className="bg-white dark:bg-slate-950 py-10 sm:py-16 transition-colors">
         <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14">
           <div className="bg-gradient-to-r from-[#1A4B9F] via-[#163f87] to-[#123470] text-white rounded-3xl p-8 sm:p-14 text-center space-y-5 shadow-2xl border border-blue-600/30 relative overflow-hidden">
-            {/* Subtle White Grid Background Overlay */}
-            <div className="absolute inset-0 opacity-[0.15] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:2rem_2rem] pointer-events-none" />
-            
             <div className="relative z-10 space-y-4 max-w-2xl mx-auto">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tighter leading-tight text-white">
                 Siap Memulai Langkah Karir Berikutnya?

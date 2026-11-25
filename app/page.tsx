@@ -1284,11 +1284,8 @@ function LandingPageContent() {
           </div>
         )}
 
-        {/* Blue Grid Call To Action Card */}
+        {/* Blue Call To Action Card */}
         <div className="mt-8 bg-gradient-to-r from-[#1A4B9F] via-[#163f87] to-[#123470] text-white rounded-3xl p-8 sm:p-12 text-center space-y-4 shadow-2xl border border-blue-600/30 relative overflow-hidden">
-          {/* Subtle White Grid Background Overlay */}
-          <div className="absolute inset-0 opacity-[0.15] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:2rem_2rem] pointer-events-none" />
-          
           <div className="relative z-10 space-y-3 max-w-2xl mx-auto">
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tighter leading-tight text-white">
               {language === 'en' ? 'Discover More Dream Career Opportunities' : 'Temukan Lebih Banyak Peluang Karir Impian'}
