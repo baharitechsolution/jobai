@@ -311,9 +311,9 @@ function LandingPageContent() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const [activeStoryIndex, setActiveStoryIndex] = useState(0);
 
-  // Prevent background scrolling when mobile detail drawer is open
+  // Prevent background scrolling ONLY on mobile when detail drawer is open
   useEffect(() => {
-    if (isMobileDetailOpen) {
+    if (isMobileDetailOpen && typeof window !== 'undefined' && window.innerWidth < 1024) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
@@ -322,6 +322,18 @@ function LandingPageContent() {
       document.body.style.overflow = '';
     };
   }, [isMobileDetailOpen]);
+
+  // Reset mobile drawer and restore scroll on resize to desktop breakpoint
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsMobileDetailOpen(false);
+        document.body.style.overflow = '';
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Close mobile drawer on Escape key
   useEffect(() => {
@@ -963,7 +975,9 @@ function LandingPageContent() {
                     key={job.id}
                     onClick={() => {
                       setPreviewJobId(job.id);
-                      setIsMobileDetailOpen(true);
+                      if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+                        setIsMobileDetailOpen(true);
+                      }
                     }}
                     className={`bg-white dark:bg-slate-900 rounded-xl border p-4 sm:p-5 flex flex-col justify-between space-y-3 cursor-pointer hover:shadow-md transition-all duration-200 relative group ${isSelected ? 'border-[#1A4B9F] shadow-2xs ring-1 ring-[#1A4B9F]/30' : 'border-slate-200/90 dark:border-slate-800'
                       }`}
