@@ -307,8 +307,36 @@ function LandingPageContent() {
   };
   const [savedJobs, setSavedJobs] = useState<(number | string)[]>([]);
   const [previewJobId, setPreviewJobId] = useState<number | string>(1);
+  const [isMobileDetailOpen, setIsMobileDetailOpen] = useState<boolean>(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const [activeStoryIndex, setActiveStoryIndex] = useState(0);
+
+  // Prevent background scrolling when mobile detail drawer is open
+  useEffect(() => {
+    if (isMobileDetailOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileDetailOpen]);
+
+  // Close mobile drawer on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsMobileDetailOpen(false);
+      }
+    };
+    if (isMobileDetailOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isMobileDetailOpen]);
 
   const toggleSaveJob = (id: number | string) => {
     setSavedJobs(prev =>
@@ -933,7 +961,10 @@ function LandingPageContent() {
                 return (
                   <div
                     key={job.id}
-                    onClick={() => setPreviewJobId(job.id)}
+                    onClick={() => {
+                      setPreviewJobId(job.id);
+                      setIsMobileDetailOpen(true);
+                    }}
                     className={`bg-white dark:bg-slate-900 rounded-xl border p-4 sm:p-5 flex flex-col justify-between space-y-3 cursor-pointer hover:shadow-md transition-all duration-200 relative group ${isSelected ? 'border-[#1A4B9F] shadow-2xs ring-1 ring-[#1A4B9F]/30' : 'border-slate-200/90 dark:border-slate-800'
                       }`}
                   >
@@ -1012,6 +1043,7 @@ function LandingPageContent() {
                       <div className="flex items-center gap-2">
                         <Link
                           href="/applicant/login"
+                          onClick={(e) => e.stopPropagation()}
                           className="inline-flex items-center justify-center px-5 py-2 rounded-full bg-[#1A4B9F] hover:bg-[#133878] active:scale-95 text-white font-semibold text-xs shadow-xs hover:shadow-md transition-all cursor-pointer"
                         >
                           {language === 'en' ? 'Apply Now' : 'Lamar'}
@@ -1054,8 +1086,8 @@ function LandingPageContent() {
             )}
           </div>
 
-          {/* Right Panel: Sticky Live Preview (5 cols) */}
-          <div className="lg:col-span-5">
+          {/* Right Panel: Sticky Live Preview (5 cols) - Desktop Only */}
+          <div className="hidden lg:block lg:col-span-5">
             <div className="sticky top-24 bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 shadow-md space-y-5">
 
               {selectedPreviewJob ? (
@@ -1130,6 +1162,113 @@ function LandingPageContent() {
           </div>
 
         </div>
+
+        {/* Mobile Bottom Sheet Drawer for Job Detail (Option A) */}
+        {isMobileDetailOpen && selectedPreviewJob && (
+          <div className="fixed inset-0 z-50 lg:hidden flex flex-col justify-end">
+            {/* Backdrop */}
+            <div
+              className="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity animate-in fade-in duration-200"
+              onClick={() => setIsMobileDetailOpen(false)}
+            />
+
+            {/* Sheet Content */}
+            <div
+              className="relative w-full max-h-[85vh] bg-white dark:bg-slate-900 rounded-t-[28px] shadow-2xl border-t border-slate-200 dark:border-slate-800 flex flex-col z-10 animate-in slide-in-from-bottom duration-300 overflow-hidden"
+            >
+              {/* Drag handle & Header */}
+              <div className="pt-3 pb-2.5 px-5 flex items-center justify-between border-b border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 sticky top-0 z-20">
+                <div className="w-10 h-1.5 rounded-full bg-slate-300 dark:bg-slate-700 mx-auto absolute left-1/2 -translate-x-1/2 top-2.5" />
+                <span className="text-xs font-bold text-slate-700 dark:text-slate-300 pt-2">
+                  {language === 'en' ? 'Job Details' : 'Detail Lowongan'}
+                </span>
+                <button
+                  onClick={() => setIsMobileDetailOpen(false)}
+                  className="p-1.5 rounded-full text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors"
+                  aria-label="Tutup"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+
+              {/* Scrollable Body */}
+              <div className="overflow-y-auto px-5 py-4 space-y-4 flex-1">
+                {/* Header Info */}
+                <div className="flex items-start gap-3 border-b border-slate-100 dark:border-slate-800 pb-3">
+                  <img
+                    src={selectedPreviewJob.logo}
+                    alt={selectedPreviewJob.company}
+                    className="w-12 h-12 rounded-xl object-contain border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-0.5 shrink-0"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z'/%3E%3Cpath d='M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2'/%3E%3Cpath d='M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2'/%3E%3Cpath d='M10 6h4'/%3E%3Cpath d='M10 10h4'/%3E%3Cpath d='M10 14h4'/%3E%3Cpath d='M10 18h4'/%3E%3C/svg%3E";
+                    }}
+                  />
+                  <div className="space-y-0.5">
+                    <span className="text-xs font-bold text-slate-900 dark:text-slate-200 block">{selectedPreviewJob.company}</span>
+                    <h3 className="font-bold text-base text-slate-900 dark:text-white leading-snug">{selectedPreviewJob.title}</h3>
+                    <div className="flex flex-wrap items-center gap-1.5 text-xs text-slate-500 font-medium">
+                      <span>{selectedPreviewJob.location}</span>
+                      <span>•</span>
+                      <span className="text-slate-700 dark:text-slate-200 font-bold">{selectedPreviewJob.workType}</span>
+                      <span>•</span>
+                      <span className="text-slate-900 dark:text-slate-200 font-semibold">{selectedPreviewJob.salary}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Benefits Tag Chips */}
+                {selectedPreviewJob.benefits && selectedPreviewJob.benefits.length > 0 && (
+                  <div className="flex flex-wrap gap-1">
+                    {selectedPreviewJob.benefits.map((b: string, i: number) => (
+                      <span key={i} className="text-[11px] font-normal text-slate-600 dark:text-slate-300 bg-slate-100/80 dark:bg-slate-800/60 px-2.5 py-0.5 rounded-md border border-slate-200/60 dark:border-slate-700/60">
+                        {b}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {/* Job Details & Requirements */}
+                <div className="space-y-3 text-xs text-slate-600 dark:text-slate-300">
+                  <div>
+                    <h4 className="font-bold text-slate-900 dark:text-slate-200 text-xs mb-1">{lang.roleDescription}</h4>
+                    <p className="leading-relaxed whitespace-pre-line">{selectedPreviewJob.description}</p>
+                  </div>
+
+                  {selectedPreviewJob.responsibilities && selectedPreviewJob.responsibilities.length > 0 && (
+                    <div>
+                      <h4 className="font-bold text-slate-900 dark:text-slate-200 text-xs mb-1">{lang.keyResponsibilities}</h4>
+                      <ul className="list-disc list-inside space-y-1">
+                        {selectedPreviewJob.responsibilities.map((resp: string, idx: number) => (
+                          <li key={idx}>{resp}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  <div>
+                    <h4 className="font-bold text-slate-900 dark:text-slate-200 text-xs mb-1">{lang.keyQualifications}</h4>
+                    <ul className="list-disc list-inside space-y-1">
+                      {selectedPreviewJob.requirements?.map((req: string, idx: number) => (
+                        <li key={idx}>{req}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Sticky Action Button at Bottom */}
+              <div className="p-4 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 shrink-0">
+                <Link
+                  href="/applicant/login"
+                  className="w-full py-3 rounded-full bg-[#1A4B9F] hover:bg-[#133878] active:scale-[0.99] text-white font-bold text-xs shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  {lang.startPoFitSelection}
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Blue Grid Call To Action Card */}
         <div className="mt-8 bg-gradient-to-r from-[#1A4B9F] via-[#163f87] to-[#123470] text-white rounded-3xl p-8 sm:p-12 text-center space-y-4 shadow-2xl border border-blue-600/30 relative overflow-hidden">
